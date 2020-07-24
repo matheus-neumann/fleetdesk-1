@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
           builder: (_) {
             return Stack(
               children: [
-                Background(Colors.black, outroMetodo),
+                Background(Colors.yellow, outroMetodo),
                 Container(
                   width: 328.w,
                   height: 320.h,
