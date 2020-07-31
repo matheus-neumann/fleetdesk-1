@@ -1,8 +1,6 @@
-import 'package:get/get.dart';
-import 'package:fleetdesk/app/modules/home/home_page.dart';
+part of './app_pages.dart';
 
-class AppRoutes {
-  static final routes = [
-    GetPage(name: '/', page: () => HomePage()),
-  ];
+abstract class Routes {
+  static const INITIAL = '/';
+  static const LOGIN = '/details';
 }

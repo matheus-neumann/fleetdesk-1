@@ -1,12 +1,16 @@
-import 'package:fleetdesk/app/data/providers/posts_provider.dart';
+import 'package:fleetdesk/app/data/provider/api.dart';
 import 'package:meta/meta.dart';
 
-class PostsRepository {
-  final PostsProvider apiClient;
+class MyRepository {
+  final MyApiClient apiClient;
 
-  PostsRepository({@required this.apiClient}) : assert(apiClient != null);
+  MyRepository({@required this.apiClient}) : assert(apiClient != null);
 
   getAll() {
     return apiClient.getAll();
+  }
+
+  getId(id) {
+    return apiClient.getId(id);
   }
 }
