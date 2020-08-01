@@ -7,8 +7,8 @@ import 'package:get/get.dart';
 class HomeBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<HomeController>(() {
-      return HomeController(
+    Get.lazyPut<SplashController>(() {
+      return SplashController(
           repository:
               MyRepository(apiClient: MyApiClient(httpClient: http.Client())));
     });

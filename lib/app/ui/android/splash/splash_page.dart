@@ -7,7 +7,7 @@ import 'package:fleetdesk/app/ui/theme/app_assets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 
-class SplashPage extends GetView<HomeController> {
+class SplashPage extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
@@ -15,8 +15,8 @@ class SplashPage extends GetView<HomeController> {
       backgroundColor: splashColor,
       body: SafeArea(
         child: Container(
-          child: GetX<HomeController>(initState: (state) {
-            Get.find<HomeController>().getAll();
+          child: GetX<SplashController>(initState: (state) {
+            Get.find<SplashController>().getAll();
           }, builder: (_) {
             return _.postList.length < 1
                 ? LoadingWidget()

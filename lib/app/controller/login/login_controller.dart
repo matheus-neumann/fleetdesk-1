@@ -3,10 +3,10 @@ import 'package:fleetdesk/app/data/model/model.dart';
 import 'package:fleetdesk/app/data/repository/posts_repository.dart';
 import 'package:meta/meta.dart';
 
-class DetailsController extends GetxController {
+class LoginController extends GetxController {
   final MyRepository repository;
 
-  DetailsController({@required this.repository}) : assert(repository != null);
+  LoginController({@required this.repository}) : assert(repository != null);
 
   final _post = MyModel().obs;
 

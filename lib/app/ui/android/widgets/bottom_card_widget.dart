@@ -13,7 +13,7 @@ class CardBottomCustomWidget extends StatelessWidget {
           Expanded(
             child: Container(
               padding: EdgeInsets.all(16),
-              child: GetX<DetailsController>(
+              child: GetX<LoginController>(
                   builder: (_) => Text(
                         _.post.body,
                         style: cardTextStyle,

@@ -9,7 +9,7 @@ class CardBottomButtonsWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        GetX<DetailsController>(
+        GetX<LoginController>(
           builder: (_) {
             return RaisedButtonCustomWidget(
               icon: Icons.delete_outline,
@@ -18,7 +18,7 @@ class CardBottomButtonsWidget extends StatelessWidget {
             );
           },
         ),
-        GetX<DetailsController>(
+        GetX<LoginController>(
           builder: (_) {
             return RaisedButtonCustomWidget(
               icon: Icons.edit,

@@ -10,7 +10,7 @@ class CardTopCustomWidget extends StatelessWidget {
       backgroundColor: Colors.transparent,
       body: Container(
         padding: EdgeInsets.all(16),
-        child: GetX<DetailsController>(
+        child: GetX<LoginController>(
           builder: (_) => Text(
             _.post.title,
             style: cardTextStyle,

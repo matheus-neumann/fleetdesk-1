@@ -5,10 +5,10 @@ import 'package:fleetdesk/app/data/repository/posts_repository.dart';
 import 'package:fleetdesk/app/routes/app_pages.dart';
 import 'package:meta/meta.dart';
 
-class HomeController extends GetxController {
+class SplashController extends GetxController {
   final MyRepository repository;
 
-  HomeController({@required this.repository}) : assert(repository != null);
+  SplashController({@required this.repository}) : assert(repository != null);
 
   final _postsList = List<MyModel>().obs;
 
