@@ -6,6 +6,8 @@ import 'package:meta/meta.dart';
 class LoginController extends GetxController {
   final MyRepository repository;
 
+  bool obscureText = true;
+
   LoginController({@required this.repository}) : assert(repository != null);
 
   final _post = MyModel().obs;
