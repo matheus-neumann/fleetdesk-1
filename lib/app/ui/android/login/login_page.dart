@@ -99,6 +99,7 @@ class LoginPage extends GetView<LoginController> {
                 top: 309.h, bottom: 283.h, right: 32.w, left: 32.w),
             child: TextFormField(
               decoration: InputDecoration(
+                  border: InputBorder.none,
                   hintText: 'Informe seu e-mail',
                   // TODO - Adjust font size and font weight
                   hintStyle: TextStyle(
@@ -134,6 +135,7 @@ class LoginPage extends GetView<LoginController> {
               obscureText: obscureText,
               keyboardType: TextInputType.visiblePassword,
               decoration: InputDecoration(
+                border: InputBorder.none,
                   hintText: 'Informe sua senha',
                   // TODO - Adjust font size and font weight
                   hintStyle: TextStyle(
@@ -220,6 +222,22 @@ class LoginPage extends GetView<LoginController> {
                   color: this.obscureText ? Colors.grey : Colors.blue,
                 ),
                 onPressed: () => this.obscureText = !this.obscureText),
+          ),
+          Container(
+            margin: EdgeInsets.only(
+                top: 571.h, bottom: 37.h, right: 93.w, left: 93.w),
+            child: Align(
+              alignment: Alignment.center,
+              child: Text(
+                'Ainda nao possui conta?\nCrie agora mesmo.',
+                textAlign: TextAlign.center,// TODO - Adjust font size and font weight
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  fontSize: 12.sp,
+                  color: Color.fromRGBO(32, 32, 31, 1),
+                ),
+              ),
+            ),
           ),
         ],
       ),
