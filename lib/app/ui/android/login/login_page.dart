@@ -1,11 +1,9 @@
+import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
 import 'package:fleetdesk/app/ui/theme/app_assets.dart';
+import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:fleetdesk/app/controller/login/login_controller.dart';
-import 'package:fleetdesk/app/controller/splash/splash_controller.dart';
-import 'package:fleetdesk/app/ui/android/widgets/bottom_card_widget.dart';
-import 'package:fleetdesk/app/ui/android/widgets/top_card_widget.dart';
-import 'package:slimy_card/slimy_card.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginPage extends StatelessWidget {
@@ -44,11 +42,11 @@ class LoginPage extends StatelessWidget {
                           spreadRadius: 74,
                           blurRadius: 74,
                           offset:
-                              Offset(0.w, 42.h), // changes position of shadow
+                          Offset(0.w, 42.h), // changes position of shadow
                         ),
                       ],
                       borderRadius: BorderRadius.only(
-                          // TODO - Verify radius of Container Logo
+                        // TODO - Verify radius of Container Logo
                           bottomLeft: Radius.elliptical(200, 15),
                           bottomRight: Radius.elliptical(200, 15)),
                       gradient: LinearGradient(
@@ -190,25 +188,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  height: 48.h,
-                  width: 296.w,
-                  margin: EdgeInsets.only(
-                      top: 481.h, bottom: 111.h, right: 32.w, left: 32.w),
-                  child: RaisedButton(
-                    color: Color.fromRGBO(182, 32, 37, 1),
-                    child: Text(
-                      'Entrar',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.sp,
-                      ),
-                    ),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    onPressed: () => print("Button Pressed"),
-                  ),
-                ),
+                LoginButton(),
                 Container(
                   width: 44.w,
                   height: 44.h,
