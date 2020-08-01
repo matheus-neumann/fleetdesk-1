@@ -16,7 +16,7 @@ void main() {
     theme: appThemeData,
     defaultTransition: Transition.fade,
     getPages: AppPages.pages,
-    home: LoginPage(),
+    home: SplashPage(),
     locale: Locale('pt', 'BR'),
     translationsKeys: AppTranslation.translations,
   ));

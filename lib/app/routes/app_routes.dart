@@ -2,6 +2,6 @@ part of './app_pages.dart';
 
 abstract class Routes {
   static const INITIAL = '/';
-  static const LOGIN = '/details';
+  static const LOGIN = '/login';
   static const GEOLOCATOR = '/geolocator';
 }
