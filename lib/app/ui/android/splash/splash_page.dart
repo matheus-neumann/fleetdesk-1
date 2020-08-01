@@ -1,3 +1,5 @@
+import 'package:fleetdesk/app/routes/app_pages.dart';
+import 'package:fleetdesk/app/ui/android/demos/geolocator_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:fleetdesk/app/controller/splash/splash_controller.dart';
@@ -20,11 +22,21 @@ class SplashPage extends GetView<SplashController> {
           }, builder: (_) {
             return _.postList.length < 1
                 ? LoadingWidget()
-                : Container(
-                    width: 224.w,
-                    height: 50.h,
-                    margin: EdgeInsets.only(top: 295.h, left: 68.w),
-                    child: Image.asset(AppAssets.fleetdeskLogo),
+                : Column(
+                    children: [
+                      Container(
+                        width: 224.w,
+                        height: 50.h,
+                        margin: EdgeInsets.only(top: 295.h, left: 68.w),
+                        child: Image.asset(AppAssets.fleetdeskLogo),
+                      ),
+                      RaisedButton(
+                        child: Text('geolocator'),
+                        onPressed: () {
+                          Get.toNamed(Routes.GEOLOCATOR);
+                        },
+                      ),
+                    ],
                   );
           }),
         ),
