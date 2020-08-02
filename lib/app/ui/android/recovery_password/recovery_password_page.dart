@@ -1,3 +1,5 @@
+import 'package:fleetdesk/app/routes/app_pages.dart';
+import 'package:fleetdesk/app/ui/android/recovery_password/recovery_password_notification.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
 import 'package:fleetdesk/app/ui/theme/app_assets.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +69,7 @@ class RecoveryPasswordPage extends StatelessWidget {
                     top: 294.h, bottom: 375.h, right: 187.w, left: 32.w),
                 child: FittedBox( // TODO - Verify size and position of text
                   child: Text(
-                    'Realize seu login',
+                    'Recuperar Senha',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16.sp,
@@ -102,7 +104,7 @@ class RecoveryPasswordPage extends StatelessWidget {
                   ),
                 ),
               ),
-              LoginButton(441.0.h, 151.0.h, "Recuperar senha"),
+              LoginButton(441.0.h, 151.0.h, "Recuperar senha", RecoveryPasswordNotificationPage()),
             ],
           ),
         ),

@@ -1,14 +1,17 @@
+import 'package:fleetdesk/app/routes/app_pages.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class LoginButton extends StatelessWidget {
 
   var top;
   var bottom;
   var text;
+  var navPage;
 
-  LoginButton(this.top, this.bottom, this.text);
+  LoginButton(this.top, this.bottom, this.text, this.navPage);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,14 @@ class LoginButton extends StatelessWidget {
           ),
         ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        onPressed: () => print("Button Pressed"),
+        onPressed: () {
+          Navigator.push(
+//                        print('Done');
+            context,
+            MaterialPageRoute(
+                builder: (context) => navPage),
+          );
+        },
       ),
     );
   }

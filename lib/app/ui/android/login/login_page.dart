@@ -70,7 +70,8 @@ class LoginPage extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.only(
                           top: 249.h, bottom: 375.h, right: 187.w, left: 32.w),
-                      child: FittedBox( // TODO - Verify size and position of text
+                      child: FittedBox(
+                        // TODO - Verify size and position of text
                         child: Text(
                           'Realize seu login',
                           style: TextStyle(
@@ -226,15 +227,16 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         onTap: () {
-                    Navigator.push(
+                          Navigator.push(
 //                        print('Done');
-                    context,
-                    MaterialPageRoute(builder: (context) => RecoveryPasswordPage()),
-                    );
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => RecoveryPasswordPage()),
+                          );
                         },
                       ),
                     ),
-                    LoginButton(481.0.h, 111.0.h, "Entrar"),
+                    LoginButton(481.0.h, 111.0.h, "Entrar", null),
 //                    Container(
 //                      height: 24.h,
 //                      width: 24.w,
@@ -250,33 +252,34 @@ class LoginPage extends StatelessWidget {
 //                            _.update();
 //                          }),
 //                    ),
-                  Container(
-                    height: 32.h,
-                    width: 174.w,
-                    margin: EdgeInsets.only(
-                        top: 571.h, bottom: 37.h, right: 93.w, left: 93.w),
-                    child: GestureDetector(
-                      child: FittedBox( // TODO - Verify size and position of text
-                        child: Text(
-                          'Ainda não possui conta?\nCrie agora mesmo.',
-                          textAlign: TextAlign.center,
-                          // TODO - Adjust font size, font weight and configure to navigate for 'Recovery Password' page
-                          style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            fontSize: 14.sp,
-                            color: Color(0xFF201F1F),
+                    Container(
+                      height: 32.h,
+                      width: 174.w,
+                      margin: EdgeInsets.only(
+                          top: 571.h, bottom: 37.h, right: 93.w, left: 93.w),
+                      child: GestureDetector(
+                        child: FittedBox(
+                          // TODO - Verify size and position of text
+                          child: Text(
+                            'Ainda não possui conta?\nCrie agora mesmo.',
+                            textAlign: TextAlign.center,
+                            // TODO - Adjust font size, font weight and configure to navigate for 'Recovery Password' page
+                            style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              fontSize: 14.sp,
+                              color: Color(0xFF201F1F),
+                            ),
                           ),
                         ),
-                      ),
-                    onTap: () {
+                        onTap: () {
 //                    Navigator.push(
-                      print('Done');
+                          print('Done');
 //                    context,
 //                    MaterialPageRoute(builder: (context) => RecuperarSenha()),
 //                    );
-                    },
-                    ),
-                  )
+                        },
+                      ),
+                    )
                   ],
                 ),
               ),
