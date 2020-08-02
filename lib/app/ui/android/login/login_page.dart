@@ -1,3 +1,4 @@
+import 'package:fleetdesk/app/routes/app_pages.dart';
 import 'package:fleetdesk/app/ui/android/recovery_password/recovery_password_page.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
 import 'package:fleetdesk/app/ui/theme/app_assets.dart';
@@ -42,7 +43,7 @@ class LoginPage extends StatelessWidget {
                             ),
                           ],
                           borderRadius: BorderRadius.only(
-                              // TODO - Verify radius of Container Logo
+                            // TODO - Verify radius of Container Logo
                               bottomLeft: Radius.elliptical(200, 15),
                               bottomRight: Radius.elliptical(200, 15)),
                           gradient: LinearGradient(
@@ -60,7 +61,7 @@ class LoginPage extends StatelessWidget {
                       width: 328.w,
                       height: 320.h,
                       margin:
-                          EdgeInsets.only(top: 225.h, right: 16.w, left: 16.w),
+                      EdgeInsets.only(top: 225.h, right: 16.w, left: 16.w),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(
@@ -70,8 +71,7 @@ class LoginPage extends StatelessWidget {
                     Container(
                       margin: EdgeInsets.only(
                           top: 249.h, bottom: 375.h, right: 187.w, left: 32.w),
-                      child: FittedBox(
-                        // TODO - Verify size and position of text
+                      child: FittedBox( // TODO - Verify size and position of text
                         child: Text(
                           'Realize seu login',
                           style: TextStyle(
@@ -226,17 +226,13 @@ class LoginPage extends StatelessWidget {
                             color: Color.fromRGBO(32, 32, 31, 1),
                           ),
                         ),
+
                         onTap: () {
-                          Navigator.push(
-//                        print('Done');
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => RecoveryPasswordPage()),
-                          );
+                          Get.toNamed(Routes.PW_RECOVERY);
                         },
                       ),
                     ),
-                    LoginButton(481.0.h, 111.0.h, "Entrar", null),
+                    LoginButton(481.0.h, 111.0.h, "Entrar"),
 //                    Container(
 //                      height: 24.h,
 //                      width: 24.w,
@@ -258,8 +254,7 @@ class LoginPage extends StatelessWidget {
                       margin: EdgeInsets.only(
                           top: 571.h, bottom: 37.h, right: 93.w, left: 93.w),
                       child: GestureDetector(
-                        child: FittedBox(
-                          // TODO - Verify size and position of text
+                        child: FittedBox( // TODO - Verify size and position of text
                           child: Text(
                             'Ainda não possui conta?\nCrie agora mesmo.',
                             textAlign: TextAlign.center,

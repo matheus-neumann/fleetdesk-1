@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RecoveryPasswordPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
@@ -14,50 +13,48 @@ class RecoveryPasswordPage extends StatelessWidget {
       backgroundColor: Color.fromRGBO(229, 229, 229, 1),
       body: SingleChildScrollView(
         child: Padding(
-        padding: EdgeInsets.only(
-        bottom: MediaQuery.of(context).viewInsets.bottom),
+          padding:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: Stack(
             children: <Widget>[
               Container(
                 child: Container(
-                width: 224.w,
-                height: 50.h,
-                margin: EdgeInsets.only(
-                top: 134.h, left: 68.w, bottom: 149.h, right: 68.w),
-                child: Image.asset(AppAssets.fleetdeskLogo),
+                  width: 224.w,
+                  height: 50.h,
+                  margin: EdgeInsets.only(
+                      top: 134.h, left: 68.w, bottom: 149.h, right: 68.w),
+                  child: Image.asset(AppAssets.fleetdeskLogo),
                 ),
-          width: 360.w,
-          height: 333.h,
-          decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Color.fromRGBO(0, 0, 0, 0.1182),
-                  spreadRadius: 74,
-                  blurRadius: 74,
-                  offset: Offset(
-                      0.w, 42.h), // changes position of shadow
-                ),
-              ],
-              borderRadius: BorderRadius.only(
-                // TODO - Verify radius of Container Logo
-                  bottomLeft: Radius.elliptical(200, 15),
-                  bottomRight: Radius.elliptical(200, 15)),
-              gradient: LinearGradient(
-                // TODO - Verify gradient colors
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Color.fromRGBO(14, 24, 40, 1),
-                  Color.fromRGBO(9, 14, 25, 1)
-                ],
-                // tileMode: TileMode.repeated,
-              )),
+                width: 360.w,
+                height: 333.h,
+                decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color.fromRGBO(0, 0, 0, 0.1182),
+                        spreadRadius: 74,
+                        blurRadius: 74,
+                        offset: Offset(0.w, 42.h), // changes position of shadow
+                      ),
+                    ],
+                    borderRadius: BorderRadius.only(
+                        // TODO - Verify radius of Container Logo
+                        bottomLeft: Radius.elliptical(200, 15),
+                        bottomRight: Radius.elliptical(200, 15)),
+                    gradient: LinearGradient(
+                      // TODO - Verify gradient colors
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color.fromRGBO(14, 24, 40, 1),
+                        Color.fromRGBO(9, 14, 25, 1)
+                      ],
+                      // tileMode: TileMode.repeated,
+                    )),
               ),
               Container(
                 width: 328.w,
                 height: 241.h,
-                margin:
-                EdgeInsets.only(top: 270.h, right: 16.w, left: 16.w),
+                margin: EdgeInsets.only(top: 270.h, right: 16.w, left: 16.w),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(
@@ -67,7 +64,8 @@ class RecoveryPasswordPage extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(
                     top: 294.h, bottom: 375.h, right: 187.w, left: 32.w),
-                child: FittedBox( // TODO - Verify size and position of text
+                child: FittedBox(
+                  // TODO - Verify size and position of text
                   child: Text(
                     'Recuperar Senha',
                     style: TextStyle(
@@ -108,7 +106,7 @@ class RecoveryPasswordPage extends StatelessWidget {
             ],
           ),
         ),
-    ),
+      ),
     );
   }
 }

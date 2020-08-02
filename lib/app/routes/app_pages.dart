@@ -1,8 +1,7 @@
+import 'package:fleetdesk/app/bindings/bluetooth_binding.dart';
 import 'package:fleetdesk/app/bindings/geolocator_binding.dart';
-import 'package:fleetdesk/app/bindings/recovery_password_notification_binding.dart';
-import 'package:fleetdesk/app/bindings/recoverypassword_binding.dart';
+import 'package:fleetdesk/app/ui/android/demos/bluetooth_page.dart';
 import 'package:fleetdesk/app/ui/android/demos/geolocator_page.dart';
-import 'package:fleetdesk/app/ui/android/recovery_password/recovery_password_notification.dart';
 import 'package:fleetdesk/app/ui/android/recovery_password/recovery_password_page.dart';
 import 'package:get/get.dart';
 import 'package:fleetdesk/app/bindings/login_binding.dart';
@@ -22,13 +21,14 @@ class AppPages {
     GetPage(
         name: Routes.GEOLOCATOR,
         page: () => GeolocatorPage(),
-        binding: GeolocatorBinding()
-    ),
+        binding: GeolocatorBinding()),
     GetPage(
-        name: Routes.RECOVERYPASSWORD, page: () => RecoveryPasswordPage(), binding: RecoveryPasswordBinding()
-    ),
+        name: Routes.PW_RECOVERY,
+        page: () => RecoveryPasswordPage(),
+        binding: GeolocatorBinding()),
     GetPage(
-        name: Routes.RECOVERYPASSWORDNOTIFICATION, page: () => RecoveryPasswordNotificationPage(), binding: RecoveryPasswordNotificationBinding()
-    ),
+        name: Routes.BLUETOOTH,
+        page: () => BluetoothPage(),
+        binding: BluetoothBinding()),
   ];
 }
