@@ -23,6 +23,7 @@ class SplashPage extends StatelessWidget {
                 children: [
                   Container(
                     width: 224.w,
+
                     height: 50.h,
                     margin: EdgeInsets.only(top: 295.h, left: 68.w),
                     child: Image.asset(AppAssets.fleetdeskLogo),
@@ -34,6 +35,13 @@ class SplashPage extends StatelessWidget {
                     ),
                     onPressed: () {
                       Get.toNamed(Routes.GEOLOCATOR);
+                    },
+                  ),
+                  FlatButton(
+                    child: Text('bluetooth',
+                        style: TextStyle(color: Colors.white)),
+                    onPressed: () {
+                      Get.toNamed(Routes.BLUETOOTH);
                     },
                   ),
                   FlatButton(
