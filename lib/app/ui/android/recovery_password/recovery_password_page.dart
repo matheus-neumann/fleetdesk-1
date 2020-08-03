@@ -102,7 +102,7 @@ class RecoveryPasswordPage extends StatelessWidget {
                   ),
                 ),
               ),
-              LoginButton(441.0.h, 151.0.h, "Recuperar senha", RecoveryPasswordNotificationPage()),
+              LoginButton(441.0.h, 151.0.h, "Recuperar senha", Routes.PW_RECOVERY_NOTIFICATION),
             ],
           ),
         ),

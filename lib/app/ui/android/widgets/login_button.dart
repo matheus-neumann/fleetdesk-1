@@ -31,12 +31,7 @@ class LoginButton extends StatelessWidget {
         ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         onPressed: () {
-          Navigator.push(
-//                        print('Done');
-            context,
-            MaterialPageRoute(
-                builder: (context) => navPage),
-          );
+          Get.toNamed(navPage);
         },
       ),
     );

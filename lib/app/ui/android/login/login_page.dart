@@ -1,7 +1,10 @@
 import 'package:fleetdesk/app/routes/app_pages.dart';
 import 'package:fleetdesk/app/ui/android/recovery_password/recovery_password_page.dart';
+import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
+import 'package:fleetdesk/app/ui/android/widgets/container_logo.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
 import 'package:fleetdesk/app/ui/theme/app_assets.dart';
+import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:fleetdesk/app/controller/login/login_controller.dart';
@@ -22,52 +25,8 @@ class LoginPage extends StatelessWidget {
                     bottom: MediaQuery.of(context).viewInsets.bottom),
                 child: Stack(
                   children: <Widget>[
-                    Container(
-                      child: Container(
-                        width: 224.w,
-                        height: 50.h,
-                        margin: EdgeInsets.only(
-                            top: 134.h, left: 68.w, bottom: 149.h, right: 68.w),
-                        child: Image.asset(AppAssets.fleetdeskLogo),
-                      ),
-                      width: 360.w,
-                      height: 333.h,
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color.fromRGBO(0, 0, 0, 0.1182),
-                              spreadRadius: 74,
-                              blurRadius: 74,
-                              offset: Offset(
-                                  0.w, 42.h), // changes position of shadow
-                            ),
-                          ],
-                          borderRadius: BorderRadius.only(
-                            // TODO - Verify radius of Container Logo
-                              bottomLeft: Radius.elliptical(200, 15),
-                              bottomRight: Radius.elliptical(200, 15)),
-                          gradient: LinearGradient(
-                            // TODO - Verify gradient colors
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Color.fromRGBO(14, 24, 40, 1),
-                              Color.fromRGBO(9, 14, 25, 1)
-                            ],
-                            // tileMode: TileMode.repeated,
-                          )),
-                    ),
-                    Container(
-                      width: 328.w,
-                      height: 320.h,
-                      margin:
-                      EdgeInsets.only(top: 225.h, right: 16.w, left: 16.w),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(
-                            15), // TODO - Verify radius of Container Fields
-                      ),
-                    ),
+                    ContainerLogo(333.h, 68.w, 134.h, 149.h),
+                    ContainerForm(320.h, 225.h, 95.h),
                     Container(
                       margin: EdgeInsets.only(
                           top: 249.h, bottom: 375.h, right: 187.w, left: 32.w),
@@ -77,7 +36,7 @@ class LoginPage extends StatelessWidget {
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16.sp,
-                            color: Color.fromRGBO(182, 32, 37, 1),
+                            color: red,
                           ),
                         ),
                       ),
@@ -232,7 +191,7 @@ class LoginPage extends StatelessWidget {
                         },
                       ),
                     ),
-                    LoginButton(481.0.h, 111.0.h, "Entrar"),
+                    LoginButton(481.0.h, 111.0.h, "Entrar", null),
 //                    Container(
 //                      height: 24.h,
 //                      width: 24.w,
@@ -267,11 +226,7 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         onTap: () {
-//                    Navigator.push(
-                          print('Done');
-//                    context,
-//                    MaterialPageRoute(builder: (context) => RecuperarSenha()),
-//                    );
+                          Get.toNamed(Routes.CREATE_ACCOUNT);
                         },
                       ),
                     )
