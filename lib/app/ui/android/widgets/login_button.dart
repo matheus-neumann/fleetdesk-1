@@ -5,7 +5,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class LoginButton extends StatelessWidget {
-
   var top;
   var bottom;
   var text;
@@ -27,6 +26,7 @@ class LoginButton extends StatelessWidget {
           style: TextStyle(
             color: Colors.white,
             fontSize: 16.sp,
+            fontFamily: 'Montserrat',
           ),
         ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

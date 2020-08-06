@@ -8,7 +8,7 @@ class ContainerForm extends StatelessWidget {
   var top;
   var bottom;
 
-  ContainerForm(this.height, this.top, this.bottom);
+  ContainerForm({this.height, this.top, this.bottom});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class ContainerForm extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(
-            15), // TODO - Verify radius of Container Fields
+            20), // TODO - Verify radius of Container Fields
       ),
     );
   }

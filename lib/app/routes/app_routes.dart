@@ -8,4 +8,7 @@ abstract class Routes {
   static const BLUETOOTH = '/bluetooth';
   static const PW_RECOVERY_NOTIFICATION = '/pw_recovery_notification';
   static const CREATE_ACCOUNT = '/create_account';
+  static const PROFILE = '/profile';
+  static const MENU = '/menu';
+  static const CONFIGURATION = '/configuration';
 }

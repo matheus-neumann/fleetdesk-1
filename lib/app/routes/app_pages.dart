@@ -1,10 +1,16 @@
 import 'package:fleetdesk/app/bindings/bluetooth_binding.dart';
+import 'package:fleetdesk/app/bindings/configuration_binding.dart';
 import 'package:fleetdesk/app/bindings/create_account_binding.dart';
 import 'package:fleetdesk/app/bindings/geolocator_binding.dart';
+import 'package:fleetdesk/app/bindings/menu_binding.dart';
+import 'package:fleetdesk/app/bindings/profile_binding.dart';
 import 'package:fleetdesk/app/bindings/recovery_password_notification_binding.dart';
+import 'package:fleetdesk/app/ui/android/configuration/configuration_page.dart';
 import 'package:fleetdesk/app/ui/android/create-account/create_account_page.dart';
 import 'package:fleetdesk/app/ui/android/demos/bluetooth_page.dart';
 import 'package:fleetdesk/app/ui/android/demos/geolocator_page.dart';
+import 'package:fleetdesk/app/ui/android/menu/menu_page.dart';
+import 'package:fleetdesk/app/ui/android/profile/profile_page.dart';
 import 'package:fleetdesk/app/ui/android/recovery_password/recovery_password_notification.dart';
 import 'package:fleetdesk/app/ui/android/recovery_password/recovery_password_page.dart';
 import 'package:get/get.dart';
@@ -42,5 +48,13 @@ class AppPages {
         name: Routes.BLUETOOTH,
         page: () => BluetoothPage(),
         binding: BluetoothBinding()),
+    GetPage(
+        name: Routes.MENU,
+        page: () => MenuPage(),
+        binding: MenuBinding()),
+    GetPage(
+        name: Routes.CONFIGURATION,
+        page: () => ConfigurationPage(),
+        binding: ConfigurationBinding()),
   ];
 }

@@ -15,29 +15,31 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
     return Scaffold(
-      backgroundColor: Color.fromRGBO(229, 229, 229, 1),
+      backgroundColor: Color(0xffE5E5E5),
       body: GetBuilder<LoginController>(
           init: Get.find<LoginController>(),
           builder: (_) {
             return SingleChildScrollView(
+                child: SafeArea(
               child: Padding(
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
                 child: Stack(
                   children: <Widget>[
                     ContainerLogo(333.h, 68.w, 134.h, 149.h),
-                    ContainerForm(320.h, 225.h, 95.h),
+                    ContainerForm(height: 320.h, top: 225.h, bottom: 95.h),
                     Container(
                       margin: EdgeInsets.only(
                           top: 249.h, bottom: 375.h, right: 187.w, left: 32.w),
-                      child: FittedBox( // TODO - Verify size and position of text
+                      child: FittedBox(
+                        // TODO - Verify size and position of text
                         child: Text(
                           'Realize seu login',
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.sp,
-                            color: red,
-                          ),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16.sp,
+                              color: red,
+                              fontFamily: 'MontserratBold'),
                         ),
                       ),
                     ),
@@ -49,9 +51,9 @@ class LoginPage extends StatelessWidget {
                       child: Text(
                         'Seu e-mail',
                         style: TextStyle(
-                          fontSize: 14.sp,
-                          color: Color.fromRGBO(32, 32, 31, 1),
-                        ),
+                            fontSize: 14.sp,
+                            color: black,
+                            fontFamily: 'Montserrat'),
                       ),
                     ),
 //                    Container(
@@ -97,9 +99,9 @@ class LoginPage extends StatelessWidget {
                       child: Text(
                         'Senha',
                         style: TextStyle(
-                          fontSize: 14.sp,
-                          color: Color.fromRGBO(32, 32, 31, 1),
-                        ),
+                            fontSize: 14.sp,
+                            color: black,
+                            fontFamily: 'Montserrat'),
                       ),
                     ),
 //                    Container(
@@ -161,15 +163,17 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     Container(
+//                      height: 16.h,
+//                      width: 76.w,
                       margin: EdgeInsets.only(
                           top: 441.h, bottom: 183.h, right: 228.w, left: 56.w),
                       child: Text(
                         'Salvar senha',
                         // TODO - Adjust font size and font weight
                         style: TextStyle(
-                          fontSize: 12.sp,
-                          color: Color.fromRGBO(32, 32, 31, 1),
-                        ),
+                            fontSize: 12.sp,
+                            color: black,
+                            fontFamily: 'Montserrat'),
                       ),
                     ),
                     Container(
@@ -180,12 +184,11 @@ class LoginPage extends StatelessWidget {
                           'Recuperar senha',
                           // TODO - Adjust font size, font weight and configure to navigate for 'Recovery Password' page
                           style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            fontSize: 12.sp,
-                            color: Color.fromRGBO(32, 32, 31, 1),
-                          ),
+                              decoration: TextDecoration.underline,
+                              fontSize: 12.sp,
+                              color: black,
+                              fontFamily: 'Montserrat'),
                         ),
-
                         onTap: () {
                           Get.toNamed(Routes.PW_RECOVERY);
                         },
@@ -213,16 +216,17 @@ class LoginPage extends StatelessWidget {
                       margin: EdgeInsets.only(
                           top: 571.h, bottom: 37.h, right: 93.w, left: 93.w),
                       child: GestureDetector(
-                        child: FittedBox( // TODO - Verify size and position of text
+                        child: FittedBox(
+                          // TODO - Verify size and position of text
                           child: Text(
                             'Ainda não possui conta?\nCrie agora mesmo.',
                             textAlign: TextAlign.center,
                             // TODO - Adjust font size, font weight and configure to navigate for 'Recovery Password' page
                             style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              fontSize: 14.sp,
-                              color: Color(0xFF201F1F),
-                            ),
+                                decoration: TextDecoration.underline,
+                                fontSize: 14.sp,
+                                color: black,
+                                fontFamily: 'Montserrat'),
                           ),
                         ),
                         onTap: () {
@@ -233,7 +237,7 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
-            );
+            ));
           }),
     );
   }
