@@ -11,4 +11,6 @@ abstract class Routes {
   static const PROFILE = '/profile';
   static const MENU = '/menu';
   static const CONFIGURATION = '/configuration';
+  static const BLUETOOTHPAGE = '/bluetooth';
+  static const MY_ACCOUNT = '/my_account';
 }
