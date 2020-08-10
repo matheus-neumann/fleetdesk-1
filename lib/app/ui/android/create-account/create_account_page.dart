@@ -39,7 +39,7 @@ class CreateAccountPage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: 32.h,
+                    height: 36.h,
                     width: 258.w,
                     margin: EdgeInsets.only(
                         top: 140.h, bottom: 645.h, right: 70.w, left: 32.w),

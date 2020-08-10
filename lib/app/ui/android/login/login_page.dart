@@ -56,43 +56,32 @@ class LoginPage extends StatelessWidget {
                             fontFamily: 'Montserrat'),
                       ),
                     ),
-//                    Container(
-//                      height: 48.h,
-//                      width: 296.w,
-//                      margin: EdgeInsets.only(
-//                          top: 309.h, bottom: 283.h, right: 32.w, left: 32.w),
-//                      child: TextFormField(
-//                        decoration: InputDecoration(
-//                          suffix: Container(
-//                            height: 16.h,
-//                            width: 133.w,
-//                            margin: EdgeInsets.only(
-//                                top: 16.h, bottom: 16.h, right: 153.w, left: 12.w),
-//                            child: Text(
-//                              'Informe seu e-mail',
-//                              style: TextStyle(
-//                                fontSize: 14.sp,
-//                                color: Color.fromRGBO(32, 32, 31, 0.94),
-//                              ),
+                    Container(
+                      height: 48.h,
+                      width: 296.w,
+                      margin: EdgeInsets.only(
+                          top: 309.h, bottom: 283.h, right: 32.w, left: 32.w),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+
+                            //contentPadding: EdgeInsets.only(left: 12.0, top: 16, bottom: 16),
+                            border: InputBorder.none,
+                            //labelText: 'Informe seu e-mail',
+                            hintText: 'Informe seu e-mail',
+//                            // TODO - Adjust font size and font weight
+//                            hintStyle: TextStyle(
+//                              fontSize: 14.sp,
+//                              color: Color.fromRGBO(32, 32, 31, 0.94),
 //                            ),
-//                          ),
-//                            contentPadding: EdgeInsets.only(left: 12.0, top: 16, bottom: 16),
-//                            border: InputBorder.none,
-////                            hintText: 'Informe seu e-mail',
-////                            // TODO - Adjust font size and font weight
-////                            hintStyle: TextStyle(
-////                              fontSize: 14.sp,
-////                              color: Color.fromRGBO(32, 32, 31, 0.94),
-////                            ),
-//                            filled: true,
-//                            fillColor: Color.fromRGBO(242, 242, 242, 1),
-//                            enabledBorder: OutlineInputBorder(
-//                                borderRadius: BorderRadius.circular(10),
-//                                borderSide: BorderSide(
-//                                  color: Color.fromRGBO(242, 242, 242, 1),
-//                                ))),
-//                      ),
-//                    ),
+                            filled: true,
+                            fillColor: Color.fromRGBO(242, 242, 242, 1),
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Color.fromRGBO(242, 242, 242, 1),
+                                ))),
+                      ),
+                    ),
                     Container(
                       margin: EdgeInsets.only(
                           top: 365.h, bottom: 259.h, right: 283.w, left: 32.w),
@@ -104,48 +93,53 @@ class LoginPage extends StatelessWidget {
                             fontFamily: 'Montserrat'),
                       ),
                     ),
-//                    Container(
-//                      height: 48.h,
-//                      width: 296.w,
-//                      margin: EdgeInsets.only(
-//                          top: 385.h, bottom: 207.h, right: 32.w, left: 32.w),
-//                      child: TextFormField(
-//                        textAlign: TextAlign.left,
-//                        obscureText: _.obscureText,
-//                        keyboardType: TextInputType.visiblePassword,
-//                        decoration: InputDecoration(
-//                            contentPadding: EdgeInsets.only(left: 12.0, top: 16, bottom: 16),
-//                            border: InputBorder.none,
-////                            suffix: Container(
-////                              margin: EdgeInsets.only(
-////                                  top: 12.h, bottom: 12.h, right: 12.w, left: 276.w),
-////                              child: IconButton(
-////                                  icon: Icon(
-////                                    Icons.remove_red_eye,
-////                                    color: _.obscureText
-////                                        ? Colors.grey
-////                                        : Colors.blue,
-////                                  ),
-////                                  onPressed: () {
-////                                    _.obscureText = !_.obscureText;
-////                                    _.update();
-////                                  }),
-////                            ),
-//                            hintText: 'Informe sua senha',
-//                            // TODO - Adjust font size and font weight
-//                            hintStyle: TextStyle(
-//                              fontSize: 14.sp,
-//                              color: Color.fromRGBO(32, 32, 31, 0.94),
-//                            ),
-//                            filled: true,
-//                            fillColor: Color.fromRGBO(242, 242, 242, 1),
-//                            enabledBorder: OutlineInputBorder(
-//                                borderRadius: BorderRadius.circular(10),
-//                                borderSide: BorderSide(
-//                                  color: Color.fromRGBO(242, 242, 242, 1),
-//                                ))),
-//                      ),
-//                    ),
+                    Container(
+                      height: 48.h,
+                      width: 296.w,
+                      margin: EdgeInsets.only(
+                          top: 385.h, bottom: 207.h, right: 32.w, left: 32.w),
+                      child: TextFormField(
+                        textAlign: TextAlign.left,
+                        obscureText: _.obscureText,
+                        keyboardType: TextInputType.visiblePassword,
+                        decoration: InputDecoration(
+                            //contentPadding: EdgeInsets.only(left: 12.0, top: 16, bottom: 16),
+                            border: InputBorder.none,
+                            suffix: Container(
+                              width: 24,
+                              height: 24,
+                              //padding: EdgeInsets.only(top: 24),
+                              //margin: EdgeInsets.only(top: 12.h, bottom: 12.h),
+//                              margin: EdgeInsets.only(
+//                                  top: 12.h, bottom: 12.h, right: 12.w, left: 276.w),
+                              child: IconButton(
+                                  padding: EdgeInsets.all(0),
+                                  icon: Icon(
+                                    Icons.remove_red_eye,
+                                    color: _.obscureText
+                                        ? Colors.grey
+                                        : Colors.blue,
+                                  ),
+                                  onPressed: () {
+                                    _.obscureText = !_.obscureText;
+                                    _.update();
+                                  }),
+                            ),
+                            hintText: 'Informe sua senha',
+                            // TODO - Adjust font size and font weight
+                            hintStyle: TextStyle(
+                              fontSize: 14.sp,
+                              color: Color.fromRGBO(32, 32, 31, 0.94),
+                            ),
+                            filled: true,
+                            fillColor: Color.fromRGBO(242, 242, 242, 1),
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                  color: Color.fromRGBO(242, 242, 242, 1),
+                                ))),
+                      ),
+                    ),
                     Container(
                       height: 16.h,
                       width: 16.w,
@@ -154,7 +148,12 @@ class LoginPage extends StatelessWidget {
                       decoration: BoxDecoration(shape: BoxShape.circle),
                       child: Checkbox(
                         // TODO - Adjust radius of CheckBox Password
-                        value: false,
+                        value: _.savePassword,
+                        onChanged: (newValue) {
+                          _.savePassword = newValue;
+                          _.update();
+                        },
+
 //                onChanged: (newValue) {
 //                  setState(() {
 //                   checkedValue = newValue;
