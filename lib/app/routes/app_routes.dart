@@ -12,4 +12,6 @@ abstract class Routes {
   static const MENU = '/menu';
   static const CONFIGURATION = '/configuration';
   static const CHAT = '/chat';
+  static const BLUETOOTHPAGE = '/bluetooth';
+  static const MY_ACCOUNT = '/my_account';
 }

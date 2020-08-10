@@ -31,13 +31,13 @@ class MenuPage extends StatelessWidget {
                         end: Alignment.bottomCenter,
                         colors: [Color(0xff0E1828), Color(0xff090E19)])),
                 child: ContainerForm(height: 346.h, top: 96.h, bottom: 198.h)),
-            MenuButton(left: 31.w, top: 113.h, right: 34.w, bottom: 492.h, text: 'Minha Conta',icon: Icons.person),
-            MenuButton(left: 31.w, top: 160.h, right: 34.w, bottom: 445.h, text: 'Tarefas',icon: Icons.assignment),
-            MenuButton(left: 31.w, top: 207.h, right: 34.w, bottom: 398.h, text: 'Ranking',icon: Icons.trending_up),
-            MenuButton(left: 31.w, top: 254.h, right: 34.w, bottom: 351.h, text: 'Alertas',icon: Icons.notifications),
-            MenuButton(left: 31.w, top: 301.h, right: 34.w, bottom: 304.h, text: 'Mensagens',icon: Icons.mode_comment),
-            MenuButton(left: 31.w, top: 348.h, right: 34.w, bottom: 257.h, text: 'Configuracoes',icon: Icons.settings),
-            MenuButton(left: 31.w, top: 395.h, right: 34.w, bottom: 210.h, text: 'Bluetooth',icon: Icons.bluetooth),
+            MenuButton(left: 31.w, top: 113.h, right: 34.w, bottom: 492.h, text: 'Minha Conta', icon: Icons.person, navPage: Routes.MY_ACCOUNT,),
+            MenuButton(left: 31.w, top: 160.h, right: 34.w, bottom: 445.h, text: 'Tarefas', icon: Icons.assignment),
+            MenuButton(left: 31.w, top: 207.h, right: 34.w, bottom: 398.h, text: 'Ranking', icon: Icons.trending_up),
+            MenuButton(left: 31.w, top: 254.h, right: 34.w, bottom: 351.h, text: 'Alertas', icon: Icons.notifications),
+            MenuButton(left: 31.w, top: 301.h, right: 34.w, bottom: 304.h, text: 'Mensagens', icon: Icons.mode_comment),
+            MenuButton(left: 31.w, top: 348.h, right: 34.w, bottom: 257.h, text: 'Configuracoes', icon: Icons.settings),
+            MenuButton(left: 31.w, top: 395.h, right: 34.w, bottom: 210.h, text: 'Bluetooth', icon: Icons.bluetooth),
             Container(
               height: 41.h,
               width: 162.w,
@@ -48,7 +48,7 @@ class MenuPage extends StatelessWidget {
                 // TODO - Review size and position of text
                 child: RichText(
                   text: TextSpan(
-                    text: 'Ola,\n',
+                    text: 'Olá,\n',
                     style: TextStyle(
                       fontSize: 16.sp,
                       color: Colors.white,
