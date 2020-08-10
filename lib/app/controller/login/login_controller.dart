@@ -7,6 +7,7 @@ class LoginController extends GetxController {
   final MyRepository repository;
 
   bool obscureText = true;
+  bool savePassword = false;
 
   LoginController({@required this.repository}) : assert(repository != null);
 
