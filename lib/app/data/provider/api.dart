@@ -2,11 +2,28 @@ import 'dart:convert';
 import 'package:fleetdesk/app/data/model/model.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
+import 'package:dio/dio.dart';
 
-const baseUrl = 'https://jsonplaceholder.typicode.com/posts/';
+const baseUrl = 'http://hml.fleetdesk.com.br/api/v1/';
 
 class MyApiClient {
   final http.Client httpClient;
+  Dio dio = Dio();
+
+  Map<String, String> headers = {
+    'accept': 'application/json',
+    //'Content-Type': 'application/x-www-form-urlencoded'
+  };
+
+  Map<String, dynamic> register = {
+    'name': 'Matheufwes',
+    'last_name': 'Neufewmann',
+    'cpf': 12379324671,
+    'email': 'matheusneumanndevvb@gmail.com',
+    'phone': 48996466078,
+    'password': '123456789',
+    'password_confirmation': '123456789'
+  };
 
   MyApiClient({@required this.httpClient});
 
@@ -31,5 +48,41 @@ class MyApiClient {
       } else
         print('erro -get');
     } catch (_) {}
+  }
+
+  login() async {
+    try {
+      var response = await httpClient.post(baseUrl + 'login',
+          headers: headers,
+
+          body: {'login': 'matheusneumanndev@gmail.com', 'password': '123456'});
+      print(response.toString());
+    } catch (error) {
+      print(error.toString());
+    }
+  }
+
+  signUp() async {
+    dio.options.contentType = Headers.formUrlEncodedContentType;
+
+    try {
+      var response = await dio.post(baseUrl + 'users',
+          data: register,
+          options: Options(
+            headers: headers,
+            contentType: Headers.formUrlEncodedContentType,
+          ));
+      print(response.toString());
+    } catch (error) {
+      print(error.toString());
+    }
+//    try {
+//      var response = await httpClient.post(baseUrl + 'users',
+//          headers: headers,
+//          body: register);
+//      print(response.toString());
+//    } catch (error) {
+//      print(error.toString());
+//    }
   }
 }

@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 import 'package:fleetdesk/app/data/model/model.dart';
-import 'package:fleetdesk/app/data/repository/posts_repository.dart';
+import 'package:fleetdesk/app/data/repository/repository.dart';
 import 'package:meta/meta.dart';
 
 class RecoveryPasswordController extends GetxController {
-  final MyRepository repository;
+  final Repository repository;
 
   bool obscureText = true;
 

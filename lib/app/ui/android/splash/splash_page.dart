@@ -1,3 +1,4 @@
+import 'package:fleetdesk/app/data/provider/api.dart';
 import 'package:fleetdesk/app/routes/app_pages.dart';
 import 'package:fleetdesk/app/ui/android/demos/geolocator_page.dart';
 import 'package:flutter/material.dart';

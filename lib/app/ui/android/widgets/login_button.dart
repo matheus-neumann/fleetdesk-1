@@ -9,8 +9,10 @@ class LoginButton extends StatelessWidget {
   var bottom;
   var text;
   var navPage;
+  var onPressedMethod;
 
-  LoginButton(this.top, this.bottom, this.text, this.navPage);
+  LoginButton(this.top, this.bottom, this.text, this.navPage,
+      {this.onPressedMethod});
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +32,7 @@ class LoginButton extends StatelessWidget {
           ),
         ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        onPressed: () {
-          Get.toNamed(navPage);
-        },
+        onPressed: onPressedMethod,
       ),
     );
   }

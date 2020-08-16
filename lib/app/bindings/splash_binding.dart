@@ -1,6 +1,6 @@
 import 'package:fleetdesk/app/controller/splash/splash_controller.dart';
 import 'package:fleetdesk/app/data/provider/api.dart';
-import 'package:fleetdesk/app/data/repository/posts_repository.dart';
+import 'package:fleetdesk/app/data/repository/repository.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
 
@@ -10,7 +10,7 @@ class HomeBinding implements Bindings {
     Get.lazyPut<SplashController>(() {
       return SplashController(
           repository:
-              MyRepository(apiClient: MyApiClient(httpClient: http.Client())));
+              Repository(apiClient: MyApiClient(httpClient: http.Client())));
     });
   }
 }

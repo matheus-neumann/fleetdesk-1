@@ -1,10 +1,10 @@
 import 'package:fleetdesk/app/data/provider/api.dart';
 import 'package:meta/meta.dart';
 
-class MyRepository {
+class Repository {
   final MyApiClient apiClient;
 
-  MyRepository({@required this.apiClient}) : assert(apiClient != null);
+  Repository({@required this.apiClient}) : assert(apiClient != null);
 
   getAll() {
     return apiClient.getAll();
@@ -12,5 +12,13 @@ class MyRepository {
 
   getId(id) {
     return apiClient.getId(id);
+  }
+
+  login() {
+    apiClient.login();
+  }
+
+  signUp() {
+    apiClient.signUp();
   }
 }

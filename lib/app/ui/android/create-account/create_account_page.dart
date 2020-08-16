@@ -3,12 +3,15 @@ import 'package:fleetdesk/app/ui/android/login/login_page.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_logo.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
+import 'package:fleetdesk/app/ui/android/widgets/text_field_register.dart';
 import 'package:fleetdesk/app/ui/theme/app_assets.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CreateAccountPage extends StatelessWidget {
+  final nameFocus = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
@@ -62,7 +65,7 @@ class CreateAccountPage extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 14.sp,
                             color: black,
-                            fontFamily: 'Montserrat'),
+                            fontWeight: FontWeight.w500),
                         /*defining default style is optional */
                         children: <TextSpan>[
                           TextSpan(
@@ -75,6 +78,9 @@ class CreateAccountPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  TextFieldRegister(hintText: 'Informe seu nome',
+                    textInputAction: TextInputAction.next,
+                    focusNode: nameFocus,),
                   Container(
                     height: 16.h,
                     width: 89.w,
