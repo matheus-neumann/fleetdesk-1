@@ -5,7 +5,7 @@ final ThemeData appThemeData = ThemeData(
   accentColor: Colors.black,
   splashColor: Colors.black,
   highlightColor: Colors.black,
-  fontFamily: 'Georgia',
+  fontFamily: 'Montserrat',
   textTheme: TextTheme(
     headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
   ),

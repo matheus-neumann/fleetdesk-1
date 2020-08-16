@@ -104,6 +104,7 @@ class GeolocatorController extends GetxController {
 
     content = encoder.convert(location.toMap());
     odometer = odometerKM;
+    print('ODOMETRO $odometer');
   }
 
   void _onMotionChange(bg.Location location) {

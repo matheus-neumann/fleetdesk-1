@@ -50,21 +50,19 @@ class AppPages {
         name: Routes.BLUETOOTH,
         page: () => BluetoothPage(),
         binding: BluetoothBinding()),
-    GetPage(
-        name: Routes.MENU,
-        page: () => MenuPage(),
-        binding: MenuBinding()),
+    GetPage(name: Routes.MENU, page: () => MenuPage(), binding: MenuBinding()),
     GetPage(
         name: Routes.CONFIGURATION,
         page: () => ConfigurationPage(),
         binding: ConfigurationBinding()),
+//    GetPage(name: Routes.CHAT, page: () => ChatPage(), binding: ChatBinding()),
     GetPage(
-      name: Routes.BLUETOOTHPAGE,
-      page: () => BluetoothPage(),
-      binding: BluetoothBinding()),
+        name: Routes.BLUETOOTHPAGE,
+        page: () => BluetoothPage(),
+        binding: BluetoothBinding()),
     GetPage(
-      name: Routes.MY_ACCOUNT,
-      page: () => MyAccountPage(),
-      binding: MyAccountBinding()),
-    ];
-  }
+        name: Routes.MY_ACCOUNT,
+        page: () => MyAccountPage(),
+        binding: MyAccountBinding()),
+  ];
+}
