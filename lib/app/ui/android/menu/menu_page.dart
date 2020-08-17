@@ -37,7 +37,7 @@ class MenuPage extends StatelessWidget {
             MenuButton(left: 31.w, top: 254.h, right: 34.w, bottom: 351.h, text: 'Alertas', icon: Icons.notifications),
             MenuButton(left: 31.w, top: 301.h, right: 34.w, bottom: 304.h, text: 'Mensagens', icon: Icons.mode_comment),
             MenuButton(left: 31.w, top: 348.h, right: 34.w, bottom: 257.h, text: 'Configuracoes', icon: Icons.settings),
-            MenuButton(left: 31.w, top: 395.h, right: 34.w, bottom: 210.h, text: 'Bluetooth', icon: Icons.bluetooth),
+            MenuButton(left: 31.w, top: 395.h, right: 34.w, bottom: 210.h, text: 'Bluetooth', icon: Icons.bluetooth, navPage: Routes.BLUETOOTH),
             Container(
               height: 41.h,
               width: 162.w,
@@ -70,23 +70,20 @@ class MenuPage extends StatelessWidget {
             ),
             Container(
               height: 24.h,
-              width: 132.w,
               margin: EdgeInsets.only(
-                  top: 465.h, bottom: 151.h, right: 116.w, left: 114.w),
+                  top: 465.h, bottom: 151.h, left: 114.w),
               child: Text(
                 'Placa do veiculo',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16.sp,
-                    fontFamily: 'Montserrat'
                 ),
               ),
             ),
             Container(
               height: 24.h,
-              width: 132.w,
               margin: EdgeInsets.only(
-                  top: 485.h, bottom: 132.h, right: 143.w, left: 139.w),
+                  top: 485.h, bottom: 132.h, left: 139.w),
               child: Text(
                 'IJSH8JSG',
                 style: TextStyle(
@@ -99,7 +96,7 @@ class MenuPage extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.only(
-                  top: 524.h, bottom: 92.h, right: 153.w, left: 149.w),
+                  top: 524.h, bottom: 92.h, left: 149.w),
               child: GestureDetector(
                 child: Text(
                   'Logout',
