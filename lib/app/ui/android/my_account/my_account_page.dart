@@ -5,6 +5,7 @@ import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_logo.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
 import 'package:fleetdesk/app/ui/android/widgets/menu_button.dart';
+import 'package:fleetdesk/app/ui/android/widgets/text_field_register.dart';
 import 'package:fleetdesk/app/ui/theme/app_assets.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,18 @@ import 'package:fleetdesk/app/controller/login/login_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyAccountPage extends StatelessWidget {
+
+  final nameFocus = FocusNode();
+  final lastNameFocus = FocusNode();
+  final cpfFocus = FocusNode();
+  final mailFocus = FocusNode();
+  final phoneFocus = FocusNode();
+  final passwordFocus = FocusNode();
+  final confirmPasswordFocus = FocusNode();
+  final cnhFocus = FocusNode();
+  final pisFocus = FocusNode();
+  final birthdayFocus = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
@@ -62,8 +75,7 @@ class MyAccountPage extends StatelessWidget {
                           'Minha conta',
                           style: TextStyle(
                               fontSize: 18.sp,
-                              color: Colors.white,
-                              fontFamily: 'Montserrat'),
+                              color: Colors.white,),
                         ),
                       ),
                     ),
@@ -216,6 +228,10 @@ class MyAccountPage extends StatelessWidget {
                   ),
                 ),
               ),
+              TextFieldRegister(hintText: 'Informe seu nome',
+                    textInputAction: TextInputAction.next,
+                    focusNode: nameFocus,
+                    topMargin: 369.h,),
               Container(
                 margin: EdgeInsets.only(
                     left: 32.w, top: 425.h, right: 244.w, bottom: 736.h),
@@ -229,6 +245,10 @@ class MyAccountPage extends StatelessWidget {
                   ),
                 ),
               ),
+              TextFieldRegister(hintText: 'Informe seu sobrenome',
+                    textInputAction: TextInputAction.next,
+                    focusNode: lastNameFocus,
+                    topMargin: 445.h,),
               Container(
                 margin: EdgeInsets.only(
                     left: 32.w, top: 501.h, right: 299.w, bottom: 660.h),
@@ -242,6 +262,10 @@ class MyAccountPage extends StatelessWidget {
                   ),
                 ),
               ),
+              TextFieldRegister(hintText: 'Informe o número de seu CPF',
+                    textInputAction: TextInputAction.next,
+                    focusNode: cpfFocus,
+                    topMargin: 521.h,),
               Container(
                 margin: EdgeInsets.only(
                     left: 32.w, top: 577.h, right: 165.w, bottom: 584.h),
@@ -255,19 +279,23 @@ class MyAccountPage extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(
-                    left: 32.w, top: 349.h, right: 284.w, bottom: 812.h),
-                child: FittedBox(
-                  child: Text(
-                    'Nome',
-                    style: TextStyle(
-                        fontSize: 14.sp,
-                        color: black,
-                        fontFamily: 'MontserratSemiBold'),
-                  ),
-                ),
-              ),
+              TextFieldRegister(hintText: 'Informe o número de sua CNH',
+                    textInputAction: TextInputAction.next,
+                    focusNode: cnhFocus,
+                    topMargin: 597.h,),
+              // Container(
+              //   margin: EdgeInsets.only(
+              //       left: 32.w, top: 349.h, right: 284.w, bottom: 812.h),
+              //   child: FittedBox(
+              //     child: Text(
+              //       'Nome',
+              //       style: TextStyle(
+              //           fontSize: 14.sp,
+              //           color: black,
+              //           fontFamily: 'MontserratSemiBold'),
+              //     ),
+              //   ),
+              // ),
               Container(
                 margin: EdgeInsets.only(
                     left: 32.w, top: 653.h, right: 305.w, bottom: 508.h),
@@ -281,6 +309,10 @@ class MyAccountPage extends StatelessWidget {
                   ),
                 ),
               ),
+              TextFieldRegister(hintText: 'Informe o número de seu PIS',
+                    textInputAction: TextInputAction.next,
+                    focusNode: pisFocus,
+                    topMargin: 673.h,),
               Container(
                 margin: EdgeInsets.only(
                     left: 32.w, top: 729.h, right: 182.w, bottom: 432.h),
@@ -294,6 +326,10 @@ class MyAccountPage extends StatelessWidget {
                   ),
                 ),
               ),
+              TextFieldRegister(hintText: 'Qual sua data de nascimento?',
+                    textInputAction: TextInputAction.next,
+                    focusNode: birthdayFocus,
+                    topMargin: 749.h,),
               Container(
                 margin: EdgeInsets.only(
                     left: 32.w, top: 805.h, right: 282.w, bottom: 356.h),
@@ -307,6 +343,10 @@ class MyAccountPage extends StatelessWidget {
                   ),
                 ),
               ),
+              TextFieldRegister(hintText: 'Informe o seu e-mail',
+                    textInputAction: TextInputAction.next,
+                    focusNode: mailFocus,
+                    topMargin: 825.h,),
               Container(
                 margin: EdgeInsets.only(
                     left: 32.w, top: 881.h, right: 267.w, bottom: 280.h),
@@ -320,6 +360,10 @@ class MyAccountPage extends StatelessWidget {
                   ),
                 ),
               ),
+              TextFieldRegister(hintText: 'Informe o seu telefone',
+                    textInputAction: TextInputAction.next,
+                    focusNode: phoneFocus,
+                    topMargin: 901.h,),
               Container(
                 margin: EdgeInsets.only(
                     left: 32.w, top: 957.h, right: 233.w, bottom: 204.h),
@@ -333,6 +377,10 @@ class MyAccountPage extends StatelessWidget {
                   ),
                 ),
               ),
+              TextFieldRegister(hintText: 'Digite uma senha',
+                    textInputAction: TextInputAction.next,
+                    focusNode: passwordFocus,
+                    topMargin: 977.h,),
               LoginButton(1083.h, 46.h, "Salvar", null)
             ]),
           ),

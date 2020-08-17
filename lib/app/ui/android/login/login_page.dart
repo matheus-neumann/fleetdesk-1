@@ -68,11 +68,11 @@ class LoginPage extends StatelessWidget {
                             border: InputBorder.none,
                             //labelText: 'Informe seu e-mail',
                             hintText: 'Informe seu e-mail',
-//                            // TODO - Adjust font size and font weight
-//                            hintStyle: TextStyle(
-//                              fontSize: 14.sp,
-//                              color: Color.fromRGBO(32, 32, 31, 0.94),
-//                            ),
+                           // TODO - Adjust font size and font weight
+                           hintStyle: TextStyle(
+                             fontSize: 14.sp,
+                             color: Color.fromRGBO(32, 32, 31, 0.94),
+                           ),
                             filled: true,
                             fillColor: Color.fromRGBO(242, 242, 242, 1),
                             enabledBorder: OutlineInputBorder(
