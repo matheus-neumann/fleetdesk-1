@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:fleetdesk/app/data/model/model.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 import 'package:dio/dio.dart';
@@ -74,9 +75,14 @@ class MyApiClient {
             headers: headers,
             contentType: Headers.formUrlEncodedContentType,
           ));
-      print(response.toString());
+      print(response.data.toString());
+      print(response.statusMessage);
+      Get.defaultDialog(
+          title: 'success = ${response.data['success'].toString()}',
+          middleText: '${response.data['message']}');
     } catch (error) {
       print(error.toString());
+      Get.defaultDialog(title: 'error', middleText: '${error.toString()}');
     }
   }
 }

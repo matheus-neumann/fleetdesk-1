@@ -10,7 +10,9 @@ class CreateAccountBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut<CreateAccountController>(() {
-      return CreateAccountController();
+      return CreateAccountController(
+          repository:
+              Repository(apiClient: MyApiClient(httpClient: http.Client())));
     });
   }
 }
