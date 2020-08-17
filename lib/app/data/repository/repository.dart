@@ -18,7 +18,7 @@ class Repository {
     apiClient.login();
   }
 
-  signUp() {
-    apiClient.signUp();
+  signUp(Map register) {
+    apiClient.signUp(register);
   }
 }

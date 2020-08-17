@@ -194,9 +194,15 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     LoginButton(
-                      481.0.h, 111.0.h, "Entrar", null, onPressedMethod: () {
-                      _.signUp();
-                    },),
+                      481.0.h,
+                      111.0.h,
+                      "Entrar",
+                      null,
+                      onPressedMethod: () {
+                        //_.signUp({});
+                        _.login();
+                      },
+                    ),
 //                    Container(
 //                      height: 24.h,
 //                      width: 24.w,

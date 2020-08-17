@@ -15,32 +15,35 @@ class GeolocatorPage extends StatelessWidget {
         child: GetBuilder<GeolocatorController>(
             init: geolocatorController,
             initState: (_) {
-              geolocatorController.onClickEnable(geolocatorController.enabled);
+              //geolocatorController.onClickEnable(geolocatorController.enabled);
             },
             builder: (_) {
               return Container(
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      Text('isMoving? ${_.isMoving.toString()}'),
-                      Text('isEnabled? ${_.enabled.toString()}'),
-                      Text(_.motionActivity),
-                      Text(_.content),
-                      Text(_.odometer),
-                      RaisedButton(
-                        child: Text('onClickChangePace'),
-                        onPressed: () {
-                          _.onClickChangePace();
-                          _.update();
-                        },
+                      Center(
+                        child: Text(_.myLocation),
                       ),
-                      RaisedButton(
-                        child: Text('onClickGetCurrentPosition'),
-                        onPressed: () {
-                          _.onClickGetCurrentPosition();
-                          _.update();
-                        },
-                      ),
+//                      Text('isMoving? ${_.isMoving.toString()}'),
+//                      Text('isEnabled? ${_.enabled.toString()}'),
+//                      Text(_.motionActivity),
+//                      Text(_.content),
+//                      Text(_.odometer),
+//                      RaisedButton(
+//                        child: Text('onClickChangePace'),
+//                        onPressed: () {
+//                          _.onClickChangePace();
+//                          _.update();
+//                        },
+//                      ),
+//                      RaisedButton(
+//                        child: Text('onClickGetCurrentPosition'),
+//                        onPressed: () {
+//                          _.onClickGetCurrentPosition();
+//                          _.update();
+//                        },
+//                      ),
                     ],
                   ),
                 ),

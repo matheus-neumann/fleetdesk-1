@@ -1,14 +1,12 @@
-import 'package:fleetdesk/app/data/provider/api.dart';
 import 'package:fleetdesk/app/routes/app_pages.dart';
-import 'package:fleetdesk/app/ui/android/demos/geolocator_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:fleetdesk/app/controller/splash/splash_controller.dart';
-import 'package:fleetdesk/app/ui/android/widgets/loading_widget.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:fleetdesk/app/ui/theme/app_assets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
+import 'package:connectivity/connectivity.dart';
 
 class SplashPage extends StatelessWidget {
   @override
@@ -19,12 +17,19 @@ class SplashPage extends StatelessWidget {
       body: SafeArea(
         child: Container(
           child: GetBuilder<SplashController>(
+            init: Get.find<SplashController>(),
+            initState: (_) {
+              SplashController.to.subscription = Connectivity()
+                  .onConnectivityChanged
+                  .listen((ConnectivityResult result) {
+                print(result.toString());
+              });
+            },
             builder: (_) {
               return Column(
                 children: [
                   Container(
                     width: 224.w,
-
                     height: 50.h,
                     margin: EdgeInsets.only(top: 295.h, left: 68.w),
                     child: Image.asset(AppAssets.fleetdeskLogo),

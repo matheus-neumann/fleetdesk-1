@@ -6,7 +6,11 @@ import 'package:fleetdesk/app/routes/app_pages.dart';
 import 'package:meta/meta.dart';
 
 class SplashController extends GetxController {
+  static SplashController get to => Get.find<SplashController>();
+
   final Repository repository;
+
+  var subscription;
 
   SplashController({@required this.repository}) : assert(repository != null);
 

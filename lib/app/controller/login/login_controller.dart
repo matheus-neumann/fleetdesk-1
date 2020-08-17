@@ -29,7 +29,7 @@ class LoginController extends GetxController {
     repository.login();
   }
 
-  signUp() {
-    repository.signUp();
+  signUp(Map register) {
+    repository.signUp(register);
   }
 }
