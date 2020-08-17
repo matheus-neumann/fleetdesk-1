@@ -11,6 +11,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CreateAccountPage extends StatelessWidget {
   final nameFocus = FocusNode();
+  final lastNameFocus = FocusNode();
+  final cpfFocus = FocusNode();
+  final mailFocus = FocusNode();
+  final phoneFocus = FocusNode();
+  final passwordFocus = FocusNode();
+  final confirmPasswordFocus = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -36,22 +42,19 @@ class CreateAccountPage extends StatelessWidget {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16.sp,
-                            color: red,
-                            fontFamily: 'MontserratBold'),
+                            color: red,),
                       ),
                     ),
                   ),
                   Container(
                     height: 36.h,
-                    width: 258.w,
                     margin: EdgeInsets.only(
-                        top: 140.h, bottom: 645.h, right: 70.w, left: 32.w),
+                        top: 140.h, bottom: 645.h, left: 32.w),
                     child: Text(
                       'Precisamos de algumas informações\npara criar seu cadastro.',
                       style: TextStyle(
                           fontSize: 14.sp,
-                          color: black,
-                          fontFamily: 'Montserrat'),
+                          color: black,),
                     ),
                   ),
                   Container(
@@ -80,7 +83,8 @@ class CreateAccountPage extends StatelessWidget {
                   ),
                   TextFieldRegister(hintText: 'Informe seu nome',
                     textInputAction: TextInputAction.next,
-                    focusNode: nameFocus,),
+                    focusNode: nameFocus,
+                    topMargin: 208.h,),
                   Container(
                     height: 16.h,
                     width: 89.w,
@@ -92,7 +96,7 @@ class CreateAccountPage extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 14.sp,
                             color: black,
-                            fontFamily: 'Montserrat'),
+                            fontWeight: FontWeight.w500),
                         /*defining default style is optional */
                         children: <TextSpan>[
                           TextSpan(
@@ -105,6 +109,10 @@ class CreateAccountPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  TextFieldRegister(hintText: 'Informe seu sobrenome',
+                    textInputAction: TextInputAction.next,
+                    focusNode: lastNameFocus,
+                    topMargin: 284.h,),
                   Container(
                     height: 16.h,
                     width: 35.w,
@@ -116,7 +124,7 @@ class CreateAccountPage extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 14.sp,
                             color: black,
-                            fontFamily: 'Montserrat'),
+                            fontWeight: FontWeight.w500),
                         /*defining default style is optional */
                         children: <TextSpan>[
                           TextSpan(
@@ -129,6 +137,10 @@ class CreateAccountPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  TextFieldRegister(hintText: 'Informe o número de seu CPF',
+                    textInputAction: TextInputAction.next,
+                    focusNode: cpfFocus,
+                    topMargin: 360.h,),
                   Container(
                     height: 16.h,
                     width: 52.w,
@@ -140,7 +152,7 @@ class CreateAccountPage extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 14.sp,
                             color: black,
-                            fontFamily: 'Montserrat'),
+                            fontWeight: FontWeight.w500),
                         /*defining default style is optional */
                         children: <TextSpan>[
                           TextSpan(
@@ -153,6 +165,10 @@ class CreateAccountPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  TextFieldRegister(hintText: 'Informe o seu e-mail',
+                    textInputAction: TextInputAction.next,
+                    focusNode: mailFocus,
+                    topMargin: 436.h,),
                   Container(
                     height: 16.h,
                     width: 66.w,
@@ -164,7 +180,7 @@ class CreateAccountPage extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 14.sp,
                             color: black,
-                            fontFamily: 'Montserrat'),
+                            fontWeight: FontWeight.w500),
                         /*defining default style is optional */
                         children: <TextSpan>[
                           TextSpan(
@@ -177,6 +193,10 @@ class CreateAccountPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  TextFieldRegister(hintText: 'Informe o seu telefone',
+                    textInputAction: TextInputAction.next,
+                    focusNode: phoneFocus,
+                    topMargin: 512.h,),
                   Container(
                     height: 16.h,
                     width: 118.w,
@@ -188,7 +208,7 @@ class CreateAccountPage extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 14.sp,
                             color: black,
-                            fontFamily: 'Montserrat'),
+                            fontWeight: FontWeight.w500),
                         /*defining default style is optional */
                         children: <TextSpan>[
                           TextSpan(
@@ -201,6 +221,10 @@ class CreateAccountPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  TextFieldRegister(hintText: 'Digite uma senha',
+                    textInputAction: TextInputAction.next,
+                    focusNode: passwordFocus,
+                    topMargin: 588.h,),
                   Container(
                     height: 16.h,
                     width: 126.w,
@@ -212,7 +236,7 @@ class CreateAccountPage extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 14.sp,
                             color: black,
-                            fontFamily: 'Montserrat'),
+                            fontWeight: FontWeight.w500),
                         /*defining default style is optional */
                         children: <TextSpan>[
                           TextSpan(
@@ -225,6 +249,10 @@ class CreateAccountPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  TextFieldRegister(hintText: 'Confirme sua senha',
+                    textInputAction: TextInputAction.done,
+                    focusNode: confirmPasswordFocus,
+                    topMargin: 664.h,),
                   LoginButton(731.h, 38.h, "Criar conta", Routes.LOGIN),
                 ],
               ),

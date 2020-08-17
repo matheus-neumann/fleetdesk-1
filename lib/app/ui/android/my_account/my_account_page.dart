@@ -143,7 +143,6 @@ class MyAccountPage extends StatelessWidget {
                       height: 32.h,
                       width: 136.w,
                       child: FittedBox(
-                        fit: BoxFit.cover,
                         alignment: Alignment.centerLeft,
                         // TODO - Review size and position of text
                         child: RichText(
