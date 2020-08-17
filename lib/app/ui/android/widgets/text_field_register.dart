@@ -7,8 +7,16 @@ class TextFieldRegister extends StatelessWidget {
   TextInputAction textInputAction;
   FocusNode focusNode;
   var topMargin;
+  var onFieldSubmitted;
+  TextEditingController controller;
 
-  TextFieldRegister({this.hintText, this.textInputAction, this.focusNode, this.topMargin});
+  TextFieldRegister(
+      {this.hintText,
+      this.textInputAction,
+      this.focusNode,
+      this.topMargin,
+      this.onFieldSubmitted,
+      this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +27,8 @@ class TextFieldRegister extends StatelessWidget {
       child: TextFormField(
         textAlignVertical: TextAlignVertical.center,
         textAlign: TextAlign.left,
-        onFieldSubmitted: (value) {},
+        controller: controller,
+        onFieldSubmitted: onFieldSubmitted,
         textInputAction: textInputAction,
         focusNode: focusNode,
         decoration: InputDecoration(

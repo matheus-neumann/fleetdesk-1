@@ -8,121 +8,172 @@ import 'package:flutter_background_geolocation/flutter_background_geolocation.da
 JsonEncoder encoder = new JsonEncoder.withIndent("     ");
 
 class GeolocatorController extends GetxController {
-  bool isMoving;
-  bool enabled;
-  String motionActivity;
-  String odometer;
-  String content;
+//  bool isMoving;
+//  bool enabled;
+//  String motionActivity;
+//  String odometer;
+//  String content;
+
+  String myLocation = '';
 
   @override
   void onInit() {
     super.onInit();
-
-    isMoving = false;
-    enabled = false;
-    content = '';
-    motionActivity = 'UNKNOWN';
-    odometer = '0';
-
+    ////
     // 1.  Listen to events (See docs for all 12 available events).
-    bg.BackgroundGeolocation.onLocation(_onLocation);
-    bg.BackgroundGeolocation.onMotionChange(_onMotionChange);
-    bg.BackgroundGeolocation.onActivityChange(_onActivityChange);
-    bg.BackgroundGeolocation.onProviderChange(_onProviderChange);
-    bg.BackgroundGeolocation.onConnectivityChange(_onConnectivityChange);
+    //
 
+    // Fired whenever a location is recorded
+    bg.BackgroundGeolocation.onLocation((bg.Location location) {
+      print('[location] - $location');
+      myLocation = location.toString();
+      update();
+    });
+
+    // Fired whenever the plugin changes motion-state (stationary->moving and vice-versa)
+    bg.BackgroundGeolocation.onMotionChange((bg.Location location) {
+      print('[motionchange] - $location');
+    });
+
+    // Fired whenever the state of location-services changes.  Always fired at boot
+    bg.BackgroundGeolocation.onProviderChange((bg.ProviderChangeEvent event) {
+      print('[providerchange] - $event');
+    });
+
+    bg.BackgroundGeolocation.onHeartbeat((bg.HeartbeatEvent event) {
+      print('[onHeartbeat] ${event}');
+      myLocation = '[onHeartbeat] ${event}';
+      update();
+
+      // You could request a new location if you wish.
+      bg.BackgroundGeolocation.getCurrentPosition(samples: 1, persist: true)
+          .then((bg.Location location) {
+        print('[getCurrentPosition] ${location}');
+        myLocation = '[getCurrentPosition] ${location}';
+        update();
+      });
+    });
+
+    ////
     // 2.  Configure the plugin
-    bg.BackgroundGeolocation.ready(bg.Config(
-            desiredAccuracy: bg.Config.DESIRED_ACCURACY_HIGH,
-            distanceFilter: 10.0,
-            stopOnTerminate: false,
-            startOnBoot: true,
-            debug: true,
-            logLevel: bg.Config.LOG_LEVEL_VERBOSE,
-            reset: true))
-        .then((bg.State state) {
-      enabled = state.enabled;
-      isMoving = state.isMoving;
+    //
+    bg.BackgroundGeolocation.ready(
+      bg.Config(
+        desiredAccuracy: bg.Config.DESIRED_ACCURACY_HIGH,
+        distanceFilter: 10.0,
+        desiredOdometerAccuracy: 50,
+        minimumActivityRecognitionConfidence: 40,
+        // Adjust lower for low-end devices
+        allowIdenticalLocations: false,
+        stopOnTerminate: true,
+        startOnBoot: false,
+        preventSuspend: true,
+        logMaxDays: 1,
+        locationUpdateInterval: 1000,
+        heartbeatInterval: 30,
+        disableStopDetection: true,
+        pausesLocationUpdatesAutomatically: false,
+        useSignificantChangesOnly: false,
+        foregroundService: true,
+        //isMoving: true,
+        stopTimeout: 5,
+
+        debug: false,
+        logLevel: bg.Config.LOG_LEVEL_ERROR,
+        reset: true,
+      ),
+    ).then((bg.State state) {
+      if (!state.enabled) {
+        ////
+        // 3.  Start the plugin.
+        //
+        bg.BackgroundGeolocation.start();
+      }
     });
   }
 
-  void onClickEnable(enabled) {
-    if (enabled) {
-      bg.BackgroundGeolocation.start().then((bg.State state) {
-        print('[start] success $state');
-        enabled = state.enabled;
-        isMoving = state.isMoving;
-      });
-    } else {
-      bg.BackgroundGeolocation.stop().then((bg.State state) {
-        print('[stop] success: $state');
-        // Reset odometer.
-        bg.BackgroundGeolocation.setOdometer(0.0);
-
-        odometer = '0.0';
-        enabled = state.enabled;
-        isMoving = state.isMoving;
-      });
-    }
-  }
-
-  // Manually toggle the tracking state:  moving vs stationary
-  void onClickChangePace() {
-    isMoving = !isMoving;
-    print("[onClickChangePace] -> $isMoving");
-
-    bg.BackgroundGeolocation.changePace(isMoving).then((bool isMoving) {
-      print('[changePace] success $isMoving');
-    }).catchError((e) {
-      print('[changePace] ERROR: ' + e.code.toString());
-    });
-  }
-
-  // Manually fetch the current position.
-  void onClickGetCurrentPosition() {
-    bg.BackgroundGeolocation.getCurrentPosition(
-            persist: false, // <-- do not persist this location
-            desiredAccuracy: 0, // <-- desire best possible accuracy
-            timeout: 30000, // <-- wait 30s before giving up.
-            samples: 3 // <-- sample 3 location before selecting best.
-            )
-        .then((bg.Location location) {
-      print('[getCurrentPosition] - $location');
-    }).catchError((error) {
-      print('[getCurrentPosition] ERROR: $error');
-    });
-  }
-
-  ////
-  // Event handlers
-  //
-
-  void _onLocation(bg.Location location) {
-    print('[location] - $location');
-
-    String odometerKM = (location.odometer / 1000.0).toStringAsFixed(1);
-
-    content = encoder.convert(location.toMap());
-    odometer = odometerKM;
-    print('ODOMETRO $odometer');
-  }
-
-  void _onMotionChange(bg.Location location) {
-    print('[motionchange] - $location');
-  }
-
-  void _onActivityChange(bg.ActivityChangeEvent event) {
-    print('[activitychange] - $event');
-    motionActivity = event.activity;
-  }
-
-  void _onProviderChange(bg.ProviderChangeEvent event) {
-    print('$event');
-
-    content = encoder.convert(event.toMap());
-  }
-
-  void _onConnectivityChange(bg.ConnectivityChangeEvent event) {
-    print('$event');
-  }
+//  void onClickEnable(enabled) {
+//    if (enabled) {
+//      bg.BackgroundGeolocation.start().then((bg.State state) {
+//        print('[start] success $state');
+//        enabled = state.enabled;
+//        isMoving = state.isMoving;
+//      });
+//    } else {
+//      bg.BackgroundGeolocation.stop().then((bg.State state) {
+//        print('[stop] success: $state');
+//        // Reset odometer.
+//        bg.BackgroundGeolocation.setOdometer(0.0);
+//
+//        //odometer = '0.0';
+//        odometer = state.odometer.toString();
+//        enabled = state.enabled;
+//        isMoving = state.isMoving;
+//        update();
+//      });
+//    }
+//  }
+//
+//  // Manually toggle the tracking state:  moving vs stationary
+//  void onClickChangePace() {
+//    isMoving = !isMoving;
+//    print("[onClickChangePace] -> $isMoving");
+//
+//    bg.BackgroundGeolocation.changePace(isMoving).then((bool isMoving) {
+//      print('[changePace] success $isMoving');
+//    }).catchError((e) {
+//      print('[changePace] ERROR: ' + e.code.toString());
+//    });
+//  }
+//
+//  // Manually fetch the current position.
+//  void onClickGetCurrentPosition() {
+//    bg.BackgroundGeolocation.getCurrentPosition(
+//            persist: false, // <-- do not persist this location
+//            desiredAccuracy: 0, // <-- desire best possible accuracy
+//            timeout: 30000, // <-- wait 30s before giving up.
+//            samples: 3 // <-- sample 3 location before selecting best.
+//            )
+//        .then((bg.Location location) {
+//      print('[getCurrentPosition] - $location');
+//    }).catchError((error) {
+//      print('[getCurrentPosition] ERROR: $error');
+//    });
+//
+//
+//  }
+//
+//  ////
+//  // Event handlers
+//  //
+//
+//  void _onLocation(bg.Location location) {
+//    print('[location] - $location');
+//
+//    String odometerKM = (location.odometer / 1000.0).toStringAsFixed(1);
+//
+//    content = encoder.convert(location.toMap());
+//    odometer = odometerKM;
+//    update();
+//    print('ODOMETRO $odometer');
+//  }
+//
+//  void _onMotionChange(bg.Location location) {
+//    print('[motionchange] - $location');
+//  }
+//
+//  void _onActivityChange(bg.ActivityChangeEvent event) {
+//    print('[activitychange] - $event');
+//    motionActivity = event.activity;
+//  }
+//
+//  void _onProviderChange(bg.ProviderChangeEvent event) {
+//    print('$event');
+//
+//    content = encoder.convert(event.toMap());
+//  }
+//
+//  void _onConnectivityChange(bg.ConnectivityChangeEvent event) {
+//    print('$event');
+//  }
 }
