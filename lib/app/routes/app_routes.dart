@@ -14,4 +14,5 @@ abstract class Routes {
   static const CHAT = '/chat';
   static const BLUETOOTHPAGE = '/bluetooth';
   static const MY_ACCOUNT = '/my_account';
+  static const RANKING = '/ranking';
 }
