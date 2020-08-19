@@ -33,7 +33,7 @@ class MenuButton extends StatelessWidget {
                 right: BorderSide.none,
                 bottom: BorderSide(width: 1.w, color: Color(0xFFF2F2F2)),
               )),
-          height: 35.h,
+          height: 50.h,
           width: 295.w,
           margin: EdgeInsets.only(
               left: left, top: top, right: right, bottom: bottom

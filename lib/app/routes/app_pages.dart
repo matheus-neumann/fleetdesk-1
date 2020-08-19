@@ -7,6 +7,7 @@ import 'package:fleetdesk/app/bindings/my_account_binding.dart';
 import 'package:fleetdesk/app/bindings/profile_binding.dart';
 import 'package:fleetdesk/app/bindings/ranking_binding.dart';
 import 'package:fleetdesk/app/bindings/recovery_password_notification_binding.dart';
+import 'package:fleetdesk/app/bindings/tasks_binding.dart';
 import 'package:fleetdesk/app/ui/android/configuration/configuration_page.dart';
 import 'package:fleetdesk/app/ui/android/create-account/create_account_page.dart';
 import 'package:fleetdesk/app/ui/android/demos/bluetooth_page.dart';
@@ -17,6 +18,7 @@ import 'package:fleetdesk/app/ui/android/profile/profile_page.dart';
 import 'package:fleetdesk/app/ui/android/ranking/ranking_page.dart';
 import 'package:fleetdesk/app/ui/android/recovery_password/recovery_password_notification.dart';
 import 'package:fleetdesk/app/ui/android/recovery_password/recovery_password_page.dart';
+import 'package:fleetdesk/app/ui/android/tasks/tasks_page.dart';
 import 'package:get/get.dart';
 import 'package:fleetdesk/app/bindings/login_binding.dart';
 import 'package:fleetdesk/app/ui/android/splash/splash_page.dart';
@@ -67,5 +69,6 @@ class AppPages {
         page: () => MyAccountPage(),
         binding: MyAccountBinding()),
     GetPage(name: Routes.RANKING, page: () => RankingPage(), binding: RankingBinding()),
+    GetPage(name: Routes.TASKS, page: () => TasksPage(), binding: TasksBinding()),
   ];
 }
