@@ -16,4 +16,6 @@ abstract class Routes {
   static const MY_ACCOUNT = '/my_account';
   static const RANKING = '/ranking';
   static const TASKS = '/tasks';
+  static const TASKS_INFO = '/tasks_info';
+  static const CONFIGURATIONPAGE = '/configuration';
 }

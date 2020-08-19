@@ -36,7 +36,7 @@ class MenuPage extends StatelessWidget {
             //MenuButton(left: 31.w, top: 207.h, right: 34.w, bottom: 398.h, text: 'Ranking', icon: Icons.trending_up, navPage: Routes.RANKING,),
             MenuButton(left: 31.w, top: 215.h, right: 34.w, bottom: 351.h, text: 'Alertas', icon: Icons.notifications),
             MenuButton(left: 31.w, top: 270.h, right: 34.w, bottom: 304.h, text: 'Mensagens', icon: Icons.mode_comment),
-            MenuButton(left: 31.w, top: 325.h, right: 34.w, bottom: 257.h, text: 'Configuracoes', icon: Icons.settings),
+            MenuButton(left: 31.w, top: 325.h, right: 34.w, bottom: 257.h, text: 'Configuracoes', icon: Icons.settings, navPage: Routes.CONFIGURATIONPAGE,),
             MenuButton(left: 31.w, top: 380.h, right: 34.w, bottom: 210.h, text: 'Bluetooth', icon: Icons.bluetooth, navPage: Routes.BLUETOOTH),
             Container(
               height: 41.h,

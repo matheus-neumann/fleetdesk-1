@@ -10,9 +10,11 @@ class LoginButton extends StatelessWidget {
   var text;
   var navPage;
   var onPressedMethod;
+  var textColor;
+  var color;
 
   LoginButton(this.top, this.bottom, this.text, this.navPage,
-      {this.onPressedMethod});
+      {this.onPressedMethod, this.textColor, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +24,11 @@ class LoginButton extends StatelessWidget {
       margin:
           EdgeInsets.only(top: top, bottom: bottom, right: 32.w, left: 32.w),
       child: RaisedButton(
-        color: red,
+        color: color ?? red,
         child: Text(
           text,
           style: TextStyle(
-            color: Colors.white,
+            color: textColor ?? Colors.white,
             fontSize: 16.sp,
             fontFamily: 'Montserrat',
           ),
