@@ -7,6 +7,7 @@ import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_logo.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
 import 'package:fleetdesk/app/ui/android/widgets/menu_button.dart';
+import 'package:fleetdesk/app/ui/android/widgets/pop_up_occurrence.dart';
 import 'package:fleetdesk/app/ui/android/widgets/tasks_widgets.dart';
 import 'package:fleetdesk/app/ui/android/widgets/top_bar_widget.dart';
 import 'package:fleetdesk/app/ui/android/widgets/top_card_widget.dart';
@@ -390,7 +391,9 @@ class TasksInfoPage extends StatelessWidget {
                                   color: Colors.white,
                                   width: 1,
                                   style: BorderStyle.solid)),
-                          onPressed: () => {print('teste')},
+                          onPressed: () {
+                            showDialog(context: context, child: PopUpOccurrence());
+                          },
                         ),
                       ),
                       SizedBox(
