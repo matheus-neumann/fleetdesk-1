@@ -29,7 +29,10 @@ class TasksInfoPage extends StatelessWidget {
                     padding: EdgeInsets.only(
                         bottom: MediaQuery.of(context).viewInsets.bottom),
                     child: Column(children: [
-                      TopBarWidget(text: 'Detalhes', backTo: Routes.TASKS,),
+                      TopBarWidget(
+                        text: 'Detalhes',
+                        backTo: Routes.TASKS,
+                      ),
                       SizedBox(
                         height: 8.h,
                       ),
@@ -312,20 +315,24 @@ class TasksInfoPage extends StatelessWidget {
                               ),
                               child: Container(
                                 padding: EdgeInsets.all(2),
-                                child:
-                                Icon(Icons.assignment, color: black, size: 15.sp),
+                                child: Icon(Icons.assignment,
+                                    color: black, size: 15.sp),
                               ),
                             ),
                             SizedBox(
                               width: 8.w,
                             ),
-                            Container(
-                              child: Text(
-                                'Selecionar Documento',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w500
+                            InkWell(
+                              onTap: () {
+                                Get.toNamed(Routes.DOCUMENTS);
+                              },
+                              child: Container(
+                                child: Text(
+                                  'Selecionar Documento',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w500),
                                 ),
                               ),
                             ),
@@ -341,8 +348,7 @@ class TasksInfoPage extends StatelessWidget {
                                 ),
                               ),
                             ),
-                          ])
-                      ),
+                          ])),
                       SizedBox(
                         height: 13.h,
                       ),
@@ -354,12 +360,12 @@ class TasksInfoPage extends StatelessWidget {
                           child: Text(
                             'Concluir',
                             style: TextStyle(
-                              color: red,
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.bold
-                            ),
+                                color: red,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.bold),
                           ),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
                           onPressed: () => {print('teste')},
                         ),
                       ),
@@ -376,12 +382,14 @@ class TasksInfoPage extends StatelessWidget {
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16.sp,
-                                fontWeight: FontWeight.bold
-                            ),
+                                fontWeight: FontWeight.bold),
                           ),
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),side: BorderSide(color: Colors.white,
-                              width: 1,
-                              style: BorderStyle.solid)),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              side: BorderSide(
+                                  color: Colors.white,
+                                  width: 1,
+                                  style: BorderStyle.solid)),
                           onPressed: () => {print('teste')},
                         ),
                       ),
@@ -389,7 +397,7 @@ class TasksInfoPage extends StatelessWidget {
                         height: 6.h,
                       ),
                       Container(
-                      child: FlatButton(
+                          child: FlatButton(
                         child: Text(
                           'Desfazer',
                           // TODO - Adjust font size, font weight and configure to navigate for 'Recovery Password' page
@@ -402,8 +410,7 @@ class TasksInfoPage extends StatelessWidget {
                         onPressed: () {
                           Get.toNamed(Routes.LOGIN);
                         },
-                    )
-                )
+                      ))
                     ])))));
   }
 }
