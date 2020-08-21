@@ -1,4 +1,5 @@
 import 'package:fleetdesk/app/controller/configuration/configuration_controller.dart';
+import 'package:fleetdesk/app/controller/documents/documents_controller.dart';
 import 'package:fleetdesk/app/controller/example/example_controller.dart';
 import 'package:fleetdesk/app/controller/menu/menu_controller.dart';
 import 'package:fleetdesk/app/controller/profile/profile_controller.dart';
@@ -9,11 +10,11 @@ import 'package:fleetdesk/app/data/provider/api.dart';
 import 'package:fleetdesk/app/data/repository/repository.dart';
 import 'package:http/http.dart' as http;
 
-class ConfigurationBinding implements Bindings {
+class DocumentsBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<ConfigurationController>(() {
-      return ConfigurationController();
+    Get.lazyPut<DocumentsController>(() {
+      return DocumentsController();
     });
   }
 }
