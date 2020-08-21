@@ -332,14 +332,14 @@ class CreateAccountPage extends StatelessWidget {
                           onPressedMethod: () {
                             print(_.nameController.text);
                             _.signUp({
-                              'name': _.nameController.text,
-                              'last_name': _.lastNameController.text,
-                              'cpf': int.parse(_.cpfController.text),
-                              'email': _.emailController.text,
-                              'phone': int.parse(_.phoneController.text),
-                              'password': _.passwordController.text,
+                              'name': _.nameController.text ?? '',
+                              'last_name': _.lastNameController.text ?? '',
+                              'cpf': int.parse(_.cpfController.text ?? '1'),
+                              'email': _.emailController.text ?? '',
+                              'phone': int.parse(_.phoneController.text ?? '1'),
+                              'password': _.passwordController.text ?? '',
                               'password_confirmation':
-                                  _.passwordConfirmController.text
+                                  _.passwordConfirmController.text ?? ''
                             });
                           },
                         ),
