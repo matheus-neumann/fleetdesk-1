@@ -4,6 +4,7 @@ import 'package:fleetdesk/app/bindings/create_account_binding.dart';
 import 'package:fleetdesk/app/bindings/documents_binding.dart';
 import 'package:fleetdesk/app/bindings/geolocator_binding.dart';
 import 'package:fleetdesk/app/bindings/menu_binding.dart';
+import 'package:fleetdesk/app/bindings/messages_binding.dart';
 import 'package:fleetdesk/app/bindings/my_account_binding.dart';
 import 'package:fleetdesk/app/bindings/profile_binding.dart';
 import 'package:fleetdesk/app/bindings/ranking_binding.dart';
@@ -23,6 +24,7 @@ import 'package:fleetdesk/app/ui/android/recovery_password/recovery_password_not
 import 'package:fleetdesk/app/ui/android/recovery_password/recovery_password_page.dart';
 import 'package:fleetdesk/app/ui/android/tasks/tasks_info_page.dart';
 import 'package:fleetdesk/app/ui/android/tasks/tasks_page.dart';
+import 'package:fleetdesk/app/ui/messages.dart';
 import 'package:get/get.dart';
 import 'package:fleetdesk/app/bindings/login_binding.dart';
 import 'package:fleetdesk/app/ui/android/splash/splash_page.dart';
@@ -72,16 +74,27 @@ class AppPages {
         name: Routes.MY_ACCOUNT,
         page: () => MyAccountPage(),
         binding: MyAccountBinding()),
-    GetPage(name: Routes.RANKING, page: () => RankingPage(), binding: RankingBinding()),
-    GetPage(name: Routes.TASKS, page: () => TasksPage(), binding: TasksBinding()),
-    GetPage(name: Routes.TASKS_INFO, page: () => TasksInfoPage(), binding: TasksInfoBinding()),
     GetPage(
-      name: Routes.CONFIGURATIONPAGE,
-      page: () => ConfigurationPage(),
-      binding: ConfigurationBinding()),
+        name: Routes.RANKING,
+        page: () => RankingPage(),
+        binding: RankingBinding()),
     GetPage(
-      name: Routes.DOCUMENTS,
-      page: () => DocumentsPage(),
-      binding: DocumentsBinding()),
-    ];
+        name: Routes.TASKS, page: () => TasksPage(), binding: TasksBinding()),
+    GetPage(
+        name: Routes.MESSAGES,
+        page: () => MessagesPage(),
+        binding: MessagesBinding()),
+    GetPage(
+        name: Routes.TASKS_INFO,
+        page: () => TasksInfoPage(),
+        binding: TasksInfoBinding()),
+    GetPage(
+        name: Routes.CONFIGURATIONPAGE,
+        page: () => ConfigurationPage(),
+        binding: ConfigurationBinding()),
+    GetPage(
+        name: Routes.DOCUMENTS,
+        page: () => DocumentsPage(),
+        binding: DocumentsBinding()),
+  ];
   }

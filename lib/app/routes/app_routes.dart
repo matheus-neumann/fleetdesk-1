@@ -19,4 +19,5 @@ abstract class Routes {
   static const TASKS_INFO = '/tasks_info';
   static const CONFIGURATIONPAGE = '/configuration';
   static const DOCUMENTS = '/documents';
+  static const MESSAGES = '/messages';
 }

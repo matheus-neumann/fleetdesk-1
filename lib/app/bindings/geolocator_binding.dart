@@ -8,7 +8,9 @@ class GeolocatorBinding implements Bindings {
   @override
   void dependencies() {
     Get.lazyPut<GeolocatorController>(() {
-      return GeolocatorController();
+      return GeolocatorController(
+          repository:
+              Repository(apiClient: MyApiClient(httpClient: http.Client())));
     });
   }
 }

@@ -14,11 +14,23 @@ class Repository {
     return apiClient.getId(id);
   }
 
-  login() {
-    apiClient.login();
+  login(Map map) async {
+    return await apiClient.login(map);
   }
 
   signUp(Map register) {
     apiClient.signUp(register);
+  }
+
+  getUser(String email) async {
+    return await apiClient.getUser(email);
+  }
+
+  associatePlate(Map data) async {
+    return await apiClient.associatePlate(data);
+  }
+
+  sendPosition(Map data) async {
+    return await apiClient.sendPosition(data);
   }
 }

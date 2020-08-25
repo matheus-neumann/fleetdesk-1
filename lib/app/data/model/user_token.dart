@@ -1,3 +1,7 @@
+import 'package:fleetdesk/app/ui/theme/app_strings.dart';
+
+import 'package:fleetdesk/app/ui/theme/app_strings.dart';
+
 class UserToken {
   String token;
   DateTime creationDate;
@@ -6,12 +10,12 @@ class UserToken {
   UserToken({this.token, this.creationDate, this.expirationDate});
 
   factory UserToken.fromJson(Map<String, dynamic> json) => UserToken(
-        token: json['token'] == null ? null : json['token'],
-        creationDate: json['creation_date'] == null
+        token: json[AppStrings.token] == null ? null : json[AppStrings.token],
+        creationDate: json[AppStrings.creationDate] == null
             ? null
-            : DateTime.parse(json['creation_date']),
-        expirationDate: json['expiration_date'] == null
+            : DateTime.parse(json[AppStrings.creationDate]),
+        expirationDate: json[AppStrings.expirationDate] == null
             ? null
-            : DateTime.parse(json['expiration_date']),
+            : DateTime.parse(json[AppStrings.expirationDate]),
       );
 }

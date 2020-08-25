@@ -18,7 +18,11 @@ class CreateAccountController extends GetxController {
   CreateAccountController({@required this.repository})
       : assert(repository != null);
 
-  signUp(Map register) {
+  signUp(Map register) async {
     repository.signUp(register);
   }
+
+//  associatePlate(Map data) async {
+//    return await repository.associatePlate(data);
+//  }
 }

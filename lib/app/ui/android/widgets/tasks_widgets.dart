@@ -16,7 +16,7 @@ class TaskContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 117.h,
+      //height: 117.h,
       width: 328.w,
       margin: EdgeInsets.only(left: 16.w),
       child: InkWell(
@@ -24,7 +24,7 @@ class TaskContainer extends StatelessWidget {
           Get.toNamed(Routes.TASKS_INFO);
         },
         child: Container(
-          height: 117.h,
+          //height: 117.h,
           width: 328.w,
           decoration: BoxDecoration(
             color: Color(0xff1D2634),

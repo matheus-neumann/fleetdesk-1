@@ -62,17 +62,15 @@ class LoginPage extends StatelessWidget {
                       margin: EdgeInsets.only(
                           top: 309.h, bottom: 283.h, right: 32.w, left: 32.w),
                       child: TextFormField(
+                        controller: _.loginController,
                         decoration: InputDecoration(
-
-                            //contentPadding: EdgeInsets.only(left: 12.0, top: 16, bottom: 16),
                             border: InputBorder.none,
-                            //labelText: 'Informe seu e-mail',
                             hintText: 'Informe seu e-mail',
-                           // TODO - Adjust font size and font weight
-                           hintStyle: TextStyle(
-                             fontSize: 14.sp,
-                             color: Color.fromRGBO(32, 32, 31, 0.94),
-                           ),
+                            // TODO - Adjust font size and font weight
+                            hintStyle: TextStyle(
+                              fontSize: 14.sp,
+                              color: Color.fromRGBO(32, 32, 31, 0.94),
+                            ),
                             filled: true,
                             fillColor: Color.fromRGBO(242, 242, 242, 1),
                             enabledBorder: OutlineInputBorder(
@@ -102,6 +100,7 @@ class LoginPage extends StatelessWidget {
                         textAlign: TextAlign.left,
                         obscureText: _.obscureText,
                         keyboardType: TextInputType.visiblePassword,
+                        controller: _.passwordController,
                         decoration: InputDecoration(
                             //contentPadding: EdgeInsets.only(left: 12.0, top: 16, bottom: 16),
                             border: InputBorder.none,
@@ -153,17 +152,9 @@ class LoginPage extends StatelessWidget {
                           _.savePassword = newValue;
                           _.update();
                         },
-
-//                onChanged: (newValue) {
-//                  setState(() {
-//                   checkedValue = newValue;
-//                });
-//              },
                       ),
                     ),
                     Container(
-//                      height: 16.h,
-//                      width: 76.w,
                       margin: EdgeInsets.only(
                           top: 441.h, bottom: 183.h, right: 228.w, left: 56.w),
                       child: Text(
@@ -198,9 +189,12 @@ class LoginPage extends StatelessWidget {
                       111.0.h,
                       "Entrar",
                       null,
-                      onPressedMethod: () {
+                      onPressedMethod: () async {
                         //_.signUp({});
-                        _.login();
+                        await _.login({
+                          "login": _.loginController.text,
+                          "password": _.passwordController.text
+                        });
                       },
                     ),
 //                    Container(

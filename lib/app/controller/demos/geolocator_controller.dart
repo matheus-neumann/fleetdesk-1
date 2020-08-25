@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:fleetdesk/app/data/repository/repository.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:flutter_background_geolocation/flutter_background_geolocation.dart'
@@ -14,6 +16,11 @@ class GeolocatorController extends GetxController {
 //  String odometer;
 //  String content;
 
+  final Repository repository;
+
+  GeolocatorController({@required this.repository})
+      : assert(repository != null);
+
   String myLocation = '';
 
   @override
@@ -26,6 +33,32 @@ class GeolocatorController extends GetxController {
     // Fired whenever a location is recorded
     bg.BackgroundGeolocation.onLocation((bg.Location location) {
       print('[location] - $location');
+      Map map = {
+        "positions": [
+          {
+            "vehicle_id": 1,
+            "longitude": location.map['coords']['longitude'],
+            "latitude": location.map['coords']['latitude'],
+            "speed": location.map['coords']['speed'],
+            "heading": location.map['coords']['heading'],
+            "datetime_write": "2020-07-31 15:09:00",
+            "datetime_send": "2020-07-31 15:09:00",
+            "geofence": "0",
+            "accuracy": 1,
+            "is_moving": false,
+            "battery_is_charging":
+            false,
+            "odometer":
+            double.parse(location.map['odometer'].toStringAsFixed(2)),
+            "battery_level": location.map['battery']['level']
+          }
+        ]
+      };
+
+      print(map);
+
+      sendPosition(map);
+
       myLocation = location.toString();
       update();
     });
@@ -90,6 +123,15 @@ class GeolocatorController extends GetxController {
         bg.BackgroundGeolocation.start();
       }
     });
+  }
+
+  sendPosition(Map data) async {
+    var response = await repository.sendPosition(data);
+    if (response != null) {
+      print(response);
+    } else {
+      print('response == null');
+    }
   }
 
 //  void onClickEnable(enabled) {
