@@ -27,7 +27,7 @@ class TasksPage extends StatelessWidget {
         builder: (_) {
           return Scaffold(
             floatingActionButton: FloatingActionButton(
-              child: Icon(Icons.car_rental),
+//              child: Icon(Icons.car_rental),
               onPressed: () async {
                 var response = await TasksController.to.associatePlate(
                     {"car_license_plate": "AAA1234", "connect": 1});
