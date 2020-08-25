@@ -21,8 +21,6 @@ class LoginButton extends StatelessWidget {
     return Container(
       height: 48.h,
       width: 296.w,
-      margin:
-          EdgeInsets.only(top: top, bottom: bottom, right: 32.w, left: 32.w),
       child: RaisedButton(
         color: color ?? red,
         child: Text(
