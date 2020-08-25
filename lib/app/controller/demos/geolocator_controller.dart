@@ -32,6 +32,7 @@ class GeolocatorController extends GetxController {
 
     // Fired whenever a location is recorded
     bg.BackgroundGeolocation.onLocation((bg.Location location) {
+      //location.coords.
       print('[location] - $location');
       Map map = {
         "positions": [
