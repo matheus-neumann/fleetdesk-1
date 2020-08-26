@@ -20,4 +20,5 @@ abstract class Routes {
   static const CONFIGURATIONPAGE = '/configuration';
   static const DOCUMENTS = '/documents';
   static const MESSAGES = '/messages';
+  static const VEHICLEPLATE = '/vehicle_plate';
 }

@@ -64,6 +64,13 @@ class SplashPage extends StatelessWidget {
                       Get.toNamed(Routes.MENU);
                     },
                   ),
+                  FlatButton(
+                    child: Text('vehicle plate',
+                        style: TextStyle(color: Colors.white)),
+                    onPressed: () {
+                      Get.toNamed(Routes.VEHICLEPLATE);
+                    },
+                  ),
                 ],
               );
             },
