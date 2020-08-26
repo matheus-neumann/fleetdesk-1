@@ -22,4 +22,5 @@ abstract class Routes {
   static const MESSAGES = '/messages';
   static const VEHICLEPLATE = '/vehicle_plate';
   static const PINCODE = '/pin_code';
+  static const ALERTS = '/alerts';
 }

@@ -5,6 +5,7 @@ import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_logo.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
 import 'package:fleetdesk/app/ui/android/widgets/menu_button.dart';
+import 'package:fleetdesk/app/ui/android/widgets/navigation_bottom_bar.dart';
 import 'package:fleetdesk/app/ui/theme/app_assets.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class MenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
     return Scaffold(
+        bottomNavigationBar: BottomNavBar(currentIndex: 3,),
       body: SingleChildScrollView(
           child: SafeArea(
               child: Padding(
@@ -161,27 +163,6 @@ class MenuPage extends StatelessWidget {
           ],
         ),
       ))),
-      bottomNavigationBar: Container(
-        height: 64.h,
-        width: 360.w,
-        child: BottomNavigationBar(
-          currentIndex: 0, // this will be set when a new tab is tapped
-          items: [
-            BottomNavigationBarItem(
-              icon: new Icon(Icons.home),
-              title: new Text('Home'),
-            ),
-            BottomNavigationBarItem(
-              icon: new Icon(Icons.mail),
-              title: new Text('Messages'),
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                title: Text('Profile')
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

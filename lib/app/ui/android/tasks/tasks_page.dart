@@ -8,6 +8,7 @@ import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_logo.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
 import 'package:fleetdesk/app/ui/android/widgets/menu_button.dart';
+import 'package:fleetdesk/app/ui/android/widgets/navigation_bottom_bar.dart';
 import 'package:fleetdesk/app/ui/android/widgets/tasks_widgets.dart';
 import 'package:fleetdesk/app/ui/theme/app_assets.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
@@ -37,53 +38,7 @@ class TasksPage extends StatelessWidget {
                 print(response.toString());
               },
             ),
-            bottomNavigationBar: ClipRRect(
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(20.sp),
-                  topLeft: Radius.circular(20.sp)),
-              child: BottomNavigationBar(
-                type: BottomNavigationBarType.fixed,
-                items: [
-                  BottomNavigationBarItem(
-                      icon: Icon(
-                        Icons.work,
-                        color: Colors.black,
-                      ),
-                      title: Text(
-                        'Tarefas',
-                        style: TextStyle(color: Colors.black),
-                      )),
-                  BottomNavigationBarItem(
-                    icon: Icon(
-                      Icons.message,
-                      color: Colors.black,
-                    ),
-                    title: Text(
-                      'Mensagens',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                  ),
-                  BottomNavigationBarItem(
-                      icon: Icon(
-                        Icons.add_alert,
-                        color: Colors.black,
-                      ),
-                      title: Text(
-                        'Alertas',
-                        style: TextStyle(color: Colors.black),
-                      )),
-                  BottomNavigationBarItem(
-                      icon: Icon(
-                        Icons.menu,
-                        color: Colors.black,
-                      ),
-                      title: Text(
-                        'Menu',
-                        style: TextStyle(color: Colors.black),
-                      )),
-                ],
-              ),
-            ),
+            bottomNavigationBar: BottomNavBar(currentIndex: 0,),
             backgroundColor: splashColor,
             body: SingleChildScrollView(
               child: SafeArea(

@@ -1,3 +1,4 @@
+import 'package:fleetdesk/app/bindings/alerts_binding.dart';
 import 'package:fleetdesk/app/bindings/bluetooth_binding.dart';
 import 'package:fleetdesk/app/bindings/configuration_binding.dart';
 import 'package:fleetdesk/app/bindings/create_account_binding.dart';
@@ -13,6 +14,7 @@ import 'package:fleetdesk/app/bindings/recovery_password_notification_binding.da
 import 'package:fleetdesk/app/bindings/tasks_binding.dart';
 import 'package:fleetdesk/app/bindings/tasks_info_binding.dart';
 import 'package:fleetdesk/app/bindings/vehicle_plate_binding.dart';
+import 'package:fleetdesk/app/ui/android/alerts/alerts_page.dart';
 import 'package:fleetdesk/app/ui/android/configuration/configuration_page.dart';
 import 'package:fleetdesk/app/ui/android/create-account/create_account_page.dart';
 import 'package:fleetdesk/app/ui/android/demos/bluetooth_page.dart';
@@ -108,5 +110,9 @@ class AppPages {
       name: Routes.PINCODE,
       page: () => PinCodePage(),
       binding: PinCodeBinding()),
+    GetPage(
+      name: Routes.ALERTS,
+      page: () => AlertsPage(),
+      binding: AlertsBinding()),
     ];
   }

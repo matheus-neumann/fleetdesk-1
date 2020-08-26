@@ -2,11 +2,14 @@ import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'android/widgets/navigation_bottom_bar.dart';
+
 class MessagesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
     return Scaffold(
+      bottomNavigationBar: BottomNavBar(currentIndex: 1,),
       backgroundColor: splashColor,
       body: SingleChildScrollView(
         child: SafeArea(
