@@ -14,7 +14,7 @@ import 'package:fleetdesk/app/controller/login/login_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_input_text_field/pin_input_text_field.dart';
 
-class VehiclePlatePage extends StatelessWidget {
+class PinCodePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
@@ -41,7 +41,7 @@ class VehiclePlatePage extends StatelessWidget {
                         child: FittedBox(
                           // TODO - Verify size and position of text
                           child: Text(
-                            'Informe a placa do veículo',
+                            'Informe o código',
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16.sp,
@@ -56,7 +56,7 @@ class VehiclePlatePage extends StatelessWidget {
                       Container(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          'Precisamos que você informe abaixo\na placa do veículo que está utilizando.',
+                          'Enviamos um código via SMS para\nseu celular cadastrado.',
 //                          textAlign: TextAlign.center,
                           style: TextStyle(
                               fontSize: 14.sp,
@@ -85,11 +85,11 @@ class VehiclePlatePage extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         //margin: EdgeInsets.only(right: 32.w),
                         child: PinInputTextFormField(
-                          pinLength: 7,
+                          pinLength: 5,
                           decoration: BoxLooseDecoration(
                             solidColor: Color(0xffF2F2F2),
                             strokeColor: Color(0xffF2F2F2),
-                            gapSpace: 3,
+                            gapSpace: 15,
                           ),
                         ),
                       ),
@@ -99,7 +99,8 @@ class VehiclePlatePage extends StatelessWidget {
                       LoginButton(441.0.h, 151.0.h, "Confirmar", null, onPressedMethod: () => Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => MenuPage()),
-                      ),),
+                      ),
+                      ),
                     ],
                   ),
                 ),

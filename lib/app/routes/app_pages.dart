@@ -6,6 +6,7 @@ import 'package:fleetdesk/app/bindings/geolocator_binding.dart';
 import 'package:fleetdesk/app/bindings/menu_binding.dart';
 import 'package:fleetdesk/app/bindings/messages_binding.dart';
 import 'package:fleetdesk/app/bindings/my_account_binding.dart';
+import 'package:fleetdesk/app/bindings/pin_code_binding.dart';
 import 'package:fleetdesk/app/bindings/profile_binding.dart';
 import 'package:fleetdesk/app/bindings/ranking_binding.dart';
 import 'package:fleetdesk/app/bindings/recovery_password_notification_binding.dart';
@@ -19,6 +20,7 @@ import 'package:fleetdesk/app/ui/android/demos/geolocator_page.dart';
 import 'package:fleetdesk/app/ui/android/documents/documents_page.dart';
 import 'package:fleetdesk/app/ui/android/menu/menu_page.dart';
 import 'package:fleetdesk/app/ui/android/my_account/my_account_page.dart';
+import 'package:fleetdesk/app/ui/android/pin_code/pin_code_page.dart';
 import 'package:fleetdesk/app/ui/android/profile/profile_page.dart';
 import 'package:fleetdesk/app/ui/android/ranking/ranking_page.dart';
 import 'package:fleetdesk/app/ui/android/recovery_password/recovery_password_notification.dart';
@@ -102,5 +104,9 @@ class AppPages {
       name: Routes.VEHICLEPLATE,
       page: () => VehiclePlatePage(),
       binding: VehiclePlateBinding()),
+    GetPage(
+      name: Routes.PINCODE,
+      page: () => PinCodePage(),
+      binding: PinCodeBinding()),
     ];
   }

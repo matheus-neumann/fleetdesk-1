@@ -71,6 +71,13 @@ class SplashPage extends StatelessWidget {
                       Get.toNamed(Routes.VEHICLEPLATE);
                     },
                   ),
+                  FlatButton(
+                    child: Text('pin code',
+                        style: TextStyle(color: Colors.white)),
+                    onPressed: () {
+                      Get.toNamed(Routes.PINCODE);
+                    },
+                  ),
                 ],
               );
             },
