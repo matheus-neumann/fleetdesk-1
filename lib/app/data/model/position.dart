@@ -16,14 +16,14 @@ class Position {
   });
 
   int vehicleId;
-  int longitude;
-  int latitude;
-  int speed;
-  int heading;
+  double longitude;
+  double latitude;
+  double speed;
+  double heading;
   String datetimeWrite;
   String datetimeSend;
   String geofence;
-  int accuracy;
+  double accuracy;
   bool isMoving;
   bool batteryIsCharging;
   double odometer;
