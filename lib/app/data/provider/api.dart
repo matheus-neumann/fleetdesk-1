@@ -143,7 +143,7 @@ class MyApiClient {
           data: data,
           options: Options(
             headers: headerWithToken(token),
-            contentType: Headers.formUrlEncodedContentType,
+            contentType: Headers.jsonContentType,
           ));
       print(response.data.toString());
       print(response.statusMessage);

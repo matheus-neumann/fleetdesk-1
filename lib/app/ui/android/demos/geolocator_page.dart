@@ -1,4 +1,6 @@
 import 'package:fleetdesk/app/controller/demos/geolocator_controller.dart';
+import 'package:fleetdesk/app/data/model/position.dart';
+import 'package:fleetdesk/app/data/provider/db_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,6 +10,13 @@ class GeolocatorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          List<Position> list = await DBProvider.db.getAllEmployees();
+          print(list.toString());
+        },
+        child: Icon(Icons.add),
+      ),
       appBar: AppBar(
         title: Text('Geolocator testing'),
       ),

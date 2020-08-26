@@ -1,5 +1,8 @@
 import 'dart:convert';
 
+import 'package:dash_chat/dash_chat.dart';
+import 'package:fleetdesk/app/data/model/position.dart';
+import 'package:fleetdesk/app/data/provider/db_provider.dart';
 import 'package:fleetdesk/app/data/repository/repository.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -31,10 +34,21 @@ class GeolocatorController extends GetxController {
     //
 
     // Fired whenever a location is recorded
-    bg.BackgroundGeolocation.onLocation((bg.Location location) {
+    bg.BackgroundGeolocation.onLocation((bg.Location location) async {
       //location.coords.
+      double batteryLevel = location.map['battery']['level'];
+      int batteryint = batteryLevel.truncate();
       print('[location] - $location');
-      Map map = {
+
+      DateTime timestamp = DateTime.parse(location.timestamp);
+
+
+      print(timestamp.timeZoneName);
+      print(timestamp.timeZoneOffset.toString());
+      print(timestamp);
+
+
+      Map<String, dynamic> map = {
         "positions": [
           {
             "vehicle_id": 1,
@@ -42,23 +56,25 @@ class GeolocatorController extends GetxController {
             "latitude": location.map['coords']['latitude'],
             "speed": location.map['coords']['speed'],
             "heading": location.map['coords']['heading'],
-            "datetime_write": "2020-07-31 15:09:00",
-            "datetime_send": "2020-07-31 15:09:00",
+            "datetime_write": DateFormat('yyyy-MM-dd HH:mm:ss').format(
+                timestamp),
+            "datetime_send": DateFormat('yyyy-MM-dd HH:mm:ss').format(
+                DateTime.now()),
             "geofence": "0",
             "accuracy": 1,
-            "is_moving": false,
-            "battery_is_charging":
-            false,
+            "is_moving": 0,
+            "battery_is_charging": 0,
             "odometer":
             double.parse(location.map['odometer'].toStringAsFixed(2)),
-            "battery_level": location.map['battery']['level']
+            "battery_level": batteryint
           }
         ]
       };
 
       print(map);
-
-      sendPosition(map);
+//      await DBProvider.db.initDB();
+      await DBProvider.db.createPosition(Position.fromJson(map));
+      await sendPosition(map);
 
       myLocation = location.toString();
       update();
