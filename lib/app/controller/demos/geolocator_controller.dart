@@ -43,9 +43,12 @@ class GeolocatorController extends GetxController {
       DateTime timestamp = DateTime.parse(location.timestamp);
 
 
-      print(timestamp.timeZoneName);
-      print(timestamp.timeZoneOffset.toString());
-      print(timestamp);
+//      print(timestamp.timeZoneName);
+//      print(timestamp.timeZoneOffset.toString());
+//      print(timestamp);
+
+      int batteryIsCharging = location.battery.isCharging ? 1 : 0;
+      int isMoving = location.isMoving ? 1 : 0;
 
 
       Map<String, dynamic> map = {
@@ -57,13 +60,13 @@ class GeolocatorController extends GetxController {
             "speed": location.map['coords']['speed'],
             "heading": location.map['coords']['heading'],
             "datetime_write": DateFormat('yyyy-MM-dd HH:mm:ss').format(
-                timestamp),
-            "datetime_send": DateFormat('yyyy-MM-dd HH:mm:ss').format(
                 DateTime.now()),
+            "datetime_send": DateFormat('yyyy-MM-dd HH:mm:ss').format(timestamp
+            ),
             "geofence": "0",
-            "accuracy": 1,
-            "is_moving": 0,
-            "battery_is_charging": 0,
+            "accuracy": location.map['coords']['accuracy'],
+            "is_moving": isMoving,
+            "battery_is_charging": batteryIsCharging,
             "odometer":
             double.parse(location.map['odometer'].toStringAsFixed(2)),
             "battery_level": batteryint
