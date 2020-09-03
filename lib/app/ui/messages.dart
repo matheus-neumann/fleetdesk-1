@@ -209,19 +209,24 @@ class MessagesPage extends StatelessWidget {
                             margin: EdgeInsets.only(bottom: 22.h),
                             width: 256.w,
                             height: 40.h,
-                            decoration: BoxDecoration(
-                                color: Color(0XFFF2F2F2),
-                                borderRadius: BorderRadius.circular(10.sp)),
-                            child: Container(
-                              margin: EdgeInsets.only(left: 12.w, top: 12.h),
-                              child: Text(
-                                'Escreva sua mensagem',
-                                style: TextStyle(
-                                  fontSize: 14.sp,
+                            child: TextField(
+
+                                decoration: InputDecoration(
+                                  hintText: 'Escreva sua mensagem',
+                                  hintStyle: TextStyle(
+                                  color: Color(0xff201F1F),
+                                  ),
+                                  contentPadding: EdgeInsets.only(left: 12.w, bottom: 12.h, top: 12.h),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10.sp),
+                                    borderSide: BorderSide.none,
+                                  ),
+                                  //disabledBorder: BorderSide.none,
+                                  filled: true,
+                                  fillColor: Color(0XFFF2F2F2),
                                 ),
                               ),
                             ),
-                          ),
                           SizedBox(
                             width: 16.w,
                           ),
