@@ -1,11 +1,9 @@
-import 'package:fleetdesk/app/controller/create_account/create_account_controller.dart';
+import 'package:fleetdesk/app/controller/create_account/controller.dart';
 import 'package:fleetdesk/app/routes/app_pages.dart';
-import 'package:fleetdesk/app/ui/android/login/login_page.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_logo.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
 import 'package:fleetdesk/app/ui/android/widgets/text_field_register.dart';
-import 'package:fleetdesk/app/ui/theme/app_assets.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,8 +21,8 @@ class CreateAccountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
-    return GetBuilder<CreateAccountController>(
-        init: CreateAccountController.to,
+    return GetBuilder<Controller>(
+        init: Controller.to,
         builder: (_) {
           return Scaffold(
               backgroundColor: greyBG,
@@ -40,7 +38,8 @@ class CreateAccountPage extends StatelessWidget {
                         Container(
                           height: 716.h,
                           width: 328.w,
-                          margin: EdgeInsets.only(left: 32.w, top: 84.h,right: 32.w),
+                          margin: EdgeInsets.only(
+                              left: 32.w, top: 84.h, right: 32.w),
                           child: Column(
                             children: [
                               SizedBox(
@@ -108,7 +107,8 @@ class CreateAccountPage extends StatelessWidget {
                                 focusNode: nameFocus,
                                 topMargin: 208.h,
                                 onFieldSubmitted: (input) {
-                                  FocusScope.of(context).requestFocus(lastNameFocus);
+                                  FocusScope.of(context)
+                                      .requestFocus(lastNameFocus);
                                 },
                               ),
                               SizedBox(
@@ -182,7 +182,8 @@ class CreateAccountPage extends StatelessWidget {
                                 focusNode: cpfFocus,
                                 topMargin: 360.h,
                                 onFieldSubmitted: (input) {
-                                  FocusScope.of(context).requestFocus(emailFocus);
+                                  FocusScope.of(context)
+                                      .requestFocus(emailFocus);
                                 },
                               ),
                               SizedBox(
@@ -219,7 +220,8 @@ class CreateAccountPage extends StatelessWidget {
                                 focusNode: emailFocus,
                                 topMargin: 436.h,
                                 onFieldSubmitted: (input) {
-                                  FocusScope.of(context).requestFocus(phoneFocus);
+                                  FocusScope.of(context)
+                                      .requestFocus(phoneFocus);
                                 },
                               ),
                               SizedBox(
@@ -256,7 +258,8 @@ class CreateAccountPage extends StatelessWidget {
                                 focusNode: phoneFocus,
                                 topMargin: 512.h,
                                 onFieldSubmitted: (input) {
-                                  FocusScope.of(context).requestFocus(passwordFocus);
+                                  FocusScope.of(context)
+                                      .requestFocus(passwordFocus);
                                 },
                               ),
                               SizedBox(
@@ -288,7 +291,7 @@ class CreateAccountPage extends StatelessWidget {
                               ),
                               TextFieldRegister(
                                 hidePassword: true,
-                                controller: _.passwordController,
+                                controller: _.registerPasswordController,
                                 hintText: 'Digite uma senha',
                                 textInputAction: TextInputAction.next,
                                 focusNode: passwordFocus,
@@ -341,18 +344,26 @@ class CreateAccountPage extends StatelessWidget {
                                 38.h,
                                 "Criar conta",
                                 Routes.LOGIN,
-                                onPressedMethod: () {
+                                onPressedMethod: () async {
                                   print(_.nameController.text);
-                                  _.signUp({
+                                  var response = await _.signUp({
                                     'name': _.nameController.text ?? '',
-                                    'last_name': _.lastNameController.text ?? '',
-                                    'cpf': int.parse(_.cpfController.text ?? '1'),
+                                    'last_name':
+                                    _.lastNameController.text ?? '',
+                                    'cpf':
+                                    int.parse(_.cpfController.text ?? '1'),
                                     'email': _.emailController.text ?? '',
-                                    'phone': int.parse(_.phoneController.text ?? '1'),
-                                    'password': _.passwordController.text ?? '',
+                                    'phone': int.parse(
+                                        _.phoneController.text ?? '1'),
+                                    'password':
+                                    _.registerPasswordController.text ?? '',
                                     'password_confirmation':
                                     _.passwordConfirmController.text ?? ''
                                   });
+                                  print(response);
+                                  if (response != null) {
+                                    await _.getUser(_.emailController.text);
+                                  }
                                 },
                               ),
                             ],

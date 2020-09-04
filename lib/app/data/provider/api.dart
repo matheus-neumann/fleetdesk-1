@@ -1,11 +1,12 @@
 import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:fleetdesk/app/data/model/model.dart';
 import 'package:fleetdesk/app/ui/theme/app_strings.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart' as SS;
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
-import 'package:dio/dio.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart' as SS;
 
 const baseUrl = 'http://hml.fleetdesk.com.br/api/v1/';
 
@@ -75,7 +76,7 @@ class MyApiClient {
     }
   }
 
-  signUp(Map register) async {
+  Future<Response> signUp(Map register) async {
     dio.options.contentType = Headers.formUrlEncodedContentType;
 
     try {
@@ -90,9 +91,47 @@ class MyApiClient {
       Get.defaultDialog(
           title: 'success = ${response.data['success'].toString()}',
           middleText: '${response.data['message']}');
+      return response;
     } catch (error) {
       print(error.toString());
-      Get.defaultDialog(title: 'error', middleText: '${error.toString()}');
+      Get.defaultDialog(
+          title: 'error', middleText: '${error.response.data['message']}');
+      return null;
+    }
+  }
+
+  generateToken(int userId) async {
+//    dio.options.contentType = Headers.jsonContentType;
+
+    try {
+      var response = await dio.get(baseUrl + 'users/$userId/token',
+          options: Options(
+            headers: header,
+            contentType: Headers.jsonContentType,
+          ));
+      print(response.data.toString());
+      return response;
+    } catch (error) {
+      print(error.toString());
+      return null;
+    }
+  }
+
+  activateUser(int userId, Map data) async {
+//    dio.options.contentType = Headers.jsonContentType;
+
+    try {
+      var response = await dio.post(baseUrl + 'users/$userId/token',
+          data: data,
+          options: Options(
+            headers: header,
+            contentType: Headers.formUrlEncodedContentType,
+          ));
+      print(response.data.toString());
+      return response;
+    } catch (error) {
+      print(error.toString());
+      return null;
     }
   }
 

@@ -1,3 +1,4 @@
+import 'package:fleetdesk/app/controller/create_account/controller.dart';
 import 'package:fleetdesk/app/controller/demos/geolocator_controller.dart';
 import 'package:fleetdesk/app/data/model/position.dart';
 import 'package:fleetdesk/app/data/provider/db_provider.dart';
@@ -5,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class GeolocatorPage extends StatelessWidget {
-  GeolocatorController geolocatorController = Get.find<GeolocatorController>();
+  Controller geolocatorController = Get.find<Controller>();
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class GeolocatorPage extends StatelessWidget {
         title: Text('Geolocator testing'),
       ),
       body: Container(
-        child: GetBuilder<GeolocatorController>(
+        child: GetBuilder<Controller>(
             init: geolocatorController,
             initState: (_) {
               //geolocatorController.onClickEnable(geolocatorController.enabled);

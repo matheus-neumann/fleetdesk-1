@@ -1,7 +1,5 @@
 import 'package:fleetdesk/app/ui/theme/app_strings.dart';
 
-import 'package:fleetdesk/app/ui/theme/app_strings.dart';
-
 class UserToken {
   String token;
   DateTime creationDate;
