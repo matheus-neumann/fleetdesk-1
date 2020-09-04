@@ -60,7 +60,7 @@ class Controller extends GetxController {
   TextEditingController pinController = TextEditingController();
   bool pinCodeSuccess = false;
 
-  Controller({@required this.repository}); //: assert(repository != null);
+  Controller({@required this.repository}) : assert(repository != null);
 
   @override
   void onInit() {
