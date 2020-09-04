@@ -1,3 +1,4 @@
+import 'package:fleetdesk/app/controller/alerts/alerts_controller.dart';
 import 'package:fleetdesk/app/routes/app_pages.dart';
 import 'package:fleetdesk/app/ui/android/tasks/tasks_info_page.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
@@ -15,71 +16,83 @@ class AlertsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 122.h,
-      width: 328.w,
-      margin: EdgeInsets.only(left: 16.w),
-      child: Container(
-        //height: 117.h,
-        width: 328.w,
-        decoration: BoxDecoration(
-          color: Color(0xff1D2634),
-          borderRadius: BorderRadius.circular(
-              20), // TODO - Verify radius of Container Fields
-        ),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 12.h,
-            ),
-            Container(
-              alignment: Alignment.centerLeft,
-              margin: EdgeInsets.only(left: 8.w),
-              child: Text(
-                "Nova solicitação de entrega",
-                style: TextStyle(
+    return GetBuilder<AlertsController>(
+          init: Get.find<AlertsController>(),
+          builder: (_) {
+            return Container(
+              //height: 122.h,
+              width: 328.w,
+              margin: EdgeInsets.only(left: 16.w),
+              child: Container(
+                //height: 117.h,
+                width: 328.w,
+                decoration: BoxDecoration(
+                  color: Color(0xff1D2634),
+                  borderRadius: BorderRadius.circular(
+                      20), // TODO - Verify radius of Container Fields
+                ),
+                child: Column(
+                  children: [
+                  SizedBox(
+                  height: 12.h,
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  margin: EdgeInsets.only(left: 8.w),
+                  child: Text(
+                   'teste',
+                    // _.alerts[index].title,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 5.h,
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  margin: EdgeInsets.only(left: 8.w),
+                  child: Text(
+                  'teste',
+                    //_.alerts[index].notification,
+                  style: TextStyle(
                   color: Colors.white,
                   fontSize: 14.sp,
-                  fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 5.h,
-            ),
-            Container(
-              alignment: Alignment.centerLeft,
-              margin: EdgeInsets.only(left: 8.w),
-              child: Text(
-                "Lorem ipsum dolor sit amet, consectetuer\nadipiscing elit. Aenean commodo ligula\neget dolor. Aenean massa.",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14.sp,
+              SizedBox(
+                height: 10.h,
+              ),
+              Container(margin: EdgeInsets.only(left: 8.w),
+                  alignment: Alignment.centerLeft,
+                  child: CustomPaint(painter: LineDashedPainter(),)),
+              SizedBox(
+                height: 10.h,
+              ),
+              Container(
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.only(left: 244.w),
+                child: Text(
+                  //"${_.alerts[index].hour} | ${_.alerts[index].day}",
+                  'teste',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 10.sp,
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 10.h,
-            ),
-            Container( margin: EdgeInsets.only(left: 8.w), alignment: Alignment.centerLeft,child: CustomPaint(painter: LineDashedPainter(),)),
-            SizedBox(
-              height: 10.h,
-            ),
-            Container(
-              alignment: Alignment.centerLeft,
-              margin: EdgeInsets.only(left: 244.w),
-              child: Text(
-                "18:36 | 14/07/20",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 10.sp,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+                    SizedBox(
+                      height: 8.h,
+                    ),
+              ],
+            ),)
+            ,
+            );
+          });
   }
 }
 

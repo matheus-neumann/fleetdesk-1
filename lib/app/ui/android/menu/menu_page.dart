@@ -18,7 +18,9 @@ class MenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
     return Scaffold(
-        bottomNavigationBar: BottomNavBar(currentIndex: 3,),
+      bottomNavigationBar: BottomNavBar(
+        currentIndex: 3,
+      ),
       body: SingleChildScrollView(
           child: SafeArea(
               child: Padding(
@@ -53,12 +55,14 @@ class MenuPage extends StatelessWidget {
             ),
             //MenuButton(left: 31.w, top: 207.h, right: 34.w, bottom: 398.h, text: 'Ranking', icon: Icons.trending_up, navPage: Routes.RANKING,),
             MenuButton(
-                left: 31.w,
-                top: 215.h,
-                right: 34.w,
-                bottom: 351.h,
-                text: 'Alertas',
-                icon: Icons.notifications),
+              left: 31.w,
+              top: 215.h,
+              right: 34.w,
+              bottom: 351.h,
+              text: 'Alertas',
+              icon: Icons.notifications,
+              navPage: Routes.ALERTS,
+            ),
             MenuButton(
               left: 31.w,
               top: 270.h,
@@ -97,19 +101,17 @@ class MenuPage extends StatelessWidget {
                   text: TextSpan(
                     text: 'Olá,\n',
                     style: TextStyle(
-                      fontSize: 16.sp,
-                      color: Colors.white,
-                        fontFamily: 'Montserrat'
-                    ),
+                        fontSize: 16.sp,
+                        color: Colors.white,
+                        fontFamily: 'Montserrat'),
                     /*defining default style is optional */
                     children: <TextSpan>[
                       TextSpan(
                           text: 'Ricardo Gomes',
                           style: TextStyle(
-                            fontSize: 22.sp,
-                            color: Colors.white,
-                              fontFamily: 'MontserratBold'
-                          )),
+                              fontSize: 22.sp,
+                              color: Colors.white,
+                              fontFamily: 'MontserratBold')),
                     ],
                   ),
                 ),
@@ -117,8 +119,7 @@ class MenuPage extends StatelessWidget {
             ),
             Container(
               height: 24.h,
-              margin: EdgeInsets.only(
-                  top: 465.h, bottom: 151.h, left: 114.w),
+              margin: EdgeInsets.only(top: 465.h, bottom: 151.h, left: 114.w),
               child: Text(
                 'Placa do veiculo',
                 style: TextStyle(
@@ -129,21 +130,18 @@ class MenuPage extends StatelessWidget {
             ),
             Container(
               height: 24.h,
-              margin: EdgeInsets.only(
-                  top: 485.h, bottom: 132.h, left: 139.w),
+              margin: EdgeInsets.only(top: 485.h, bottom: 132.h, left: 139.w),
               child: Text(
                 'IJSH8JSG',
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.bold,
-                    fontFamily: 'MontserratBold'
-                ),
+                    color: Colors.white,
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'MontserratBold'),
               ),
             ),
             Container(
-              margin: EdgeInsets.only(
-                  top: 524.h, bottom: 92.h, left: 149.w),
+              margin: EdgeInsets.only(top: 524.h, bottom: 92.h, left: 149.w),
               child: GestureDetector(
                 child: Text(
                   'Logout',

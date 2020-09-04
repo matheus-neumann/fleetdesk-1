@@ -73,6 +73,12 @@ class AlertsPage extends StatelessWidget {
                 SizedBox(
                   height: 21.h,
                 ),
+//                ListView.builder(
+//                  itemCount: _.alerts.length,
+//                  itemBuilder: (ctxt, int index){
+//
+//                  },
+//                )
                 Container(
                   alignment: Alignment.centerLeft,
                   margin: EdgeInsets.only(left: 16.w),

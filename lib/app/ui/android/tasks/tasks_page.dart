@@ -27,29 +27,33 @@ class TasksPage extends StatelessWidget {
         init: TasksController.to,
         builder: (_) {
           return Scaffold(
-            floatingActionButton: FloatingActionButton(
-//              child: Icon(Icons.car_rental),
-              onPressed: () async {
-                var response = await TasksController.to.associatePlate(
-                    {"car_license_plate": "AAA1234", "connect": 1});
-                final storage = new FlutterSecureStorage();
-                await storage.write(
-                    key: AppStrings.plate, value: response.toString());
-                print(response.toString());
-              },
+//            floatingActionButton: FloatingActionButton(
+////              child: Icon(Icons.car_rental),
+//              onPressed: () async {
+//                var response = await TasksController.to.associatePlate(
+//                    {"car_license_plate": "AAA1234", "connect": 1});
+//                final storage = new FlutterSecureStorage();
+//                await storage.write(
+//                    key: AppStrings.plate, value: response.toString());
+//                print(response.toString());
+//              },
+//            ),
+            bottomNavigationBar: BottomNavBar(
+              currentIndex: 0,
             ),
-            bottomNavigationBar: BottomNavBar(currentIndex: 0,),
             backgroundColor: splashColor,
             body: SingleChildScrollView(
               child: SafeArea(
                 child: Padding(
                   padding: EdgeInsets.only(
                       bottom: MediaQuery.of(context).viewInsets.bottom),
-                  child: Stack(children: [
+                  child: Column(children: [
                     Container(
+                      alignment: Alignment.centerLeft,
                       margin: EdgeInsets.only(left: 16.w, top: 16.h),
                       child: Text(
                         'Tarefas',
+                        textAlign: TextAlign.left,
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 26.sp,
@@ -57,49 +61,112 @@ class TasksPage extends StatelessWidget {
                             letterSpacing: 0.3.sp),
                       ),
                     ),
-                    Container(
-                      height: 41.h,
-                      width: 328.w,
-                      color: Colors.white,
-                      margin: EdgeInsets.only(left: 16.w, top: 65.h),
-                      child: FlatButton(
-                        child: Text(
-                          'geolocator',
-                        ),
-                        onPressed: () {
-                          Get.toNamed(Routes.GEOLOCATOR);
-                        },
-                      ),
+                    SizedBox(
+                      height: 13.h,
                     ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        SizedBox(
-                          height: 122.h,
-                        ),
-                        TaskContainer(),
-                        SizedBox(
-                          height: 16.h,
-                        ),
-                        TaskContainer(),
-                        SizedBox(
-                          height: 16.h,
-                        ),
-                        TaskContainer(),
-                        SizedBox(
-                          height: 16.h,
-                        ),
-                        TaskContainer(),
-                        SizedBox(
-                          height: 16.h,
-                        ),
-                        TaskContainer(),
-                        SizedBox(
-                          height: 16.h,
-                        ),
-                        TaskContainer(),
-                      ],
-                    )
+                    Container(
+                      height: 32.h,
+                      width: 328.w,
+                      decoration: BoxDecoration(
+                          color: Color(0xff1D2634),
+                          borderRadius: BorderRadius.circular(20.sp)),
+                      child: Row(
+                        children: [
+                          Container(
+                              height: 32.h,
+                              width: 104.w,
+                              decoration: BoxDecoration(
+                                  //color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20.sp)),
+                              child: FlatButton(
+                                textColor: red,
+                                disabledColor: Color(0xff1D2634),
+                                disabledTextColor: Colors.white.withOpacity(0.3),
+                                //color: Colors.white,
+                                //splashColor: Color(0xff1D2634),
+                                shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
+                                onPressed: () => {
+                                  Get.put(TasksController()),
+                                  TasksController.to.indexTasks = 0,
+                                  _.update()
+                                },
+                                child: Text(
+                                  'Ativas',
+                                  style: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: Colors.white.withOpacity(0.3)
+                                  ),),)),
+                          Container(
+                              height: 32.h,
+                              width: 104.w,
+                              decoration: BoxDecoration(
+                                //color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20.sp)),
+                              child: FlatButton(
+                                //focusColor: Colors.white,
+
+                                textColor: red,
+                                disabledColor: Color(0xff1D2634),
+                                disabledTextColor: Colors.white.withOpacity(0.3),
+                                //color: Colors.white,
+                                //splashColor: Color(0xff1D2634),
+                                shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
+                                onPressed: () => {
+                                  Get.put(TasksController()),
+                                  TasksController.to.indexTasks = 1,
+                                  _.update()
+                                  },
+                                child: Text(
+                                  'Parciais',
+                                  style: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: Colors.white.withOpacity(0.3)
+                                  ),),)),
+                          Container(
+                              height: 32.h,
+                              width: 110.w,
+                              decoration: BoxDecoration(
+                                //color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20.sp)),
+                              child: FlatButton(
+                                textColor: red,
+                                disabledColor: Color(0xff1D2634),
+                                disabledTextColor: Colors.white.withOpacity(0.3),
+                                //color: Colors.white,
+                                //splashColor: Color(0xff1D2634),
+                                shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
+                                onPressed: () => {
+                                  Get.put(TasksController()),
+                                  TasksController.to.indexTasks = 2,
+                                  _.update()
+                                },
+                                child: Text(
+                                  'Concluídas',
+                                  style: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: Colors.white.withOpacity(0.3)
+                                  ),),)),
+                        ],
+                      ),
+//                      child: FlatButton(
+//                        child: Text(
+//                          'geolocator',
+//                        ),
+//                        onPressed: () {
+//                          Get.toNamed(Routes.GEOLOCATOR);
+//                        },
+//                      ),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    ListView.builder(
+                        //scrollDirection: Axis.horizontal,
+                        itemCount: 1,
+                        shrinkWrap: true,
+                        itemBuilder: (BuildContext ctxt, int index) {
+                          return TasksController.to.childrenTasks[TasksController.to.indexTasks];
+                        })
                   ]),
                 ),
               ),

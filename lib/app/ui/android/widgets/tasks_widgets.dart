@@ -18,7 +18,7 @@ class TaskContainer extends StatelessWidget {
     return Container(
       //height: 117.h,
       width: 328.w,
-      margin: EdgeInsets.only(left: 16.w),
+      //margin: EdgeInsets.only(left: 16.w),
       child: InkWell(
         onTap: () {
           Get.toNamed(Routes.TASKS_INFO);

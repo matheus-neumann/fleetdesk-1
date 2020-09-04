@@ -4,5 +4,8 @@ import 'package:fleetdesk/app/data/repository/repository.dart';
 import 'package:meta/meta.dart';
 
 class AlertsController extends GetxController {
+  var alerts = new List<String>();
+
+
 
 }
