@@ -26,59 +26,61 @@ class SplashPage extends StatelessWidget {
               });
             },
             builder: (_) {
-              return Column(
-                children: [
-                  Container(
-                    width: 224.w,
-                    height: 50.h,
-                    margin: EdgeInsets.only(top: 295.h, left: 68.w),
-                    child: Image.asset(AppAssets.fleetdeskLogo),
-                  ),
-                  FlatButton(
-                    child: Text(
-                      'geolocator',
-                      style: TextStyle(color: Colors.white),
+              return SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Container(
+                      width: 224.w,
+                      height: 50.h,
+                      margin: EdgeInsets.only(top: 295.h, left: 68.w),
+                      child: Image.asset(AppAssets.fleetdeskLogo),
                     ),
-                    onPressed: () {
-                      Get.toNamed(Routes.GEOLOCATOR);
-                    },
-                  ),
-                  FlatButton(
-                    child: Text('bluetooth',
-                        style: TextStyle(color: Colors.white)),
-                    onPressed: () {
-                      Get.toNamed(Routes.BLUETOOTH);
-                    },
-                  ),
-                  FlatButton(
-                    child: Text('login page',
-                        style: TextStyle(color: Colors.white)),
-                    onPressed: () {
-                      Get.toNamed(Routes.LOGIN);
-                    },
-                  ),
-                  FlatButton(
-                    child: Text('profile page',
-                        style: TextStyle(color: Colors.white)),
-                    onPressed: () {
-                      Get.toNamed(Routes.MENU);
-                    },
-                  ),
-                  FlatButton(
-                    child: Text('vehicle plate',
-                        style: TextStyle(color: Colors.white)),
-                    onPressed: () {
-                      Get.toNamed(Routes.VEHICLEPLATE);
-                    },
-                  ),
-                  FlatButton(
-                    child: Text('pin code',
-                        style: TextStyle(color: Colors.white)),
-                    onPressed: () {
-                      Get.toNamed(Routes.PINCODE);
-                    },
-                  ),
-                ],
+                    FlatButton(
+                      child: Text(
+                        'geolocator',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      onPressed: () {
+                        Get.toNamed(Routes.GEOLOCATOR);
+                      },
+                    ),
+                    FlatButton(
+                      child: Text('bluetooth',
+                          style: TextStyle(color: Colors.white)),
+                      onPressed: () {
+                        Get.toNamed(Routes.BLUETOOTH);
+                      },
+                    ),
+                    FlatButton(
+                      child: Text('login page',
+                          style: TextStyle(color: Colors.white)),
+                      onPressed: () {
+                        Get.toNamed(Routes.LOGIN);
+                      },
+                    ),
+                    FlatButton(
+                      child: Text('profile page',
+                          style: TextStyle(color: Colors.white)),
+                      onPressed: () {
+                        Get.toNamed(Routes.MENU);
+                      },
+                    ),
+                    FlatButton(
+                      child: Text('vehicle plate',
+                          style: TextStyle(color: Colors.white)),
+                      onPressed: () {
+                        Get.toNamed(Routes.VEHICLEPLATE);
+                      },
+                    ),
+                    FlatButton(
+                      child: Text('pin code',
+                          style: TextStyle(color: Colors.white)),
+                      onPressed: () {
+                        Get.toNamed(Routes.PINCODE);
+                      },
+                    ),
+                  ],
+                ),
               );
             },
           ),
