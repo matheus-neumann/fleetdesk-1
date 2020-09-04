@@ -1,12 +1,12 @@
-import 'package:fleetdesk/app/routes/app_pages.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:fleetdesk/app/controller/splash/splash_controller.dart';
-
-import 'package:fleetdesk/app/ui/theme/app_assets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:connectivity/connectivity.dart';
+import 'package:fleetdesk/app/controller/create_account/controller.dart';
+import 'package:fleetdesk/app/controller/splash/splash_controller.dart';
+import 'package:fleetdesk/app/routes/app_pages.dart';
+import 'package:fleetdesk/app/ui/theme/app_assets.dart';
+import 'package:fleetdesk/app/ui/theme/app_colors.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class SplashPage extends StatelessWidget {
   @override
@@ -16,10 +16,10 @@ class SplashPage extends StatelessWidget {
       backgroundColor: splashColor,
       body: SafeArea(
         child: Container(
-          child: GetBuilder<SplashController>(
-            init: Get.find<SplashController>(),
+          child: GetBuilder<Controller>(
+            init: Get.find<Controller>(),
             initState: (_) {
-              SplashController.to.subscription = Connectivity()
+              Controller.to.connectivitySubscription = Connectivity()
                   .onConnectivityChanged
                   .listen((ConnectivityResult result) {
                 print(result.toString());

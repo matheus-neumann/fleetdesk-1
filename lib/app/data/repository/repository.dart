@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:fleetdesk/app/data/provider/api.dart';
 import 'package:meta/meta.dart';
 
@@ -18,8 +19,8 @@ class Repository {
     return await apiClient.login(map);
   }
 
-  signUp(Map register) {
-    apiClient.signUp(register);
+  Future<Response> signUp(Map register) async {
+    return await apiClient.signUp(register);
   }
 
   getUser(String email) async {
@@ -32,5 +33,13 @@ class Repository {
 
   sendPosition(Map data) async {
     return await apiClient.sendPosition(data);
+  }
+
+  generateToken(int userId) async {
+    return await apiClient.generateToken(userId);
+  }
+
+  activateUser(int userId, Map data) async {
+    return await apiClient.activateUser(userId, data);
   }
 }
