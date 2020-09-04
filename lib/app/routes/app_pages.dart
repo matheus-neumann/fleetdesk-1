@@ -4,6 +4,7 @@ import 'package:fleetdesk/app/bindings/configuration_binding.dart';
 import 'package:fleetdesk/app/bindings/create_account_binding.dart';
 import 'package:fleetdesk/app/bindings/documents_binding.dart';
 import 'package:fleetdesk/app/bindings/geolocator_binding.dart';
+import 'package:fleetdesk/app/bindings/main_binding.dart';
 import 'package:fleetdesk/app/bindings/menu_binding.dart';
 import 'package:fleetdesk/app/bindings/messages_binding.dart';
 import 'package:fleetdesk/app/bindings/my_account_binding.dart';
@@ -20,6 +21,7 @@ import 'package:fleetdesk/app/ui/android/create-account/create_account_page.dart
 import 'package:fleetdesk/app/ui/android/demos/bluetooth_page.dart';
 import 'package:fleetdesk/app/ui/android/demos/geolocator_page.dart';
 import 'package:fleetdesk/app/ui/android/documents/documents_page.dart';
+import 'package:fleetdesk/app/ui/android/main_page/main_page.dart';
 import 'package:fleetdesk/app/ui/android/menu/menu_page.dart';
 import 'package:fleetdesk/app/ui/android/my_account/my_account_page.dart';
 import 'package:fleetdesk/app/ui/android/pin_code/pin_code_page.dart';
@@ -114,5 +116,9 @@ class AppPages {
       name: Routes.ALERTS,
       page: () => AlertsPage(),
       binding: AlertsBinding()),
+    GetPage(
+      name: Routes.MAINPAGE,
+      page: () => MainPage(),
+      binding: MainBinding()),
     ];
   }

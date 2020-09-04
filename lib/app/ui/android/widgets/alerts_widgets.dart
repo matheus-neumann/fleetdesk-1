@@ -1,4 +1,5 @@
 import 'package:fleetdesk/app/controller/alerts/alerts_controller.dart';
+import 'package:fleetdesk/app/controller/tasks/tasks_controller.dart';
 import 'package:fleetdesk/app/routes/app_pages.dart';
 import 'package:fleetdesk/app/ui/android/tasks/tasks_info_page.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
@@ -16,8 +17,8 @@ class AlertsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<AlertsController>(
-          init: Get.find<AlertsController>(),
+    return GetBuilder<TasksController>(
+        init: Get.put(TasksController()),
           builder: (_) {
             return Container(
               //height: 122.h,

@@ -20,29 +20,20 @@ import 'package:fleetdesk/app/controller/login/login_controller.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TasksPage extends StatelessWidget {
+  Color partialColorButton = Colors.white;
+  Color partialColorText = red;
+  Color doneColorButton = Color(0xff1D2634);
+  Color doneColorText = Colors.white.withOpacity(0.3);
+  Color activeColorButton = Color(0xff1D2634);
+  Color activeColorText = Colors.white.withOpacity(0.3);
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
     return GetBuilder<TasksController>(
         init: TasksController.to,
         builder: (_) {
-          return Scaffold(
-//            floatingActionButton: FloatingActionButton(
-////              child: Icon(Icons.car_rental),
-//              onPressed: () async {
-//                var response = await TasksController.to.associatePlate(
-//                    {"car_license_plate": "AAA1234", "connect": 1});
-//                final storage = new FlutterSecureStorage();
-//                await storage.write(
-//                    key: AppStrings.plate, value: response.toString());
-//                print(response.toString());
-//              },
-//            ),
-            bottomNavigationBar: BottomNavBar(
-              currentIndex: 0,
-            ),
-            backgroundColor: splashColor,
-            body: SingleChildScrollView(
+          return SingleChildScrollView(
               child: SafeArea(
                 child: Padding(
                   padding: EdgeInsets.only(
@@ -79,73 +70,117 @@ class TasksPage extends StatelessWidget {
                                   //color: Colors.white,
                                   borderRadius: BorderRadius.circular(20.sp)),
                               child: FlatButton(
-                                textColor: red,
-                                disabledColor: Color(0xff1D2634),
-                                disabledTextColor: Colors.white.withOpacity(0.3),
-                                //color: Colors.white,
-                                //splashColor: Color(0xff1D2634),
-                                shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
+                                color: activeColorButton,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                        new BorderRadius.circular(20.0)),
                                 onPressed: () => {
                                   Get.put(TasksController()),
                                   TasksController.to.indexTasks = 0,
-                                  _.update()
+                                  if (TasksController.to.indexTasks == 0)
+                                    {
+                                      activeColorButton = Colors.white,
+                                      activeColorText = red,
+                                      partialColorButton = Color(0xff1D2634),
+                                      partialColorText =
+                                          Colors.white.withOpacity(0.3),
+                                      doneColorButton = Color(0xff1D2634),
+                                      doneColorText =
+                                          Colors.white.withOpacity(0.3)
+                                    }
+                                  else
+                                    {
+                                      activeColorButton = Color(0xff1D2634),
+                                      activeColorText =
+                                          Colors.white.withOpacity(0.3)
+                                    },
+                                  _.update(),
                                 },
                                 child: Text(
                                   'Ativas',
                                   style: TextStyle(
-                                      fontSize: 14.sp,
-                                      color: Colors.white.withOpacity(0.3)
-                                  ),),)),
+                                      fontSize: 14.sp, color: activeColorText),
+                                ),
+                              )),
                           Container(
                               height: 32.h,
                               width: 104.w,
                               decoration: BoxDecoration(
-                                //color: Colors.white,
+                                  //color: Colors.white,
                                   borderRadius: BorderRadius.circular(20.sp)),
                               child: FlatButton(
-                                //focusColor: Colors.white,
-
-                                textColor: red,
-                                disabledColor: Color(0xff1D2634),
-                                disabledTextColor: Colors.white.withOpacity(0.3),
-                                //color: Colors.white,
-                                //splashColor: Color(0xff1D2634),
-                                shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
+                                color: partialColorButton,
+                                splashColor: Color(0xff1D2634),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                        new BorderRadius.circular(20.0)),
                                 onPressed: () => {
                                   Get.put(TasksController()),
                                   TasksController.to.indexTasks = 1,
+                                  if (TasksController.to.indexTasks == 1)
+                                    {
+                                      partialColorButton = Colors.white,
+                                      partialColorText = red,
+                                      doneColorButton = Color(0xff1D2634),
+                                      doneColorText =
+                                          Colors.white.withOpacity(0.3),
+                                      activeColorButton = Color(0xff1D2634),
+                                      activeColorText =
+                                          Colors.white.withOpacity(0.3)
+                                    }
+                                  else
+                                    {
+                                      partialColorButton = Color(0xff1D2634),
+                                      partialColorText =
+                                          Colors.white.withOpacity(0.3)
+                                    },
                                   _.update()
-                                  },
+                                },
                                 child: Text(
                                   'Parciais',
                                   style: TextStyle(
-                                      fontSize: 14.sp,
-                                      color: Colors.white.withOpacity(0.3)
-                                  ),),)),
+                                      fontSize: 14.sp, color: partialColorText),
+                                ),
+                              )),
                           Container(
                               height: 32.h,
-                              width: 110.w,
+                              width: 120.w,
                               decoration: BoxDecoration(
-                                //color: Colors.white,
+                                  //color: Colors.white,
                                   borderRadius: BorderRadius.circular(20.sp)),
                               child: FlatButton(
-                                textColor: red,
-                                disabledColor: Color(0xff1D2634),
-                                disabledTextColor: Colors.white.withOpacity(0.3),
-                                //color: Colors.white,
-                                //splashColor: Color(0xff1D2634),
-                                shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(20.0)),
+                                color: doneColorButton,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius:
+                                        new BorderRadius.circular(20.0)),
                                 onPressed: () => {
                                   Get.put(TasksController()),
                                   TasksController.to.indexTasks = 2,
+                                  if (TasksController.to.indexTasks == 2)
+                                    {
+                                      doneColorButton = Colors.white,
+                                      doneColorText = red,
+                                      partialColorButton = Color(0xff1D2634),
+                                      partialColorText =
+                                          Colors.white.withOpacity(0.3),
+                                      activeColorButton = Color(0xff1D2634),
+                                      activeColorText =
+                                          Colors.white.withOpacity(0.3)
+                                    }
+                                  else
+                                    {
+                                      doneColorButton = Color(0xff1D2634),
+                                      doneColorText =
+                                          Colors.white.withOpacity(0.3)
+                                    },
                                   _.update()
                                 },
                                 child: Text(
                                   'Concluídas',
                                   style: TextStyle(
-                                      fontSize: 14.sp,
-                                      color: Colors.white.withOpacity(0.3)
-                                  ),),)),
+                                      fontSize: 14.sp, color: doneColorText),
+                                ),
+                              )),
                         ],
                       ),
 //                      child: FlatButton(
@@ -160,18 +195,20 @@ class TasksPage extends StatelessWidget {
                     SizedBox(
                       height: 20.h,
                     ),
-                    ListView.builder(
-                        //scrollDirection: Axis.horizontal,
-                        itemCount: 1,
-                        shrinkWrap: true,
-                        itemBuilder: (BuildContext ctxt, int index) {
-                          return TasksController.to.childrenTasks[TasksController.to.indexTasks];
-                        })
+                    SingleChildScrollView(
+                      child: ListView.builder(
+                          //scrollDirection: Axis.horizontal,
+                          itemCount: 1,
+                          shrinkWrap: true,
+                          itemBuilder: (BuildContext ctxt, int index) {
+                            return TasksController.to
+                                .childrenTasks[TasksController.to.indexTasks];
+                          }),
+                    )
                   ]),
                 ),
               ),
-            ),
-          );
+            );
         });
   }
 }

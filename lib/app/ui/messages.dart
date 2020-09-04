@@ -1,4 +1,5 @@
 import 'package:fleetdesk/app/controller/messages/messages_controller.dart';
+import 'package:fleetdesk/app/controller/tasks/tasks_controller.dart';
 import 'package:fleetdesk/app/routes/app_pages.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -12,13 +13,8 @@ class MessagesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
-    return Scaffold(
-      bottomNavigationBar: BottomNavBar(
-        currentIndex: 1,
-      ),
-      backgroundColor: splashColor,
-      body: GetBuilder<MessagesController>(
-        init: Get.find<MessagesController>(),
+    return GetBuilder<TasksController>(
+        init: Get.put(TasksController()),
         builder: (_) {
           return SingleChildScrollView(
             child: SafeArea(
@@ -219,7 +215,7 @@ class MessagesPage extends StatelessWidget {
                     Stack(
                       children: [
                         Container(
-                          margin: EdgeInsets.only(top: 148.h),
+                          margin: EdgeInsets.only(top: 152.h),
                           width: 360.w,
                           height: 96.h,
                           decoration: BoxDecoration(
@@ -237,7 +233,6 @@ class MessagesPage extends StatelessWidget {
                                 width: 256.w,
                                 height: 40.h,
                                 child: TextField(
-
                                   decoration: InputDecoration(
                                     hintText: 'Escreva sua mensagem',
                                     hintStyle: TextStyle(
@@ -283,7 +278,6 @@ class MessagesPage extends StatelessWidget {
             ),
           );
         }
-        ),
-    );
+        );
   }
 }

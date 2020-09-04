@@ -1,5 +1,6 @@
 import 'package:fleetdesk/app/controller/alerts/alerts_controller.dart';
 import 'package:fleetdesk/app/controller/bottom_navigation_bar/bottom_navigation_bar_controller.dart';
+import 'package:fleetdesk/app/controller/tasks/tasks_controller.dart';
 import 'package:fleetdesk/app/routes/app_pages.dart';
 import 'package:fleetdesk/app/ui/android/recovery_password/recovery_password_page.dart';
 import 'package:fleetdesk/app/ui/android/widgets/alerts_widgets.dart';
@@ -19,15 +20,10 @@ class AlertsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
-    return GetBuilder<AlertsController>(
-        //init: AlertsController.to,
+    return GetBuilder<TasksController>(
+        init: Get.put(TasksController()),
         builder: (_) {
-      return Scaffold(
-        bottomNavigationBar: BottomNavBar(
-          currentIndex: 0,
-        ),
-        backgroundColor: splashColor,
-        body: SingleChildScrollView(
+      return SingleChildScrollView(
           child: SafeArea(
             child: Padding(
               padding: EdgeInsets.only(
@@ -73,12 +69,6 @@ class AlertsPage extends StatelessWidget {
                 SizedBox(
                   height: 21.h,
                 ),
-//                ListView.builder(
-//                  itemCount: _.alerts.length,
-//                  itemBuilder: (ctxt, int index){
-//
-//                  },
-//                )
                 Container(
                   alignment: Alignment.centerLeft,
                   margin: EdgeInsets.only(left: 16.w),
@@ -123,8 +113,7 @@ class AlertsPage extends StatelessWidget {
               ]),
             ),
           ),
-        ),
-      );
+        );
     });
 //      Scaffold(
 //      backgroundColor: splashColor,

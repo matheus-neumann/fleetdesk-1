@@ -62,7 +62,7 @@ class SplashPage extends StatelessWidget {
                       child: Text('profile page',
                           style: TextStyle(color: Colors.white)),
                       onPressed: () {
-                        Get.toNamed(Routes.MENU);
+                        Get.toNamed(Routes.MAINPAGE);
                       },
                     ),
                     FlatButton(
