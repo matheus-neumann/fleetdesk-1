@@ -1,4 +1,5 @@
 import 'package:fleetdesk/app/controller/bottom_navigation_bar/bottom_navigation_bar_controller.dart';
+import 'package:fleetdesk/app/controller/create_account/controller.dart';
 import 'package:fleetdesk/app/controller/tasks/tasks_controller.dart';
 import 'package:fleetdesk/app/routes/app_pages.dart';
 import 'package:fleetdesk/app/ui/android/recovery_password/recovery_password_page.dart';
@@ -18,8 +19,8 @@ class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
-    return GetBuilder<TasksController>(
-        init: Get.put(TasksController()),
+    return GetBuilder<Controller>(
+        init: Get.put(Controller()),
     builder: (_) {
       return SingleChildScrollView(
           child: SafeArea(

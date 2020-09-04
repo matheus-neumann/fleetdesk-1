@@ -1,6 +1,6 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:fleetdesk/app/controller/bottom_navigation_bar/bottom_navigation_bar_controller.dart';
-import 'package:fleetdesk/app/controller/create_account/create_account_controller.dart';
+import 'package:fleetdesk/app/controller/create_account/controller.dart';
 import 'package:fleetdesk/app/controller/tasks/tasks_controller.dart';
 import 'package:fleetdesk/app/routes/app_pages.dart';
 import 'package:fleetdesk/app/ui/android/recovery_password/recovery_password_page.dart';
@@ -30,8 +30,8 @@ class TasksPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
-    return GetBuilder<TasksController>(
-        init: TasksController.to,
+    return GetBuilder<Controller>(
+        init: Controller.to,
         builder: (_) {
           return SingleChildScrollView(
               child: SafeArea(
@@ -75,9 +75,9 @@ class TasksPage extends StatelessWidget {
                                     borderRadius:
                                         new BorderRadius.circular(20.0)),
                                 onPressed: () => {
-                                  Get.put(TasksController()),
-                                  TasksController.to.indexTasks = 0,
-                                  if (TasksController.to.indexTasks == 0)
+                                  Get.put(Controller()),
+                                  Controller.to.indexTasks = 0,
+                                  if (Controller.to.indexTasks == 0)
                                     {
                                       activeColorButton = Colors.white,
                                       activeColorText = red,
@@ -115,9 +115,9 @@ class TasksPage extends StatelessWidget {
                                     borderRadius:
                                         new BorderRadius.circular(20.0)),
                                 onPressed: () => {
-                                  Get.put(TasksController()),
-                                  TasksController.to.indexTasks = 1,
-                                  if (TasksController.to.indexTasks == 1)
+                                  Get.put(Controller()),
+                                  Controller.to.indexTasks = 1,
+                                  if (Controller.to.indexTasks == 1)
                                     {
                                       partialColorButton = Colors.white,
                                       partialColorText = red,
@@ -154,9 +154,9 @@ class TasksPage extends StatelessWidget {
                                     borderRadius:
                                         new BorderRadius.circular(20.0)),
                                 onPressed: () => {
-                                  Get.put(TasksController()),
-                                  TasksController.to.indexTasks = 2,
-                                  if (TasksController.to.indexTasks == 2)
+                                  Get.put(Controller()),
+                                  Controller.to.indexTasks = 2,
+                                  if (Controller.to.indexTasks == 2)
                                     {
                                       doneColorButton = Colors.white,
                                       doneColorText = red,
@@ -201,8 +201,8 @@ class TasksPage extends StatelessWidget {
                           itemCount: 1,
                           shrinkWrap: true,
                           itemBuilder: (BuildContext ctxt, int index) {
-                            return TasksController.to
-                                .childrenTasks[TasksController.to.indexTasks];
+                            return Controller.to
+                                .childrenTasks[Controller.to.indexTasks];
                           }),
                     )
                   ]),

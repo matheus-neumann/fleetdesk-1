@@ -20,3 +20,15 @@ void main() {
     translationsKeys: AppTranslation.translations,
   ));
 }
+
+//floatingActionButton: FloatingActionButton(
+////              child: Icon(Icons.car_rental),
+//onPressed: () async {
+//var response = await TasksController.to.associatePlate(
+//{"car_license_plate": "AAA1234", "connect": 1});
+//final storage = new FlutterSecureStorage();
+//await storage.write(
+//key: AppStrings.plate, value: response.toString());
+//print(response.toString());
+//},
+//),

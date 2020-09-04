@@ -1,4 +1,5 @@
 import 'package:fleetdesk/app/controller/alerts/alerts_controller.dart';
+import 'package:fleetdesk/app/controller/create_account/controller.dart';
 import 'package:fleetdesk/app/controller/tasks/tasks_controller.dart';
 import 'package:fleetdesk/app/routes/app_pages.dart';
 import 'package:fleetdesk/app/ui/android/tasks/tasks_info_page.dart';
@@ -17,8 +18,8 @@ class DoneTasksPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<TasksController>(
-        init: TasksController.to,
+    return GetBuilder<Controller>(
+        init: Controller.to,
         builder: (_) {
           return
                     SingleChildScrollView(

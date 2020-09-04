@@ -1,3 +1,4 @@
+import 'package:fleetdesk/app/controller/create_account/controller.dart';
 import 'package:fleetdesk/app/controller/tasks/tasks_controller.dart';
 import 'package:fleetdesk/app/controller/tasks/tasks_controller.dart';
 import 'package:fleetdesk/app/controller/tasks/tasks_controller.dart';
@@ -18,7 +19,7 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder(
-      init: TasksController.to,
+      init: Controller.to,
       builder: (_) {
       return Container(
           height: 64.h,
@@ -27,7 +28,7 @@ class BottomNavBar extends StatelessWidget {
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20.sp), topLeft: Radius.circular(20.sp))),
             child: BottomNavigationBar(
-              currentIndex: TasksController.to.indexNavBar,
+              currentIndex: Controller.to.indexNavBar,
               unselectedIconTheme: IconThemeData(
                 color: Color(0xffC4C4C4)
               ),
@@ -43,7 +44,7 @@ class BottomNavBar extends StatelessWidget {
                   fontSize: 10.sp
               ),
               type: BottomNavigationBarType.fixed,
-              onTap:  TasksController.to.onTabTapped,
+              onTap:  Controller.to.onTabTapped,
               items: [
                 BottomNavigationBarItem(
                   backgroundColor: Colors.transparent,

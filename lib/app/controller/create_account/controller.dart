@@ -8,6 +8,13 @@ import 'package:fleetdesk/app/data/model/user_token.dart';
 import 'package:fleetdesk/app/data/provider/db_provider.dart';
 import 'package:fleetdesk/app/data/repository/repository.dart';
 import 'package:fleetdesk/app/routes/app_pages.dart';
+import 'package:fleetdesk/app/ui/android/alerts/alerts_page.dart';
+import 'package:fleetdesk/app/ui/android/menu/menu_page.dart';
+import 'package:fleetdesk/app/ui/android/tasks/tasks_page.dart';
+import 'package:fleetdesk/app/ui/android/widgets/active_tasks.dart';
+import 'package:fleetdesk/app/ui/android/widgets/done_tasks.dart';
+import 'package:fleetdesk/app/ui/android/widgets/partial_tasks.dart';
+import 'package:fleetdesk/app/ui/messages.dart';
 import 'package:fleetdesk/app/ui/theme/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
@@ -53,7 +60,7 @@ class Controller extends GetxController {
   TextEditingController pinController = TextEditingController();
   bool pinCodeSuccess = false;
 
-  Controller({@required this.repository}) : assert(repository != null);
+  Controller({@required this.repository}); //: assert(repository != null);
 
   @override
   void onInit() {
@@ -251,5 +258,28 @@ class Controller extends GetxController {
 
     // Stop scanning
     flutterBlue.stopScan();
+  }
+
+  int indexTasks = 1;
+
+  final List<Widget> childrenTasks = [
+    ActiveTasksPage(),
+    PartialTasksPage(),
+    DoneTasksPage(),
+  ];
+
+  int indexNavBar = 0;
+
+  final List<Widget> childrenBottom = [
+    TasksPage(),
+    MessagesPage(),
+    AlertsPage(),
+    MenuPage(),
+  ];
+
+  void onTabTapped(index) {
+    Get.put(Controller());
+    indexNavBar = index;
+    update();
   }
 }
