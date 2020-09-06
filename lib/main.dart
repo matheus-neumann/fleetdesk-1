@@ -1,5 +1,3 @@
-import 'package:fleetdesk/app/bindings/splash_binding.dart';
-import 'package:fleetdesk/app/routes/app_pages.dart';
 import 'package:fleetdesk/app/translations/app_translations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,13 +6,12 @@ import 'app/ui/android/splash/splash_page.dart';
 import 'app/ui/theme/app_theme.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
-    initialBinding: HomeBinding(),
-    initialRoute: Routes.INITIAL,
+    initialRoute: '/',
     theme: appThemeData,
     defaultTransition: Transition.fade,
-    getPages: AppPages.pages,
     home: SplashPage(),
     locale: Locale('pt', 'BR'),
     translationsKeys: AppTranslation.translations,

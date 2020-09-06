@@ -1,17 +1,12 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
-import 'package:fleetdesk/app/data/model/model.dart';
 import 'package:fleetdesk/app/ui/theme/app_strings.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as SS;
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
-import 'package:meta/meta.dart';
 
 const baseUrl = 'http://hml.fleetdesk.com.br/api/v1/';
 
 class MyApiClient {
-  final http.Client httpClient;
+  //final http.Client httpClient;
   Dio dio = Dio();
   final secureStorage = SS.FlutterSecureStorage();
 
@@ -27,40 +22,7 @@ class MyApiClient {
     return headerWithToken;
   }
 
-//  Map<String, dynamic> register = {
-//    'name': 'Matheufwes',
-//    'last_name': 'Neufewmann',
-//    'cpf': 12379324670,
-//    'email': 'matheusneumanndevvb@gmail.com',
-//    'phone': 48996466078,
-//    'password': '123456789',
-//    'password_confirmation': '123456789'
-//  };
 
-  MyApiClient({@required this.httpClient});
-
-  getAll() async {
-    try {
-      var response = await httpClient.get(baseUrl);
-      if (response.statusCode == 200) {
-        Iterable jsonResponse = json.decode(response.body);
-        List<MyModel> listMyModel =
-            jsonResponse.map((model) => MyModel.fromJson(model)).toList();
-        return listMyModel;
-      } else
-        print('erro');
-    } catch (_) {}
-  }
-
-  getId(id) async {
-    try {
-      var response = await httpClient.get('baseUrlid');
-      if (response.statusCode == 200) {
-        //Map<String, dynamic> jsonResponse = json.decode(response.body);
-      } else
-        print('erro -get');
-    } catch (_) {}
-  }
 
   login(Map map) async {
     try {

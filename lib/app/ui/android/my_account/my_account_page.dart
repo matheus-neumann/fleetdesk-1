@@ -1,4 +1,4 @@
-import 'package:fleetdesk/app/routes/app_pages.dart';
+import 'package:fleetdesk/app/ui/android/menu/menu_page.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
 import 'package:fleetdesk/app/ui/android/widgets/text_field_register.dart';
@@ -56,7 +56,7 @@ class MyAccountPage extends StatelessWidget {
                             child: Icon(Icons.arrow_back_ios,
                                 color: Color(0xffffffff))),
                         onTap: () {
-                          Get.toNamed(Routes.MENU);
+                          Get.to(MenuPage());
                         }),
                     Container(
                       width: 120.w,
@@ -83,7 +83,7 @@ class MyAccountPage extends StatelessWidget {
                             width: 10.w,
                             child: Icon(Icons.edit, color: Color(0xffffffff))),
                         onTap: () {
-                          Get.toNamed(Routes.MENU);
+                          Get.to(MenuPage());
                         }),
                   ],
                 ),
@@ -375,7 +375,7 @@ class MyAccountPage extends StatelessWidget {
                     textInputAction: TextInputAction.next,
                     focusNode: passwordFocus,
                     topMargin: 977.h,),
-              LoginButton(1083.h, 46.h, "Salvar", null)
+              LoginButton(1083.h, 46.h, "Salvar")
             ]),
           ),
         )));

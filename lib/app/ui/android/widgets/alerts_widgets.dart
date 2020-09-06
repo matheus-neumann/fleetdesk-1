@@ -1,15 +1,9 @@
-import 'package:fleetdesk/app/controller/alerts/alerts_controller.dart';
 import 'package:fleetdesk/app/controller/create_account/controller.dart';
-import 'package:fleetdesk/app/controller/tasks/tasks_controller.dart';
-import 'package:fleetdesk/app/routes/app_pages.dart';
-import 'package:fleetdesk/app/ui/android/tasks/tasks_info_page.dart';
-import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class AlertsContainer extends StatelessWidget {
-
   String title;
   String text;
   String date;
@@ -19,82 +13,85 @@ class AlertsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<Controller>(
-        init: Get.put(Controller()),
-          builder: (_) {
-            return Container(
-              //height: 122.h,
+        init: Controller.to,
+        builder: (_) {
+          return Container(
+            //height: 122.h,
+            width: 328.w,
+            margin: EdgeInsets.only(left: 16.w),
+            child: Container(
+              //height: 117.h,
               width: 328.w,
-              margin: EdgeInsets.only(left: 16.w),
-              child: Container(
-                //height: 117.h,
-                width: 328.w,
-                decoration: BoxDecoration(
-                  color: Color(0xff1D2634),
-                  borderRadius: BorderRadius.circular(
-                      20), // TODO - Verify radius of Container Fields
-                ),
-                child: Column(
-                  children: [
+              decoration: BoxDecoration(
+                color: Color(0xff1D2634),
+                borderRadius: BorderRadius.circular(
+                    20), // TODO - Verify radius of Container Fields
+              ),
+              child: Column(
+                children: [
                   SizedBox(
-                  height: 12.h,
-                ),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.only(left: 8.w),
-                  child: Text(
-                   'teste',
-                    // _.alerts[index].title,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w600,
+                    height: 12.h,
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    margin: EdgeInsets.only(left: 8.w),
+                    child: Text(
+                      'teste',
+                      // _.alerts[index].title,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 5.h,
-                ),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.only(left: 8.w),
-                  child: Text(
-                  'teste',
-                    //_.alerts[index].notification,
-                  style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14.sp,
+                  SizedBox(
+                    height: 5.h,
                   ),
-                ),
-              ),
-              SizedBox(
-                height: 10.h,
-              ),
-              Container(margin: EdgeInsets.only(left: 8.w),
-                  alignment: Alignment.centerLeft,
-                  child: CustomPaint(painter: LineDashedPainter(),)),
-              SizedBox(
-                height: 10.h,
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                margin: EdgeInsets.only(left: 244.w),
-                child: Text(
-                  //"${_.alerts[index].hour} | ${_.alerts[index].day}",
-                  'teste',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 10.sp,
-                  ),
-                ),
-              ),
-                    SizedBox(
-                      height: 8.h,
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    margin: EdgeInsets.only(left: 8.w),
+                    child: Text(
+                      'teste',
+                      //_.alerts[index].notification,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14.sp,
+                      ),
                     ),
-              ],
-            ),)
-            ,
-            );
-          });
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Container(
+                      margin: EdgeInsets.only(left: 8.w),
+                      alignment: Alignment.centerLeft,
+                      child: CustomPaint(
+                        painter: LineDashedPainter(),
+                      )),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    margin: EdgeInsets.only(left: 244.w),
+                    child: Text(
+                      //"${_.alerts[index].hour} | ${_.alerts[index].day}",
+                      'teste',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 10.sp,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 8.h,
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
   }
 }
 

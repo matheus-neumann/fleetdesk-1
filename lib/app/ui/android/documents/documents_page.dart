@@ -1,4 +1,4 @@
-import 'package:fleetdesk/app/routes/app_pages.dart';
+import 'package:fleetdesk/app/ui/android/tasks/tasks_info_page.dart';
 import 'package:fleetdesk/app/ui/android/widgets/documents_container.dart';
 import 'package:fleetdesk/app/ui/android/widgets/pop_up_occurrence.dart';
 import 'package:fleetdesk/app/ui/android/widgets/top_bar_widget.dart';
@@ -22,7 +22,7 @@ class DocumentsPage extends StatelessWidget {
           children: <Widget>[
             TopBarWidget(
               text: 'Documentos',
-              backTo: Routes.TASKS_INFO,
+              backTo: TasksInfoPage(),
             ),
             Container(
               margin: EdgeInsets.only(/*left: 80.w,*/ top: 84.h),

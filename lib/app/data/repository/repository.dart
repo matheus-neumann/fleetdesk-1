@@ -7,14 +7,6 @@ class Repository {
 
   Repository({@required this.apiClient}) : assert(apiClient != null);
 
-  getAll() {
-    return apiClient.getAll();
-  }
-
-  getId(id) {
-    return apiClient.getId(id);
-  }
-
   login(Map map) async {
     return await apiClient.login(map);
   }

@@ -1,7 +1,13 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:fleetdesk/app/controller/create_account/controller.dart';
-import 'package:fleetdesk/app/controller/splash/splash_controller.dart';
-import 'package:fleetdesk/app/routes/app_pages.dart';
+import 'package:fleetdesk/app/data/provider/api.dart';
+import 'package:fleetdesk/app/data/repository/repository.dart';
+import 'package:fleetdesk/app/ui/android/demos/bluetooth_page.dart';
+import 'package:fleetdesk/app/ui/android/demos/geolocator_page.dart';
+import 'package:fleetdesk/app/ui/android/login/login_page.dart';
+import 'package:fleetdesk/app/ui/android/main_page/main_page.dart';
+import 'package:fleetdesk/app/ui/android/pin_code/pin_code_page.dart';
+import 'package:fleetdesk/app/ui/android/vehicle_plate/vehicle_plate_page.dart';
 import 'package:fleetdesk/app/ui/theme/app_assets.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +15,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class SplashPage extends StatelessWidget {
+  Controller c = Get.put<Controller>(Controller(repository: Repository(apiClient: MyApiClient())));
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
@@ -41,42 +49,42 @@ class SplashPage extends StatelessWidget {
                         style: TextStyle(color: Colors.white),
                       ),
                       onPressed: () {
-                        Get.toNamed(Routes.GEOLOCATOR);
+                        Get.to(GeolocatorPage());
                       },
                     ),
                     FlatButton(
                       child: Text('bluetooth',
                           style: TextStyle(color: Colors.white)),
                       onPressed: () {
-                        Get.toNamed(Routes.BLUETOOTH);
+                        Get.to(BluetoothPage());
                       },
                     ),
                     FlatButton(
                       child: Text('login page',
                           style: TextStyle(color: Colors.white)),
                       onPressed: () {
-                        Get.toNamed(Routes.LOGIN);
+                        Get.to(LoginPage());
                       },
                     ),
                     FlatButton(
                       child: Text('profile page',
                           style: TextStyle(color: Colors.white)),
                       onPressed: () {
-                        Get.toNamed(Routes.MAINPAGE);
+                        Get.to(MainPage());
                       },
                     ),
                     FlatButton(
                       child: Text('vehicle plate',
                           style: TextStyle(color: Colors.white)),
                       onPressed: () {
-                        Get.toNamed(Routes.VEHICLEPLATE);
+                        Get.to(VehiclePlatePage());
                       },
                     ),
                     FlatButton(
                       child: Text('pin code',
                           style: TextStyle(color: Colors.white)),
                       onPressed: () {
-                        Get.toNamed(Routes.PINCODE);
+                        Get.to(PinCodePage());
                       },
                     ),
                   ],

@@ -1,4 +1,6 @@
-import 'package:fleetdesk/app/routes/app_pages.dart';
+import 'package:fleetdesk/app/ui/android/documents/documents_page.dart';
+import 'package:fleetdesk/app/ui/android/login/login_page.dart';
+import 'package:fleetdesk/app/ui/android/tasks/tasks_page.dart';
 import 'package:fleetdesk/app/ui/android/widgets/pop_up_occurrence.dart';
 import 'package:fleetdesk/app/ui/android/widgets/tasks_widgets.dart';
 import 'package:fleetdesk/app/ui/android/widgets/top_bar_widget.dart';
@@ -21,7 +23,7 @@ class TasksInfoPage extends StatelessWidget {
                     child: Column(children: [
                       TopBarWidget(
                         text: 'Detalhes',
-                        backTo: Routes.TASKS,
+                        backTo: TasksPage(),
                       ),
                       SizedBox(
                         height: 8.h,
@@ -314,7 +316,7 @@ class TasksInfoPage extends StatelessWidget {
                             ),
                             InkWell(
                               onTap: () {
-                                Get.toNamed(Routes.DOCUMENTS);
+                                Get.to(DocumentsPage());
                               },
                               child: Container(
                                 child: Text(
@@ -400,7 +402,7 @@ class TasksInfoPage extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          Get.toNamed(Routes.LOGIN);
+                          Get.to(LoginPage());
                         },
                       ))
                     ])))));

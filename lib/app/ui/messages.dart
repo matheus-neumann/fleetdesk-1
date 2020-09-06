@@ -1,21 +1,17 @@
 import 'package:fleetdesk/app/controller/create_account/controller.dart';
-import 'package:fleetdesk/app/controller/messages/messages_controller.dart';
-import 'package:fleetdesk/app/controller/tasks/tasks_controller.dart';
-import 'package:fleetdesk/app/routes/app_pages.dart';
+import 'package:fleetdesk/app/ui/android/menu/menu_page.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import 'android/widgets/navigation_bottom_bar.dart';
-
 class MessagesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
     return GetBuilder<Controller>(
-        init: Get.put(Controller()),
+        init: Controller.to,
         builder: (_) {
           return SingleChildScrollView(
             child: SafeArea(
@@ -40,7 +36,7 @@ class MessagesPage extends StatelessWidget {
                                   child: Icon(Icons.arrow_back_ios,
                                       color: Color(0xffffffff))),
                               onTap: () {
-                                Get.toNamed(Routes.MENU);
+                                Get.to(MenuPage());
                               }),
                           SizedBox(
                             width: 107.w,

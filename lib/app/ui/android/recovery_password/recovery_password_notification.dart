@@ -1,4 +1,3 @@
-import 'package:fleetdesk/app/routes/app_pages.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
 import 'package:fleetdesk/app/ui/theme/app_assets.dart';
@@ -88,7 +87,7 @@ class RecoveryPasswordNotificationPage extends StatelessWidget {
                         fontFamily: 'Montserrat'),
                   ),
                 ),
-                LoginButton(441.0.h, 151.0.h, "OK", Routes.LOGIN),
+                LoginButton(441.0.h, 151.0.h, "OK"),
               ],
             ),
           ),

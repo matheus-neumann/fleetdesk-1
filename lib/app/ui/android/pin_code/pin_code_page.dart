@@ -1,11 +1,9 @@
 import 'package:fleetdesk/app/controller/create_account/controller.dart';
-import 'package:fleetdesk/app/routes/app_pages.dart';
-import 'package:fleetdesk/app/ui/android/menu/menu_page.dart';
+import 'package:fleetdesk/app/ui/android/vehicle_plate/vehicle_plate_page.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_logo.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
-import 'package:fleetdesk/app/ui/theme/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -102,7 +100,6 @@ class PinCodePage extends StatelessWidget {
                               441.0.h,
                               151.0.h,
                               "Confirmar",
-                              null,
                               onPressedMethod: () async {
                                 print(_.pinController.text);
                                 var response = await _.activateUser(
@@ -110,7 +107,7 @@ class PinCodePage extends StatelessWidget {
                                 print(response);
                                 if (response != null) {
                                   if (response.data['success'] == true) {
-                                    Get.offNamed(Routes.VEHICLEPLATE);
+                                    Get.off(VehiclePlatePage());
                                   } else {
                                     print(response.data['message']);
                                   }

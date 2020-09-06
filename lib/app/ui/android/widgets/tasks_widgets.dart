@@ -1,4 +1,4 @@
-import 'package:fleetdesk/app/routes/app_pages.dart';
+import 'package:fleetdesk/app/ui/android/tasks/tasks_info_page.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,7 +20,7 @@ class TaskContainer extends StatelessWidget {
       //margin: EdgeInsets.only(left: 16.w),
       child: InkWell(
         onTap: () {
-          Get.toNamed(Routes.TASKS_INFO);
+          Get.to(TasksInfoPage());
         },
         child: Container(
           //height: 117.h,

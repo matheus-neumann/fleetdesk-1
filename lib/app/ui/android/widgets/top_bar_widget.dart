@@ -29,7 +29,7 @@ class TopBarWidget extends StatelessWidget {
               child: Icon(Icons.arrow_back_ios,
                   color: Color(0xffffffff))),
           onTap: () {
-            Get.toNamed(backTo);
+            Get.to(backTo);
           }),
       Container(
         alignment: Alignment.center,

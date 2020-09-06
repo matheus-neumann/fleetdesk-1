@@ -1,5 +1,4 @@
 import 'package:fleetdesk/app/controller/create_account/controller.dart';
-import 'package:fleetdesk/app/routes/app_pages.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_logo.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
@@ -343,7 +342,6 @@ class CreateAccountPage extends StatelessWidget {
                                 731.h,
                                 38.h,
                                 "Criar conta",
-                                Routes.LOGIN,
                                 onPressedMethod: () async {
                                   print(_.nameController.text);
                                   var response = await _.signUp({

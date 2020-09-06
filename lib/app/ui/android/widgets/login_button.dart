@@ -6,12 +6,11 @@ class LoginButton extends StatelessWidget {
   var top;
   var bottom;
   var text;
-  var navPage;
   var onPressedMethod;
   var textColor;
   var color;
 
-  LoginButton(this.top, this.bottom, this.text, this.navPage,
+  LoginButton(this.top, this.bottom, this.text,
       {this.onPressedMethod, this.textColor, this.color});
 
   @override

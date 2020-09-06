@@ -1,6 +1,6 @@
 import 'package:fleetdesk/app/controller/create_account/controller.dart';
-import 'package:fleetdesk/app/controller/login/login_controller.dart';
-import 'package:fleetdesk/app/routes/app_pages.dart';
+import 'package:fleetdesk/app/ui/android/create-account/create_account_page.dart';
+import 'package:fleetdesk/app/ui/android/recovery_password/recovery_password_page.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_logo.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
@@ -214,7 +214,7 @@ class LoginPage extends StatelessWidget {
                                             fontFamily: 'Montserrat'),
                                       ),
                                       onTap: () {
-                                        Get.toNamed(Routes.PW_RECOVERY);
+                                        Get.to(RecoveryPasswordPage());
                                       },
                                     ),
                                   ),
@@ -227,7 +227,6 @@ class LoginPage extends StatelessWidget {
                                 481.0.h,
                                 111.0.h,
                                 "Entrar",
-                                null,
                                 onPressedMethod: () async {
                                   //_.signUp({});
                                   await _.login({
@@ -274,7 +273,7 @@ class LoginPage extends StatelessWidget {
                               ),
                             ),
                             onTap: () {
-                              Get.toNamed(Routes.CREATE_ACCOUNT);
+                              Get.to(CreateAccountPage());
                             },
                           ),
                         )

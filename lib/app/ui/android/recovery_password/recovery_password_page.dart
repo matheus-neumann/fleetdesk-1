@@ -1,4 +1,3 @@
-import 'package:fleetdesk/app/routes/app_pages.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
 import 'package:fleetdesk/app/ui/theme/app_assets.dart';
@@ -100,8 +99,7 @@ class RecoveryPasswordPage extends StatelessWidget {
                           fontFamily: 'Montserrat'),
                     ),
                   ),
-                  LoginButton(441.0.h, 151.0.h, "Recuperar senha",
-                      Routes.PW_RECOVERY_NOTIFICATION),
+                  LoginButton(441.0.h, 151.0.h, "Recuperar senha"),
                 ],
               ),
             ),

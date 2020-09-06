@@ -77,7 +77,7 @@ class MenuButton extends StatelessWidget {
         ),
         onTap: () {
           print('teste');
-          Get.toNamed(navPage);
+          Get.to(navPage);
         });
   }
 }

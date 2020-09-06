@@ -1,4 +1,4 @@
-import 'package:fleetdesk/app/routes/app_pages.dart';
+import 'package:fleetdesk/app/ui/android/menu/menu_page.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
 import 'package:fleetdesk/app/ui/android/widgets/top_bar_widget.dart';
@@ -19,7 +19,7 @@ class ConfigurationPage extends StatelessWidget {
             EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: Column(
           children: <Widget>[
-            TopBarWidget(text: 'Configurações', backTo: Routes.MENU,),
+            TopBarWidget(text: 'Configurações', backTo: MenuPage(),),
             SizedBox(
               height: 21.h,
             ),
@@ -40,7 +40,7 @@ class ConfigurationPage extends StatelessWidget {
           SizedBox(
             height: 346.h,
           ),
-            LoginButton(0.0, 0.0, 'Salvar', Routes.MENU)
+            LoginButton(0.0, 0.0, 'Salvar')
           ],
         ),
       ),

@@ -1,4 +1,4 @@
-import 'package:fleetdesk/app/routes/app_pages.dart';
+import 'package:fleetdesk/app/ui/android/login/login_page.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
 import 'package:fleetdesk/app/ui/android/widgets/menu_button.dart';
 import 'package:flutter/material.dart';
@@ -104,7 +104,7 @@ class ExamplePage extends StatelessWidget {
                           ),
                         ),
                         onTap: () {
-                          Get.toNamed(Routes.LOGIN);
+                          Get.to(LoginPage());
                         },
                       ),
                     ),
