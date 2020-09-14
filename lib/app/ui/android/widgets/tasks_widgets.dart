@@ -20,7 +20,7 @@ class TaskContainer extends StatelessWidget {
       //margin: EdgeInsets.only(left: 16.w),
       child: InkWell(
         onTap: () {
-          Get.to(TasksInfoPage());
+          Get.back();
         },
         child: Container(
           //height: 117.h,

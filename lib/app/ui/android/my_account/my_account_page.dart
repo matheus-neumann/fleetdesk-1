@@ -1,3 +1,4 @@
+import 'package:fleetdesk/app/ui/android/main_page/main_page.dart';
 import 'package:fleetdesk/app/ui/android/menu/menu_page.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
@@ -56,7 +57,7 @@ class MyAccountPage extends StatelessWidget {
                             child: Icon(Icons.arrow_back_ios,
                                 color: Color(0xffffffff))),
                         onTap: () {
-                          Get.to(MenuPage());
+                          Get.to(MainPage());
                         }),
                     Container(
                       width: 120.w,
@@ -375,7 +376,24 @@ class MyAccountPage extends StatelessWidget {
                     textInputAction: TextInputAction.next,
                     focusNode: passwordFocus,
                     topMargin: 977.h,),
-              LoginButton(1083.h, 46.h, "Salvar")
+              Container(
+                height: 48.h,
+                width: 296.w,
+                margin: EdgeInsets.only(left: 32.w, top: 1083.h),
+                child: RaisedButton(
+                  color: red,
+                  child: Text(
+                    'Salvar',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16.sp,
+                      fontFamily: 'Montserrat',
+                    ),
+                  ),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  onPressed: () {},
+                ),
+              )
             ]),
           ),
         )));

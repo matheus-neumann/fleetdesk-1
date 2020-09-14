@@ -1,4 +1,5 @@
 import 'package:fleetdesk/app/controller/create_account/controller.dart';
+import 'package:fleetdesk/app/ui/android/main_page/main_page.dart';
 import 'package:fleetdesk/app/ui/android/menu/menu_page.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +49,7 @@ class BluetoothPage extends StatelessWidget {
                                       child: Icon(Icons.arrow_back_ios,
                                           color: Color(0xffffffff)),
                                       onTap: () {
-                                        Get.to(MenuPage());
+                                        Get.to(MainPage(navIndex: 3,));
                                       })),
                               Container(
                                 width: 96.w,

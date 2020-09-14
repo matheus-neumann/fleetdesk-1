@@ -34,9 +34,9 @@ class CreateAccountPage extends StatelessWidget {
                     child: Stack(
                       children: <Widget>[
                         ContainerLogo(136.h, 68.w, 19.h, 67.h),
-                        ContainerForm(height: 716.h, top: 84.h, bottom: 0.h),
+                        ContainerForm(height: 742.h, top: 84.h, bottom: 0.h),
                         Container(
-                          height: 716.h,
+                          height: 754.h,
                           width: 328.w,
                           margin: EdgeInsets.only(
                               left: 32.w, top: 84.h, right: 32.w),
@@ -101,11 +101,12 @@ class CreateAccountPage extends StatelessWidget {
                                 height: 4.h,
                               ),
                               TextFieldRegister(
+                                leftMargin: 0.w,
                                 controller: _.nameController,
                                 hintText: 'Informe seu nome',
                                 textInputAction: TextInputAction.next,
                                 focusNode: nameFocus,
-                                topMargin: 208.h,
+                                //topMargin: 208.h,
                                 onFieldSubmitted: (input) {
                                   FocusScope.of(context)
                                       .requestFocus(lastNameFocus);
@@ -139,11 +140,12 @@ class CreateAccountPage extends StatelessWidget {
                                 height: 4.h,
                               ),
                               TextFieldRegister(
+                                leftMargin: 0.w,
                                 controller: _.lastNameController,
                                 hintText: 'Informe seu sobrenome',
                                 textInputAction: TextInputAction.next,
                                 focusNode: lastNameFocus,
-                                topMargin: 284.h,
+                                //topMargin: 284.h,
                                 onFieldSubmitted: (input) {
                                   FocusScope.of(context).requestFocus(cpfFocus);
                                 },
@@ -176,11 +178,12 @@ class CreateAccountPage extends StatelessWidget {
                                 height: 4.h,
                               ),
                               TextFieldRegister(
+                                leftMargin: 0.w,
                                 controller: _.cpfController,
                                 hintText: 'Informe o número de seu CPF',
                                 textInputAction: TextInputAction.next,
                                 focusNode: cpfFocus,
-                                topMargin: 360.h,
+                                //topMargin: 360.h,
                                 onFieldSubmitted: (input) {
                                   FocusScope.of(context)
                                       .requestFocus(emailFocus);
@@ -214,11 +217,12 @@ class CreateAccountPage extends StatelessWidget {
                                 height: 4.h,
                               ),
                               TextFieldRegister(
+                                leftMargin: 0.w,
                                 controller: _.emailController,
                                 hintText: 'Informe o seu e-mail',
                                 textInputAction: TextInputAction.next,
                                 focusNode: emailFocus,
-                                topMargin: 436.h,
+                                //topMargin: 436.h,
                                 onFieldSubmitted: (input) {
                                   FocusScope.of(context)
                                       .requestFocus(phoneFocus);
@@ -252,11 +256,12 @@ class CreateAccountPage extends StatelessWidget {
                                 height: 4.h,
                               ),
                               TextFieldRegister(
+                                leftMargin: 0.w,
                                 controller: _.phoneController,
                                 hintText: 'Informe o seu telefone',
                                 textInputAction: TextInputAction.next,
                                 focusNode: phoneFocus,
-                                topMargin: 512.h,
+                                //topMargin: 512.h,
                                 onFieldSubmitted: (input) {
                                   FocusScope.of(context)
                                       .requestFocus(passwordFocus);
@@ -290,6 +295,7 @@ class CreateAccountPage extends StatelessWidget {
                                 height: 4.h,
                               ),
                               TextFieldRegister(
+                                leftMargin: 0.w,
                                 hidePassword: true,
                                 controller: _.registerPasswordController,
                                 hintText: 'Digite uma senha',
@@ -299,7 +305,7 @@ class CreateAccountPage extends StatelessWidget {
                                   FocusScope.of(context)
                                       .requestFocus(confirmPasswordFocus);
                                 },
-                                topMargin: 588.h,
+                                //topMargin: 588.h,
                               ),
                               SizedBox(
                                 height: 8.h,
@@ -329,19 +335,20 @@ class CreateAccountPage extends StatelessWidget {
                                 height: 4.h,
                               ),
                               TextFieldRegister(
+                                leftMargin: 0.w,
                                 hidePassword: true,
                                 controller: _.passwordConfirmController,
                                 hintText: 'Confirme sua senha',
                                 textInputAction: TextInputAction.done,
                                 focusNode: confirmPasswordFocus,
-                                topMargin: 664.h,
+                                //topMargin: 664.h,
                               ),
                               SizedBox(
-                                height: 19.h,
+                                height: 26.h,
                               ),
                               LoginButton(
-                                731.h,
-                                38.h,
+                                727.h,
+                                30.h,
                                 "Criar conta",
                                 onPressedMethod: () async {
                                   print(_.nameController.text);
