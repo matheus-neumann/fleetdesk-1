@@ -348,4 +348,12 @@ class Controller extends GetxController {
     indexNavBar = index;
     update();
   }
+
+  int navIndex = 0;
+
+  void navigationApp(index) {
+
+    return navIndex = index;
+
+  }
 }

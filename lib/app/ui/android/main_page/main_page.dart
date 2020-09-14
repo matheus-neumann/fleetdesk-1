@@ -6,6 +6,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class MainPage extends StatelessWidget {
+
+  int navIndex;
+
+  MainPage({this.navIndex});
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
@@ -23,12 +28,12 @@ class MainPage extends StatelessWidget {
                 },
               ),
               bottomNavigationBar: BottomNavBar(
-                currentIndex: 0,
+                currentIndex: navIndex,
               ),
               backgroundColor: splashColor,
               body: ListView.builder(
                   itemCount: 1,
-                  shrinkWrap: true,
+                  //shrinkWrap: true,
                   itemBuilder: (BuildContext ctx, int index) {
                     return Controller
                         .to.childrenBottom[Controller.to.indexNavBar];

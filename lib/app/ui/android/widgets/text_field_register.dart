@@ -10,6 +10,7 @@ class TextFieldRegister extends StatelessWidget {
   var onFieldSubmitted;
   TextEditingController controller;
   bool hidePassword = false;
+  var leftMargin;
 
   TextFieldRegister(
       {this.hidePassword,
@@ -18,6 +19,7 @@ class TextFieldRegister extends StatelessWidget {
       this.focusNode,
       this.topMargin,
       this.onFieldSubmitted,
+        this.leftMargin,
       this.controller});
 
   bool obscureText = true;
@@ -29,7 +31,7 @@ class TextFieldRegister extends StatelessWidget {
         return Container(
           width: 296.w,
           height: 48.h,
-          //margin: EdgeInsets.only(left: 32.w, top: topMargin),
+          margin: EdgeInsets.only(left: leftMargin ?? 32.w, top: topMargin ?? 0.h),
           child: TextFormField(
             obscureText: obscureText,
             textAlignVertical: TextAlignVertical.center,
@@ -71,7 +73,7 @@ class TextFieldRegister extends StatelessWidget {
         return Container(
           width: 296.w,
           height: 48.h,
-          //margin: EdgeInsets.only(left: 32.w, top: topMargin),
+          margin: EdgeInsets.only(left: leftMargin ?? 32.w, top: topMargin ?? 0.h),
           child: TextFormField(
             textAlignVertical: TextAlignVertical.center,
             textAlign: TextAlign.left,
