@@ -49,7 +49,7 @@ class BluetoothPage extends StatelessWidget {
                                       child: Icon(Icons.arrow_back_ios,
                                           color: Color(0xffffffff)),
                                       onTap: () {
-                                        Get.to(MainPage(navIndex: 3,));
+                                        Get.to(MainPage());
                                       })),
                               Container(
                                 width: 96.w,

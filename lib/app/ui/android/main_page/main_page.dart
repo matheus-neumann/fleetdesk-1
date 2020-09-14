@@ -7,10 +7,6 @@ import 'package:get/get.dart';
 
 class MainPage extends StatelessWidget {
 
-  int navIndex;
-
-  MainPage({this.navIndex});
-
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 360, height: 640, allowFontScaling: true);
@@ -28,7 +24,7 @@ class MainPage extends StatelessWidget {
                 },
               ),
               bottomNavigationBar: BottomNavBar(
-                currentIndex: navIndex,
+                currentIndex: Controller.to.indexNavBar,
               ),
               backgroundColor: splashColor,
               body: ListView.builder(

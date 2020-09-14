@@ -11,6 +11,7 @@ class MenuButton extends StatelessWidget {
   var text;
   var navPage;
   var icon;
+  var tabPage;
 
   MenuButton(
       {this.top,
@@ -19,7 +20,8 @@ class MenuButton extends StatelessWidget {
       this.bottom,
       this.icon,
       this.text,
-      this.navPage});
+      this.navPage,
+      this.tabPage});
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +77,7 @@ class MenuButton extends StatelessWidget {
                 child: Icon(Icons.arrow_forward_ios, color: Color(0xff979797)))
           ]),
         ),
-        onTap: () {
+        onTap: tabPage ?? () {
           print('teste');
           Get.to(navPage);
         });

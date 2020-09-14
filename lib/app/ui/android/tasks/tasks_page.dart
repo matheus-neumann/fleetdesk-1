@@ -173,16 +173,14 @@ class TasksPage extends StatelessWidget {
                 SizedBox(
                   height: 20.h,
                 ),
-                SingleChildScrollView(
-                  child: ListView.builder(
-                      //scrollDirection: Axis.horizontal,
-                      itemCount: 1,
-                      shrinkWrap: true,
-                      itemBuilder: (BuildContext ctxt, int index) {
-                        return Controller
-                            .to.childrenTasks[Controller.to.indexTasks];
-                      }),
-                )
+                ListView.builder(
+                    //scrollDirection: Axis.horizontal,
+                    itemCount: 1,
+                    shrinkWrap: true,
+                    itemBuilder: (BuildContext ctxt, int index) {
+                      return Controller
+                          .to.childrenTasks[Controller.to.indexTasks];
+                    })
               ]),
             ),
           );

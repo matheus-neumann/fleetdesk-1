@@ -12,33 +12,15 @@ class PartialTasksPage extends StatelessWidget {
         init: Controller.to,
         builder: (_) {
           return
-                    SingleChildScrollView(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          TaskContainer(),
-                          SizedBox(
-                            height: 16.h,
-                          ),
-                          TaskContainer(),
-                          SizedBox(
-                            height: 16.h,
-                          ),
-                          TaskContainer(),
-                          SizedBox(
-                            height: 16.h,
-                          ),
-                          TaskContainer(),
-                          SizedBox(
-                            height: 16.h,
-                          ),
-                          TaskContainer(),
-                          SizedBox(
-                            height: 16.h,
-                          ),
-                          TaskContainer(),
-                        ],
-                      ),
+                    Container(
+                      height: 500.h,
+                      child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                          itemCount: 7,
+                          shrinkWrap: true,
+                          itemBuilder: (BuildContext ctxt, int index) {
+                            return TaskContainer();
+                          }),
                     );
         });
   }

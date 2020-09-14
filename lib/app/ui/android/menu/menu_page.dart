@@ -50,7 +50,9 @@ class MenuPage extends StatelessWidget {
               bottom: 445.h,
               text: 'Tarefas',
               icon: Icons.assignment,
-              navPage: MainPage(navIndex: 0,),
+              tabPage: (){
+                _.navigationApp(0);
+              },
             ),
             //MenuButton(left: 31.w, top: 207.h, right: 34.w, bottom: 398.h, text: 'Ranking', icon: Icons.trending_up, navPage: Routes.RANKING,),
             MenuButton(
@@ -60,7 +62,9 @@ class MenuPage extends StatelessWidget {
               bottom: 351.h,
               text: 'Alertas',
               icon: Icons.notifications,
-              navPage: MainPage(navIndex: 2,),
+              tabPage: (){
+                _.navigationApp(2);
+              },
             ),
             MenuButton(
               left: 31.w,
@@ -69,7 +73,9 @@ class MenuPage extends StatelessWidget {
               bottom: 304.h,
               text: 'Mensagens',
               icon: Icons.mode_comment,
-              navPage: MainPage(navIndex: 1,),
+              tabPage: (){
+                _.navigationApp(1);
+              },
             ),
             MenuButton(
               left: 31.w,
