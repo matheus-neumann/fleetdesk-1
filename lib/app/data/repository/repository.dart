@@ -34,4 +34,8 @@ class Repository {
   activateUser(int userId, Map data) async {
     return await apiClient.activateUser(userId, data);
   }
+
+  sendTextMessage(Map data) async {
+    return await apiClient.sendTextMessage(data);
+  }
 }

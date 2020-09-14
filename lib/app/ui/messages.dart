@@ -17,10 +17,7 @@ class MessagesPage extends StatelessWidget {
             child: SafeArea(
               child: Padding(
                 padding: EdgeInsets.only(
-                    bottom: MediaQuery
-                        .of(context)
-                        .viewInsets
-                        .bottom),
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
                 child: Column(
                   children: [
                     SizedBox(
@@ -75,13 +72,17 @@ class MessagesPage extends StatelessWidget {
                               children: [
                                 SvgPicture.asset(
                                   'assets/images/profile_icon_example.svg',
-                                  color: black,),
+                                  color: black,
+                                ),
                                 SizedBox(
                                   width: 8.w,
                                 ),
-                                Text('Carlos Amaral', style: TextStyle(
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.bold),)
+                                Text(
+                                  'Carlos Amaral',
+                                  style: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold),
+                                )
                               ],
                             ),
                           ),
@@ -93,7 +94,8 @@ class MessagesPage extends StatelessWidget {
                             margin: EdgeInsets.only(left: 10.w),
                             child: Text(
                               "Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit enean\ncommodo ligula eget dolor.\nAenean massa.",
-                              style: TextStyle(fontSize: 16.sp),),
+                              style: TextStyle(fontSize: 16.sp),
+                            ),
                           ),
                           SizedBox(
                             height: 8.h,
@@ -111,8 +113,8 @@ class MessagesPage extends StatelessWidget {
                         ),
                         Text(
                           '20:29',
-                          style: TextStyle(
-                              fontSize: 12.sp, color: Colors.white),
+                          style:
+                          TextStyle(fontSize: 12.sp, color: Colors.white),
                         ),
                         SizedBox(
                           width: 8.w,
@@ -146,14 +148,18 @@ class MessagesPage extends StatelessWidget {
                               children: [
                                 SvgPicture.asset(
                                   'assets/images/profile_icon_example.svg',
-                                  color: Colors.white,),
+                                  color: Colors.white,
+                                ),
                                 SizedBox(
                                   width: 8.w,
                                 ),
-                                Text('Central de Operacional', style: TextStyle(
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),)
+                                Text(
+                                  'Central de Operacional',
+                                  style: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                )
                               ],
                             ),
                           ),
@@ -166,7 +172,8 @@ class MessagesPage extends StatelessWidget {
                             child: Text(
                               "Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit enean\ncommodo ligula eget dolor.\nAenean massa.",
                               style: TextStyle(
-                                  fontSize: 16.sp, color: Colors.white),),
+                                  fontSize: 16.sp, color: Colors.white),
+                            ),
                           ),
                           SizedBox(
                             height: 8.h,
@@ -184,8 +191,8 @@ class MessagesPage extends StatelessWidget {
                         ),
                         Text(
                           '20:29',
-                          style: TextStyle(
-                              fontSize: 12.sp, color: Colors.white),
+                          style:
+                          TextStyle(fontSize: 12.sp, color: Colors.white),
                         ),
                         SizedBox(
                           width: 8.w,
@@ -238,8 +245,8 @@ class MessagesPage extends StatelessWidget {
                                     contentPadding: EdgeInsets.only(
                                         left: 12.w, bottom: 12.h, top: 12.h),
                                     enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(
-                                          10.sp),
+                                      borderRadius:
+                                      BorderRadius.circular(10.sp),
                                       borderSide: BorderSide.none,
                                     ),
                                     //disabledBorder: BorderSide.none,
@@ -253,28 +260,40 @@ class MessagesPage extends StatelessWidget {
                               ),
                               Container(
                                 margin: EdgeInsets.only(bottom: 22.h),
-                                child: InkWell(onTap: null,
+                                child: InkWell(
+                                    onTap: null,
                                     child: SvgPicture.asset(
-                                        'assets/images/camera_icon.svg')),),
+                                        'assets/images/camera_icon.svg')),
+                              ),
                               SizedBox(
                                 width: 16.w,
                               ),
                               Container(
                                 margin: EdgeInsets.only(bottom: 22.h),
-                                child: InkWell(onTap: null,
+                                child: InkWell(
+                                    onTap: null,
                                     child: SvgPicture.asset(
-                                        'assets/images/mic_icon.svg')),),
+                                        'assets/images/mic_icon.svg')),
+                              ),
                             ],
                           ),
                         ),
                       ],
                     ),
+                    RaisedButton(
+                      onPressed: () async {
+                        var response = await _.sendTextMessage({
+                          "text_message": "teste: ${DateTime.now().toString()}"
+                        });
+                        print(response);
+                      },
+                      child: Text('Teste mensagem'),
+                    )
                   ],
                 ),
               ),
             ),
           );
-        }
-        );
+        });
   }
 }

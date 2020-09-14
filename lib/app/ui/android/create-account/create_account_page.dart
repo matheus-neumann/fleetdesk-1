@@ -1,4 +1,5 @@
 import 'package:fleetdesk/app/controller/create_account/controller.dart';
+import 'package:fleetdesk/app/ui/android/pin_code/pin_code_page.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_logo.dart';
 import 'package:fleetdesk/app/ui/android/widgets/login_button.dart';
@@ -360,7 +361,14 @@ class CreateAccountPage extends StatelessWidget {
                                   });
                                   print(response);
                                   if (response != null) {
-                                    await _.getUser(_.emailController.text);
+                                    _.userId = response.data['user_id'];
+
+                                    //await _.getUser(_.emailController.text);
+
+                                    var pinResponse =
+                                        await _.generateToken(_.userId);
+                                    print(pinResponse);
+                                    Get.to(PinCodePage());
                                   }
                                 },
                               ),

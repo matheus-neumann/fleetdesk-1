@@ -103,7 +103,7 @@ class PinCodePage extends StatelessWidget {
                               onPressedMethod: () async {
                                 print(_.pinController.text);
                                 var response = await _.activateUser(
-                                    _.user.id, {"token": _.pinController.text});
+                                    _.userId, {"token": _.pinController.text});
                                 print(response);
                                 if (response != null) {
                                   if (response.data['success'] == true) {

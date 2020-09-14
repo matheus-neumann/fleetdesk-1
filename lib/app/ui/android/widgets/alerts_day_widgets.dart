@@ -1,4 +1,4 @@
-import 'package:fleetdesk/app/controller/alerts/alerts_controller.dart';
+import 'package:fleetdesk/app/controller/create_account/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -14,14 +14,14 @@ class AlertsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GetBuilder<AlertsController>(
-          init: Get.find<AlertsController>(),
-          builder: (_) {
-            return Container(
-              //height: 122.h,
-              width: 328.w,
-              margin: EdgeInsets.only(left: 16.w),
-              child: Container(
+        body: GetBuilder<Controller>(
+            init: Get.find<Controller>(),
+            builder: (_) {
+              return Container(
+                //height: 122.h,
+                width: 328.w,
+                margin: EdgeInsets.only(left: 16.w),
+                child: Container(
                   alignment: Alignment.centerLeft,
                   margin: EdgeInsets.only(left: 16.w),
                   child: Text(

@@ -13,29 +13,26 @@ class MainPage extends StatelessWidget {
         init: Controller.to,
         builder: (_) {
           return Scaffold(
-//            floatingActionButton: FloatingActionButton(
-////              child: Icon(Icons.car_rental),
-//              onPressed: () async {
-//                var response = await TasksController.to.associatePlate(
-//                    {"car_license_plate": "AAA1234", "connect": 1});
-//                final storage = new FlutterSecureStorage();
-//                await storage.write(
-//                    key: AppStrings.plate, value: response.toString());
-//                print(response.toString());
-//              },
-//            ),
-            bottomNavigationBar: BottomNavBar(
-              currentIndex: 0,
-            ),
-            backgroundColor: splashColor,
-            body: ListView.builder(
-              itemCount: 1,
-                shrinkWrap: true,
-                itemBuilder: (BuildContext ctx, int index) {
-                  return Controller.to
-                      .childrenBottom[Controller.to.indexNavBar];
-                })
-          );
+              floatingActionButton: FloatingActionButton(
+                child: Icon(Icons.local_shipping),
+                onPressed: () async {
+                  _.initGeolocator();
+//                  var response = await _.associatePlate(
+//                      {"car_license_plate": 'SOL6655', "connect": 1});
+//                  print(response);
+                },
+              ),
+              bottomNavigationBar: BottomNavBar(
+                currentIndex: 0,
+              ),
+              backgroundColor: splashColor,
+              body: ListView.builder(
+                  itemCount: 1,
+                  shrinkWrap: true,
+                  itemBuilder: (BuildContext ctx, int index) {
+                    return Controller
+                        .to.childrenBottom[Controller.to.indexNavBar];
+                  }));
         });
   }
 }

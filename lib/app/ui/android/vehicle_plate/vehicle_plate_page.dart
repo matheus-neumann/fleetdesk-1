@@ -98,10 +98,10 @@ class VehiclePlatePage extends StatelessWidget {
                             LoginButton(441.0.h, 151.0.h, "Confirmar",
                                 onPressedMethod: () async {
                               print(_.plateController.text);
-                              print(_.user.id);
+                              //print(_.user.id);
 
                               var loginResponse = await _.login({
-                                "login": _.user.email,
+                                "login": _.emailController.text,
                                 "password": _.registerPasswordController.text
                               });
 

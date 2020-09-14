@@ -50,6 +50,7 @@ class DBProvider {
     //await deleteAllEmployees();
     final db = await database;
     final res = await db.insert('Position', position.toJson());
+    print('bd');
 
     return res;
   }

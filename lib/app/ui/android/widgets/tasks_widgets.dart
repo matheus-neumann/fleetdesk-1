@@ -131,9 +131,11 @@ class TaskContainer extends StatelessWidget {
                       //border: Border.all(color: Colors.grey, width: 3.w),
                     ),
                     child: Container(
-                      padding: EdgeInsets.all(2),
-                      child: Icon(
-                        Icons.navigation, color: black, //size: 15.sp
+                      margin: EdgeInsets.all(0.sp),
+                      child: Center(
+                        child: Icon(
+                          Icons.navigation, color: black, //size: 15.sp
+                        ),
                       ),
                     ),
                   ),

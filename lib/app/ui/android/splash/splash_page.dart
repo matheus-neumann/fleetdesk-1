@@ -15,7 +15,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class SplashPage extends StatelessWidget {
-  Controller c = Get.put<Controller>(Controller(repository: Repository(apiClient: MyApiClient())));
+  Controller c = Get.put<Controller>(
+      Controller(repository: Repository(apiClient: MyApiClient())));
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,11 @@ class SplashPage extends StatelessWidget {
               Controller.to.connectivitySubscription = Connectivity()
                   .onConnectivityChanged
                   .listen((ConnectivityResult result) {
-                print(result.toString());
+                Controller.to.connectivityStatus = result.toString();
+                Controller.to.update();
+//                Get.snackbar('Conexão', result.toString(),
+//                    snackPosition: SnackPosition.BOTTOM);
+//                print(result.toString());
               });
             },
             builder: (_) {
