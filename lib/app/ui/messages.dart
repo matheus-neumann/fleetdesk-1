@@ -1,5 +1,6 @@
 import 'package:fleetdesk/app/controller/create_account/controller.dart';
 import 'package:fleetdesk/app/ui/android/menu/menu_page.dart';
+import 'package:fleetdesk/app/ui/android/widgets/messages/my_message_widget.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -52,56 +53,11 @@ class MessagesPage extends StatelessWidget {
                     SizedBox(
                       height: 27.h,
                     ),
-                    Container(
-                      alignment: Alignment.centerRight,
-                      margin: EdgeInsets.only(left: 38.w),
-                      width: 312.w,
-                      //height: 137.h,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(20.sp),
-                            topLeft: Radius.circular(20.sp),
-                            bottomLeft: Radius.circular(20.sp),
-                          )),
-                      child: Column(
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(left: 10.w, top: 10.h),
-                            child: Row(
-                              children: [
-                                SvgPicture.asset(
-                                  'assets/images/profile_icon_example.svg',
-                                  color: black,
-                                ),
-                                SizedBox(
-                                  width: 8.w,
-                                ),
-                                Text(
-                                  'Carlos Amaral',
-                                  style: TextStyle(
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.bold),
-                                )
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: 9.h,
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            margin: EdgeInsets.only(left: 10.w),
-                            child: Text(
-                              "Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit enean\ncommodo ligula eget dolor.\nAenean massa.",
-                              style: TextStyle(fontSize: 16.sp),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 8.h,
-                          ),
-                        ],
-                      ),
+                    MyMessageWidget(
+                      myName: 'Carlos Amaral',
+                      imagePath: 'assets/images/profile_icon_example.svg',
+                      message:
+                          "Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit enean\ncommodo ligula eget dolor.\nAenean massa.",
                     ),
                     SizedBox(
                       height: 3.h,
