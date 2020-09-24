@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 class BottomNavBar extends StatelessWidget {
 
   int currentIndex;
-  var routes;
 
   BottomNavBar({this.currentIndex});
 
@@ -21,6 +20,7 @@ class BottomNavBar extends StatelessWidget {
           height: 64.h,
           width: 360.w,
           decoration: BoxDecoration(
+            //color: red,
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20.sp), topLeft: Radius.circular(20.sp))),
             child: BottomNavigationBar(

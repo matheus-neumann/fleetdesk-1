@@ -20,7 +20,7 @@ class ConfigurationPage extends StatelessWidget {
             EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: Column(
           children: <Widget>[
-            TopBarWidget(text: 'Configurações', backTo: MainPage(navIndex: 3),),
+            TopBarWidget(text: 'Configurações', backTo: MainPage(),),
             SizedBox(
               height: 21.h,
             ),
