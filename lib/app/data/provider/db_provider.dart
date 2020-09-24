@@ -23,12 +23,13 @@ class DBProvider {
 
   initDB() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
-    final path = join(documentsDirectory.path, 'offline_data.db');
+    final path = join(documentsDirectory.path, 'offline_data2.db');
 
     return await openDatabase(path, version: 1, onOpen: (db) {},
         onCreate: (Database db, int version) async {
       await db.execute('CREATE TABLE Position('
-          'vehicle_id INTEGER PRIMARY KEY,'
+          'id INTEGER PRIMARY KEY,'
+          'vehicle_id INTEGER,'
           'longitude DOUBLE,'
           'latitude DOUBLE,'
           'speed DOUBLE,'
@@ -46,11 +47,13 @@ class DBProvider {
   }
 
   // Insert employee on database
-  createPosition(Position position) async {
+  createPosition(Map position) async {
     //await deleteAllEmployees();
+
     final db = await database;
-    final res = await db.insert('Position', position.toJson());
-    print('bd');
+    final res = await db.insert(
+        'Position', new Map<String, dynamic>.from(position));
+    print(res);
 
     return res;
   }

@@ -1,4 +1,4 @@
-import 'package:fleetdesk/app/controller/create_account/controller.dart';
+import 'package:fleetdesk/app/controller/controller.dart';
 import 'package:fleetdesk/app/ui/android/alerts/alerts_page.dart';
 import 'package:fleetdesk/app/ui/android/configuration/configuration_page.dart';
 import 'package:fleetdesk/app/ui/android/demos/bluetooth_page.dart';

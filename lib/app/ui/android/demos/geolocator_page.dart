@@ -1,4 +1,4 @@
-import 'package:fleetdesk/app/controller/create_account/controller.dart';
+import 'package:fleetdesk/app/controller/controller.dart';
 import 'package:fleetdesk/app/data/model/position.dart';
 import 'package:fleetdesk/app/data/provider/db_provider.dart';
 import 'package:flutter/material.dart';

@@ -4,4 +4,5 @@ class AppStrings {
   static String expirationDate = 'expiration_date';
   static String token = 'token';
   static String plate = 'plate';
+  static String apiToken = 'apiToken';
 }

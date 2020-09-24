@@ -1,4 +1,4 @@
-import 'package:fleetdesk/app/controller/create_account/controller.dart';
+import 'package:fleetdesk/app/controller/controller.dart';
 import 'package:fleetdesk/app/ui/android/create-account/create_account_page.dart';
 import 'package:fleetdesk/app/ui/android/recovery_password/recovery_password_page.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';

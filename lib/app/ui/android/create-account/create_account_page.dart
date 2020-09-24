@@ -1,4 +1,4 @@
-import 'package:fleetdesk/app/controller/create_account/controller.dart';
+import 'package:fleetdesk/app/controller/controller.dart';
 import 'package:fleetdesk/app/ui/android/pin_code/pin_code_page.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_form.dart';
 import 'package:fleetdesk/app/ui/android/widgets/container_logo.dart';

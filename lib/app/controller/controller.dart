@@ -16,6 +16,7 @@ import 'package:fleetdesk/app/ui/android/widgets/active_tasks.dart';
 import 'package:fleetdesk/app/ui/android/widgets/done_tasks.dart';
 import 'package:fleetdesk/app/ui/android/widgets/partial_tasks.dart';
 import 'package:fleetdesk/app/ui/messages.dart';
+import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:fleetdesk/app/ui/theme/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue/flutter_blue.dart';
@@ -65,12 +66,24 @@ class Controller extends GetxController {
 
   Controller({@required this.repository}) : assert(repository != null);
 
+  //Messages
+  TextEditingController messageController = TextEditingController();
+  List<Widget> listMessages = List<Widget>();
+
 //
-//  @override
-//  void onInit() {
-//    super.onInit();
-//
-//  }
+  @override
+  onInit() async {
+    super.onInit();
+
+    var response = await apiLogin({
+      "grant_type": "client_credentials",
+      "client_id": 3,
+      "client_secret": "lWPqx8j8KyGmEjJu5KreSmaVJqtoU0VYyXUkZ09G"
+    });
+
+    print(response);
+    //
+  }
 
   initGeolocator() {
     ////
@@ -102,25 +115,54 @@ class Controller extends GetxController {
             "speed": location.map['coords']['speed'],
             "heading": location.map['coords']['heading'],
             "datetime_write":
-            DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()),
+                DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()),
             "datetime_send":
-            DateFormat('yyyy-MM-dd HH:mm:ss').format(timestamp),
+                DateFormat('yyyy-MM-dd HH:mm:ss').format(timestamp),
             "geofence": "0",
             "accuracy": location.map['coords']['accuracy'],
             "is_moving": isMoving,
             "battery_is_charging": batteryIsCharging,
             "odometer":
-            double.parse(location.map['odometer'].toStringAsFixed(2)),
+                double.parse(location.map['odometer'].toStringAsFixed(2)),
             "battery_level": batteryint
           }
         ]
       };
 
-      print(map);
-      if (connectivityStatus == 'ConnectivityResult.none') {
-        await DBProvider.db.createPosition(Position.fromJson(map));
+      print(map[0]);
+      print(map['positions']);
+      print(map['positions'][0]);
+      if (isOffline()) {
+        await DBProvider.db.createPosition({
+          "vehicle_id": 13,
+          "longitude": location.map['coords']['longitude'],
+          "latitude": location.map['coords']['latitude'],
+          "speed": location.map['coords']['speed'],
+          "heading": location.map['coords']['heading'],
+          "datetime_write":
+              DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()),
+          "datetime_send": DateFormat('yyyy-MM-dd HH:mm:ss').format(timestamp),
+          "geofence": "0",
+          "accuracy": location.map['coords']['accuracy'],
+          "is_moving": isMoving,
+          "battery_is_charging": batteryIsCharging,
+          "odometer": double.parse(location.map['odometer'].toStringAsFixed(2)),
+          "battery_level": batteryint
+        });
       } else {
-        await sendPosition(map);
+        List<Position> list = await DBProvider.db.getAllEmployees();
+
+        if (list.isNotEmpty) {
+          List l = map['positions'];
+          for (Position p in list) {
+            l.add(Position().toJson(p));
+          }
+          map['positions'] = l;
+          await sendPosition(map);
+          await DBProvider.db.deleteAllEmployees();
+        } else {
+          await sendPosition(map);
+        }
       }
 
 //      await DBProvider.db.initDB();
@@ -178,12 +220,44 @@ class Controller extends GetxController {
       };
 
       print(map);
-      if (connectivityStatus == 'ConnectivityResult.none') {
-        await DBProvider.db.createPosition(Position.fromJson(map));
+      if (isOffline()) {
+        await DBProvider.db.createPosition({
+          "vehicle_id": 13,
+          "longitude": event.location.map['coords']['longitude'],
+          "latitude": event.location.map['coords']['latitude'],
+          "speed": event.location.map['coords']['speed'],
+          "heading": event.location.map['coords']['heading'],
+          "datetime_write":
+          DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()),
+          "datetime_send": DateFormat('yyyy-MM-dd HH:mm:ss').format(timestamp),
+          "geofence": "0",
+          "accuracy": event.location.map['coords']['accuracy'],
+          "is_moving": isMoving,
+          "battery_is_charging": batteryIsCharging,
+          "odometer":
+          double.parse(event.location.map['odometer'].toStringAsFixed(2)),
+          "battery_level": batteryint
+        });
       } else {
-        await sendPosition(map);
+        List<Position> list = await DBProvider.db.getAllEmployees();
+
+        if (list.isNotEmpty) {
+          List l = map['positions'];
+          for (Position p in list) {
+            l.add(Position().toJson(p));
+          }
+          map['positions'] = l;
+          await sendPosition(map);
+          await DBProvider.db.deleteAllEmployees();
+        } else {
+          await sendPosition(map);
+        }
       }
 
+      List<Position> list = await DBProvider.db.getAllEmployees();
+      for (Position p in list) {
+        print('BD ======> ${p.datetimeWrite}');
+      }
 
       myLocation = '[onHeartbeat] ${event}';
       update();
@@ -235,6 +309,12 @@ class Controller extends GetxController {
     });
   }
 
+  bool isOffline() => connectivityStatus == 'ConnectivityResult.none';
+
+  apiLogin(Map data) async {
+    return await repository.apiLogin(data);
+  }
+
   sendPosition(Map data) async {
     print('api');
     var response = await repository.sendPosition(data);
@@ -263,24 +343,31 @@ class Controller extends GetxController {
   }
 
   login(Map map) async {
-    var response = await repository.login(map);
-    if (response != null) {
-      print(response);
-      if (response?.data != null) {
-        print(response.data);
-        if (response.data[AppStrings.success] == true) {
-          userToken = UserToken.fromJson(response.data);
-          await storage.write(key: AppStrings.token, value: userToken.token);
-          await getUser(map['login']);
-          Get.to(MainPage());
+    if (isOffline()) {
+      Get.snackbar('Erro', 'parece que vc ta sem internet',
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: red,
+          colorText: Colors.white);
+    } else {
+      var response = await repository.login(map);
+      if (response != null) {
+        print(response);
+        if (response?.data != null) {
+          print(response.data);
+          if (response.data[AppStrings.success] == true) {
+            userToken = UserToken.fromJson(response.data);
+            await storage.write(key: AppStrings.token, value: userToken.token);
+            await getUser(map['login']);
+            Get.to(MainPage());
+          } else {
+            print('${AppStrings.success} == false');
+          }
         } else {
-          print('${AppStrings.success} == false');
+          print('response.data == null');
         }
       } else {
-        print('response.data == null');
+        print('response == null');
       }
-    } else {
-      print('response == null');
     }
   }
 
@@ -352,8 +439,6 @@ class Controller extends GetxController {
   int navIndex = 0;
 
   void navigationApp(index) {
-
     return navIndex = index;
-
   }
 }

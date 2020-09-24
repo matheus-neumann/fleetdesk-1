@@ -1,5 +1,5 @@
 import 'package:connectivity/connectivity.dart';
-import 'package:fleetdesk/app/controller/create_account/controller.dart';
+import 'package:fleetdesk/app/controller/controller.dart';
 import 'package:fleetdesk/app/data/provider/api.dart';
 import 'package:fleetdesk/app/data/repository/repository.dart';
 import 'package:fleetdesk/app/ui/android/demos/bluetooth_page.dart';
@@ -33,6 +33,11 @@ class SplashPage extends StatelessWidget {
                   .listen((ConnectivityResult result) {
                 Controller.to.connectivityStatus = result.toString();
                 Controller.to.update();
+
+                Future.delayed(Duration(seconds: 3), () {
+                  Get.off(LoginPage());
+                });
+
 //                Get.snackbar('Conexão', result.toString(),
 //                    snackPosition: SnackPosition.BOTTOM);
 //                print(result.toString());
@@ -48,50 +53,50 @@ class SplashPage extends StatelessWidget {
                       margin: EdgeInsets.only(top: 295.h, left: 68.w),
                       child: Image.asset(AppAssets.fleetdeskLogo),
                     ),
-                    FlatButton(
-                      child: Text(
-                        'geolocator',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      onPressed: () {
-                        Get.to(GeolocatorPage());
-                      },
-                    ),
-                    FlatButton(
-                      child: Text('bluetooth',
-                          style: TextStyle(color: Colors.white)),
-                      onPressed: () {
-                        Get.to(BluetoothPage());
-                      },
-                    ),
-                    FlatButton(
-                      child: Text('login page',
-                          style: TextStyle(color: Colors.white)),
-                      onPressed: () {
-                        Get.to(LoginPage());
-                      },
-                    ),
-                    FlatButton(
-                      child: Text('profile page',
-                          style: TextStyle(color: Colors.white)),
-                      onPressed: () {
-                        Get.to(MainPage());
-                      },
-                    ),
-                    FlatButton(
-                      child: Text('vehicle plate',
-                          style: TextStyle(color: Colors.white)),
-                      onPressed: () {
-                        Get.to(VehiclePlatePage());
-                      },
-                    ),
-                    FlatButton(
-                      child: Text('pin code',
-                          style: TextStyle(color: Colors.white)),
-                      onPressed: () {
-                        Get.to(PinCodePage());
-                      },
-                    ),
+//                    FlatButton(
+//                      child: Text(
+//                        'geolocator',
+//                        style: TextStyle(color: Colors.white),
+//                      ),
+//                      onPressed: () {
+//                        Get.to(GeolocatorPage());
+//                      },
+//                    ),
+//                    FlatButton(
+//                      child: Text('bluetooth',
+//                          style: TextStyle(color: Colors.white)),
+//                      onPressed: () {
+//                        Get.to(BluetoothPage());
+//                      },
+//                    ),
+//                    FlatButton(
+//                      child: Text('login page',
+//                          style: TextStyle(color: Colors.white)),
+//                      onPressed: () {
+//                        Get.to(LoginPage());
+//                      },
+//                    ),
+//                    FlatButton(
+//                      child: Text('profile page',
+//                          style: TextStyle(color: Colors.white)),
+//                      onPressed: () {
+//                        Get.to(MainPage());
+//                      },
+//                    ),
+//                    FlatButton(
+//                      child: Text('vehicle plate',
+//                          style: TextStyle(color: Colors.white)),
+//                      onPressed: () {
+//                        Get.to(VehiclePlatePage());
+//                      },
+//                    ),
+//                    FlatButton(
+//                      child: Text('pin code',
+//                          style: TextStyle(color: Colors.white)),
+//                      onPressed: () {
+//                        Get.to(PinCodePage());
+//                      },
+//                    ),
                   ],
                 ),
               );

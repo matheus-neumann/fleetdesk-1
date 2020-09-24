@@ -1,4 +1,4 @@
-import 'package:fleetdesk/app/controller/create_account/controller.dart';
+import 'package:fleetdesk/app/controller/controller.dart';
 import 'package:fleetdesk/app/ui/android/widgets/navigation_bottom_bar.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +20,7 @@ class MainPage extends StatelessWidget {
           return Scaffold(
               floatingActionButton: FloatingActionButton(
                 child: Icon(Icons.local_shipping),
-                onPressed: () async {
+                onPressed: () {
                   _.initGeolocator();
 //                  var response = await _.associatePlate(
 //                      {"car_license_plate": 'SOL6655', "connect": 1});

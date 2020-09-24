@@ -7,6 +7,10 @@ class Repository {
 
   Repository({@required this.apiClient}) : assert(apiClient != null);
 
+  apiLogin(Map map) async {
+    return await apiClient.apiLogin(map);
+  }
+
   login(Map map) async {
     return await apiClient.login(map);
   }

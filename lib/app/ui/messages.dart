@@ -1,4 +1,4 @@
-import 'package:fleetdesk/app/controller/create_account/controller.dart';
+import 'package:fleetdesk/app/controller/controller.dart';
 import 'package:fleetdesk/app/ui/android/menu/menu_page.dart';
 import 'package:fleetdesk/app/ui/android/widgets/messages/my_message_widget.dart';
 import 'package:fleetdesk/app/ui/theme/app_colors.dart';
@@ -53,125 +53,123 @@ class MessagesPage extends StatelessWidget {
                     SizedBox(
                       height: 27.h,
                     ),
-                    MyMessageWidget(
-                      myName: 'Carlos Amaral',
-                      imagePath: 'assets/images/profile_icon_example.svg',
-                      message:
-                          "Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit enean\ncommodo ligula eget dolor.\nAenean massa.",
+                    Column(
+                      children: _.listMessages,
                     ),
-                    SizedBox(
-                      height: 3.h,
-                    ),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 300.w,
-                        ),
-                        Text(
-                          '20:29',
-                          style:
-                          TextStyle(fontSize: 12.sp, color: Colors.white),
-                        ),
-                        SizedBox(
-                          width: 8.w,
-                        ),
-                        Icon(
-                          Icons.check,
-                          color: Colors.white,
-                          size: 12.sp,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 15.h,
-                    ),
-                    Container(
-                      width: 312.w,
-                      //height: 137.h,
-                      margin: EdgeInsets.only(right: 16.w),
-                      decoration: BoxDecoration(
-                          color: red,
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(20.sp),
-                            topLeft: Radius.circular(20.sp),
-                            bottomRight: Radius.circular(20.sp),
-                          )),
-                      child: Column(
-                        children: [
-                          Container(
-                            margin: EdgeInsets.only(left: 10.w, top: 10.h),
-                            child: Row(
-                              children: [
-                                SvgPicture.asset(
-                                  'assets/images/profile_icon_example.svg',
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  width: 8.w,
-                                ),
-                                Text(
-                                  'Central de Operacional',
-                                  style: TextStyle(
-                                      fontSize: 16.sp,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                )
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: 9.h,
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            margin: EdgeInsets.only(left: 10.w),
-                            child: Text(
-                              "Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit enean\ncommodo ligula eget dolor.\nAenean massa.",
-                              style: TextStyle(
-                                  fontSize: 16.sp, color: Colors.white),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 8.h,
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 3.h,
-                    ),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 16.w,
-                        ),
-                        Text(
-                          '20:29',
-                          style:
-                          TextStyle(fontSize: 12.sp, color: Colors.white),
-                        ),
-                        SizedBox(
-                          width: 8.w,
-                        ),
-                        Stack(
-                          children: [
-                            Icon(
-                              Icons.check,
-                              color: Colors.white,
-                              size: 12.sp,
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: 7.w),
-                              child: Icon(
-                                Icons.check,
-                                color: Colors.white,
-                                size: 12.sp,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+
+//                    SizedBox(
+//                      height: 3.h,
+//                    ),
+//                    Row(
+//                      children: [
+//                        SizedBox(
+//                          width: 300.w,
+//                        ),
+//                        Text(
+//                          '20:29',
+//                          style:
+//                              TextStyle(fontSize: 12.sp, color: Colors.white),
+//                        ),
+//                        SizedBox(
+//                          width: 8.w,
+//                        ),
+//                        Icon(
+//                          Icons.check,
+//                          color: Colors.white,
+//                          size: 12.sp,
+//                        ),
+//                      ],
+//                    ),
+//                    SizedBox(
+//                      height: 15.h,
+//                    ),
+//                    Container(
+//                      width: 312.w,
+//                      //height: 137.h,
+//                      margin: EdgeInsets.only(right: 16.w),
+//                      decoration: BoxDecoration(
+//                          color: red,
+//                          borderRadius: BorderRadius.only(
+//                            topRight: Radius.circular(20.sp),
+//                            topLeft: Radius.circular(20.sp),
+//                            bottomRight: Radius.circular(20.sp),
+//                          )),
+//                      child: Column(
+//                        children: [
+//                          Container(
+//                            margin: EdgeInsets.only(left: 10.w, top: 10.h),
+//                            child: Row(
+//                              children: [
+//                                SvgPicture.asset(
+//                                  'assets/images/profile_icon_example.svg',
+//                                  color: Colors.white,
+//                                ),
+//                                SizedBox(
+//                                  width: 8.w,
+//                                ),
+//                                Text(
+//                                  'Central de Operacional',
+//                                  style: TextStyle(
+//                                      fontSize: 16.sp,
+//                                      fontWeight: FontWeight.bold,
+//                                      color: Colors.white),
+//                                )
+//                              ],
+//                            ),
+//                          ),
+//                          SizedBox(
+//                            height: 9.h,
+//                          ),
+//                          Container(
+//                            alignment: Alignment.centerLeft,
+//                            margin: EdgeInsets.only(left: 10.w),
+//                            child: Text(
+//                              "Lorem ipsum dolor sit amet,\nconsectetuer adipiscing elit enean\ncommodo ligula eget dolor.\nAenean massa.",
+//                              style: TextStyle(
+//                                  fontSize: 16.sp, color: Colors.white),
+//                            ),
+//                          ),
+//                          SizedBox(
+//                            height: 8.h,
+//                          ),
+//                        ],
+//                      ),
+//                    ),
+//                    SizedBox(
+//                      height: 3.h,
+//                    ),
+//                    Row(
+//                      children: [
+//                        SizedBox(
+//                          width: 16.w,
+//                        ),
+//                        Text(
+//                          '20:29',
+//                          style:
+//                              TextStyle(fontSize: 12.sp, color: Colors.white),
+//                        ),
+//                        SizedBox(
+//                          width: 8.w,
+//                        ),
+//                        Stack(
+//                          children: [
+//                            Icon(
+//                              Icons.check,
+//                              color: Colors.white,
+//                              size: 12.sp,
+//                            ),
+//                            Container(
+//                              margin: EdgeInsets.only(left: 7.w),
+//                              child: Icon(
+//                                Icons.check,
+//                                color: Colors.white,
+//                                size: 12.sp,
+//                              ),
+//                            ),
+//                          ],
+//                        ),
+//                      ],
+//                    ),
                     Stack(
                       children: [
                         Container(
@@ -193,6 +191,24 @@ class MessagesPage extends StatelessWidget {
                                 width: 256.w,
                                 height: 40.h,
                                 child: TextField(
+                                  controller: _.messageController,
+                                  onChanged: (value) {
+                                    _.update();
+                                  },
+                                  onSubmitted: (value) {
+                                    _.sendTextMessage({
+                                      "text_message": _.messageController.text
+                                    });
+                                    _.listMessages.add(MyMessageWidget(
+                                      myName: _.user.name,
+                                      imagePath:
+                                          'assets/images/profile_icon_example.svg',
+                                      message: _.messageController.text,
+                                    ));
+                                    _.messageController.text = '';
+                                    _.update();
+                                  },
+                                  textInputAction: TextInputAction.send,
                                   decoration: InputDecoration(
                                     hintText: 'Escreva sua mensagem',
                                     hintStyle: TextStyle(
@@ -202,7 +218,7 @@ class MessagesPage extends StatelessWidget {
                                         left: 12.w, bottom: 12.h, top: 12.h),
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius:
-                                      BorderRadius.circular(10.sp),
+                                          BorderRadius.circular(10.sp),
                                       borderSide: BorderSide.none,
                                     ),
                                     //disabledBorder: BorderSide.none,
@@ -224,27 +240,50 @@ class MessagesPage extends StatelessWidget {
                               SizedBox(
                                 width: 16.w,
                               ),
-                              Container(
+                              _.messageController.text.isEmpty
+                                  ? Container(
                                 margin: EdgeInsets.only(bottom: 22.h),
                                 child: InkWell(
                                     onTap: null,
                                     child: SvgPicture.asset(
                                         'assets/images/mic_icon.svg')),
+                              )
+                                  : Container(
+                                margin: EdgeInsets.only(bottom: 22.h),
+                                child: InkWell(
+                                    onTap: () async {
+                                      _.sendTextMessage({
+                                        "text_message":
+                                        _.messageController.text
+                                      });
+                                      _.listMessages.add(MyMessageWidget(
+                                        myName: _.user.name,
+                                        imagePath:
+                                        'assets/images/profile_icon_example.svg',
+                                        message: _.messageController.text,
+                                      ));
+                                      _.messageController.text = '';
+                                      _.update();
+                                    },
+                                    child: Icon(
+                                      Icons.send,
+                                      color: Colors.white,
+                                    )),
                               ),
                             ],
                           ),
                         ),
                       ],
                     ),
-                    RaisedButton(
-                      onPressed: () async {
-                        var response = await _.sendTextMessage({
-                          "text_message": "teste: ${DateTime.now().toString()}"
-                        });
-                        print(response);
-                      },
-                      child: Text('Teste mensagem'),
-                    )
+//                    RaisedButton(
+//                      onPressed: () async {
+//                        var response = await _.sendTextMessage({
+//                          "text_message": "teste: ${DateTime.now().toString()}"
+//                        });
+//                        print(response);
+//                      },
+//                      child: Text('Teste mensagem'),
+//                    )
                   ],
                 ),
               ),

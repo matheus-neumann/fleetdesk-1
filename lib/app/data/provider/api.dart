@@ -3,7 +3,7 @@ import 'package:fleetdesk/app/ui/theme/app_strings.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as SS;
 import 'package:get/get.dart';
 
-const baseUrl = 'http://hml.fleetdesk.com.br/api/v1/';
+const baseUrl = 'https://hml.fleetdesk.com.br/api/v1/';
 
 class MyApiClient {
   //final http.Client httpClient;
@@ -17,12 +17,24 @@ class MyApiClient {
   Map<String, String> headerWithToken(String token) {
     Map<String, String> headerWithToken = {
       'accept': 'application/json',
-      'Authorization': 'Bearer $token'
+      'Authorization': 'Bearer $token',
     };
     return headerWithToken;
   }
 
-
+  apiLogin(Map map) async {
+    try {
+      var response = await dio.post(baseUrl + 'oauth/token',
+          options: Options(
+              headers: header, contentType: Headers.formUrlEncodedContentType),
+          data: map);
+      print(response.toString());
+      return response;
+    } catch (error) {
+      print(error.toString());
+      return null;
+    }
+  }
 
   login(Map map) async {
     try {
@@ -159,11 +171,12 @@ class MyApiClient {
 
     try {
       var response = await dio.post(baseUrl + 'message/text',
-          data: data,
-          options: Options(
-            headers: headerWithToken(token),
-            contentType: Headers.formUrlEncodedContentType,
-          ));
+        data: data,
+        options: Options(
+          headers: headerWithToken(token),
+          contentType: Headers.formUrlEncodedContentType,
+
+        ),);
       print(response.data.toString());
       print(response.statusMessage);
       return response;

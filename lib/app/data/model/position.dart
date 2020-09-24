@@ -24,8 +24,8 @@ class Position {
   String datetimeSend;
   String geofence;
   double accuracy;
-  bool isMoving;
-  bool batteryIsCharging;
+  int isMoving;
+  int batteryIsCharging;
   double odometer;
   int batteryLevel;
 
@@ -50,20 +50,26 @@ class Position {
             json["battery_level"] == null ? null : json["battery_level"],
       );
 
-  Map<String, dynamic> toJson() => {
-        "vehicle_id": vehicleId == null ? null : vehicleId,
-        "longitude": longitude == null ? null : longitude,
-        "latitude": latitude == null ? null : latitude,
-        "speed": speed == null ? null : speed,
-        "heading": heading == null ? null : heading,
-        "datetime_write": datetimeWrite == null ? null : datetimeWrite,
-        "datetime_send": datetimeSend == null ? null : datetimeSend,
-        "geofence": geofence == null ? null : geofence,
-        "accuracy": accuracy == null ? null : accuracy,
-        "is_moving": isMoving == null ? null : isMoving,
-        "battery_is_charging":
-            batteryIsCharging == null ? null : batteryIsCharging,
-        "odometer": odometer == null ? null : odometer,
-        "battery_level": batteryLevel == null ? null : batteryLevel,
-      };
+  Map<String, dynamic> toJson(Position position) {
+    return {
+      "vehicle_id": position.vehicleId == null ? null : position.vehicleId,
+      "longitude": position.longitude == null ? null : position.longitude,
+      "latitude": position.latitude == null ? null : position.latitude,
+      "speed": position.speed == null ? null : position.speed,
+      "heading": position.heading == null ? null : position.heading,
+      "datetime_write":
+          position.datetimeWrite == null ? null : position.datetimeWrite,
+      "datetime_send":
+          position.datetimeSend == null ? null : position.datetimeSend,
+      "geofence": position.geofence == null ? null : position.geofence,
+      "accuracy": position.accuracy == null ? null : position.accuracy,
+      "is_moving": position.isMoving == null ? null : position.isMoving,
+      "battery_is_charging": position.batteryIsCharging == null
+          ? null
+          : position.batteryIsCharging,
+      "odometer": position.odometer == null ? null : position.odometer,
+      "battery_level":
+          position.batteryLevel == null ? null : position.batteryLevel,
+    };
+  }
 }
